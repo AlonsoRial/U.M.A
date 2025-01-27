@@ -9,10 +9,14 @@ public class PlayerController : MonoBehaviour
     PlayerInput playerInput;
     Rigidbody2D rigidbody2;
     [SerializeField] private float velocidadMovimiento;
+    [SerializeField] private float velocidadSalto;
 
-    public float velocidadCamara;
 
     Vector2 vector2 = Vector2.zero;
+
+    public Transform groundTransform;
+    public LayerMask groundLayer;
+    public Vector2 dimensionHitBoxSalto;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +29,28 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
        // vector2.x = Input.GetAxisRaw("Horizontal");
-        rigidbody2.transform.position += new Vector3(vector2.x,0,0) * Time.deltaTime * velocidadMovimiento;
+       
+        // el transform positition es de tontos
+       // rigidbody2.transform.position += new Vector3(vector2.x,0,0) * Time.deltaTime * velocidadMovimiento;
+
+        rigidbody2.velocity = new Vector2 (vector2.x * velocidadMovimiento, rigidbody2.velocity.y);
 
         playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
+        if (vector2.y > 0) 
+        {
+            if (EstaEnTierra()) 
+            {
+                rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, velocidadSalto);
+            }
+        }
+
     }
 
+    public bool EstaEnTierra() 
+    {
+        return Physics2D.OverlapBox(groundTransform.position, dimensionHitBoxSalto, 0,groundLayer);
+    }
 
     public void Mover(CallbackContext callbackContext)
     {
@@ -41,6 +61,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log(vector2);
         }
+
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(groundTransform.position, dimensionHitBoxSalto);
 
     }
 
