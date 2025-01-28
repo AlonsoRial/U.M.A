@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerController : MonoBehaviour
@@ -18,6 +19,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public Vector2 dimensionHitBoxSalto;
 
+    public bool estadoSwitch = false;
+    private int contador = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (estadoSwitch)
+        {
+            Debug.Log("ROJO");
+        }
+        else 
+        {
+            Debug.Log("AZUL");
+        }
+
        // vector2.x = Input.GetAxisRaw("Horizontal");
        
         // el transform positition es de tontos
@@ -59,9 +73,32 @@ public class PlayerController : MonoBehaviour
 
         if (vector2.y != 0) 
         {
-            Debug.Log(vector2);
+           // Debug.Log(vector2);
         }
 
+    }
+
+    public void CambioSwitch(CallbackContext callbackContext) 
+    {
+        bool estado = callbackContext.ReadValueAsButton();
+        
+
+        if (!estado) 
+        {
+            contador++;
+        }
+
+        if (contador%2==0)
+        {
+            estadoSwitch = true;
+            
+        }
+        else 
+        {
+            estadoSwitch = false;
+            
+        }
+    
     }
 
 

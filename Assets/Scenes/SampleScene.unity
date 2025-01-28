@@ -369,6 +369,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   dimensionHitBoxSalto: {x: 1, y: 1}
+  estadoSwitch: 0
+  contador: 1
 --- !u!212 &792798465
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -430,7 +432,7 @@ Transform:
   m_GameObject: {fileID: 792798462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.55, y: -3.01, z: 0}
+  m_LocalPosition: {x: -0.55, y: 1.43, z: 0}
   m_LocalScale: {x: 0.44493127, y: 1.6666, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -540,6 +542,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0f2ec6db-7f7b-4005-acdd-0ea6bbdb3721
     m_ActionName: Player_Map/Mover[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 792798463}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: CambioSwitch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dc3f1641-46ff-4bdd-85b2-210e201720c2
+    m_ActionName: Player_Map/Switch[/Keyboard/k]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player_Map
