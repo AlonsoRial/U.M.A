@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 dimensionHitBoxSalto;
 
     public bool estadoSwitch = false;
-    private int contador = 1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -85,19 +85,10 @@ public class PlayerController : MonoBehaviour
 
         if (!estado) 
         {
-            contador++;
+            estadoSwitch = !estadoSwitch;
         }
 
-        if (contador%2==0)
-        {
-            estadoSwitch = true;
-            
-        }
-        else 
-        {
-            estadoSwitch = false;
-            
-        }
+     
     
     }
 
