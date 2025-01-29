@@ -363,14 +363,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadMovimiento: 10
-  velocidadSalto: 7
+  velocidadSalto: 8
   groundTransform: {fileID: 531401988}
   groundLayer:
     serializedVersion: 2
     m_Bits: 16
   dimensionHitBoxSalto: {x: 1, y: 1}
   estadoSwitch: 0
-  contador: 1
+  botonSalto: 0
+  cantidadSaltos: 2
 --- !u!212 &792798465
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -558,6 +559,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: dc3f1641-46ff-4bdd-85b2-210e201720c2
     m_ActionName: Player_Map/Switch[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 792798463}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4d51c0cc-497f-47f1-bd82-4610af870030
+    m_ActionName: Player_Map/Jump[/Keyboard/w]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player_Map
@@ -705,7 +722,7 @@ GameObject:
   - component: {fileID: 1650800443}
   - component: {fileID: 1650800442}
   - component: {fileID: 1650800444}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

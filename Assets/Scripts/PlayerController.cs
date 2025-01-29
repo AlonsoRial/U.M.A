@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
     public bool estadoSwitch = false;
 
 
+    public bool botonSalto;
+
+    public int cantidadSaltos;
+    private int saltosRestantes;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,32 +39,49 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (estadoSwitch)
-        {
-            Debug.Log("ROJO");
-        }
-        else 
-        {
-            Debug.Log("AZUL");
-        }
-
        // vector2.x = Input.GetAxisRaw("Horizontal");
        
         // el transform positition es de tontos
        // rigidbody2.transform.position += new Vector3(vector2.x,0,0) * Time.deltaTime * velocidadMovimiento;
 
+
+
         rigidbody2.velocity = new Vector2 (vector2.x * velocidadMovimiento, rigidbody2.velocity.y);
 
         playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
-        if (vector2.y > 0) 
+
+        if (EstaEnTierra()) {
+            saltosRestantes = cantidadSaltos;
+        }
+
+    }
+
+
+    private void FixedUpdate()
+    {
+        if (botonSalto) 
         {
             if (EstaEnTierra()) 
             {
-                rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, velocidadSalto);
+                Salto();
+            }
+            else if (!EstaEnTierra() && botonSalto && saltosRestantes>1) 
+            {
+                Salto();
+                saltosRestantes--;
             }
         }
 
+        botonSalto = false;
+    }
+
+
+    public void Salto() 
+    {
+        rigidbody2.velocity = new Vector2(0f, velocidadSalto);
+        
+        botonSalto = false;
     }
 
     public bool EstaEnTierra() 
@@ -71,10 +94,7 @@ public class PlayerController : MonoBehaviour
 
         vector2 = callbackContext.ReadValue<Vector2>();
 
-        if (vector2.y != 0) 
-        {
-           // Debug.Log(vector2);
-        }
+        Debug.Log(vector2);
 
     }
 
@@ -82,14 +102,17 @@ public class PlayerController : MonoBehaviour
     {
         bool estado = callbackContext.ReadValueAsButton();
         
-
         if (!estado) 
         {
             estadoSwitch = !estadoSwitch;
         }
 
-     
-    
+    }
+
+
+    public void Jump(CallbackContext callbackContext)
+    {
+        botonSalto = callbackContext.ReadValueAsButton();
     }
 
 
@@ -99,8 +122,5 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireCube(groundTransform.position, dimensionHitBoxSalto);
 
     }
-
-
-
 
 }
