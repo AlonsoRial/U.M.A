@@ -9,24 +9,30 @@ public class PlayerController : MonoBehaviour
 {
     PlayerInput playerInput;
     Rigidbody2D rigidbody2;
+    Vector2 vector2 = Vector2.zero;
+
+    [Header("MOVIMIENTO")]
     [SerializeField] private float velocidadMovimiento;
     [SerializeField] private float velocidadSalto;
 
 
-    Vector2 vector2 = Vector2.zero;
 
-    public Transform groundTransform;
-    public LayerMask groundLayer;
-    public Vector2 dimensionHitBoxSalto;
-
+    [Header("SWITCH")]
     public bool estadoSwitch = false;
 
-
-    public bool botonSalto;
-
-    public int cantidadSaltos;
+    [Header("SALTO")]
+    [SerializeField] private Transform groundTransform;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Vector2 dimensionHitBoxSalto;
+    private bool botonSalto;
+    [SerializeField] private int cantidadSaltos;
     private int saltosRestantes;
 
+    [Header("Dash")]
+    [SerializeField] private float velocidadDash;
+    [SerializeField] private bool botonDash;
+    [SerializeField] private int cantidadDash;
+    [SerializeField] private int dashRestantes;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +59,14 @@ public class PlayerController : MonoBehaviour
 
         if (EstaEnTierra()) {
             saltosRestantes = cantidadSaltos;
+            dashRestantes = cantidadDash;
+        }
+
+        if (botonDash && dashRestantes>0)
+        {
+            rigidbody2.velocity = vector2 * velocidadDash * velocidadMovimiento;
+            dashRestantes--;
+            botonDash = false;
         }
 
     }
@@ -70,6 +84,7 @@ public class PlayerController : MonoBehaviour
             {
                 Salto();
                 saltosRestantes--;
+                
             }
         }
 
@@ -115,6 +130,11 @@ public class PlayerController : MonoBehaviour
         botonSalto = callbackContext.ReadValueAsButton();
     }
 
+
+    public void Dash(CallbackContext callbackContext)
+    {
+        botonDash = callbackContext.ReadValueAsButton();
+    }
 
     private void OnDrawGizmos()
     {
