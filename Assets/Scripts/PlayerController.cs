@@ -45,16 +45,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-       // vector2.x = Input.GetAxisRaw("Horizontal");
-       
+        // vector2.x = Input.GetAxisRaw("Horizontal");
+
         // el transform positition es de tontos
-       // rigidbody2.transform.position += new Vector3(vector2.x,0,0) * Time.deltaTime * velocidadMovimiento;
+        // rigidbody2.transform.position += new Vector3(vector2.x,0,0) * Time.deltaTime * velocidadMovimiento;
 
 
+        //playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
-        rigidbody2.velocity = new Vector2 (vector2.x * velocidadMovimiento, rigidbody2.velocity.y);
-
-        playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
 
         if (EstaEnTierra()) {
@@ -62,18 +60,14 @@ public class PlayerController : MonoBehaviour
             dashRestantes = cantidadDash;
         }
 
-        if (botonDash && dashRestantes>0)
-        {
-            rigidbody2.velocity = vector2 * velocidadDash * velocidadMovimiento;
-            dashRestantes--;
-            botonDash = false;
-        }
+
 
     }
 
 
     private void FixedUpdate()
     {
+
         if (botonSalto) 
         {
             if (EstaEnTierra()) 
@@ -86,6 +80,20 @@ public class PlayerController : MonoBehaviour
                 saltosRestantes--;
                 
             }
+        }
+
+
+        if (!botonDash)
+        {
+            rigidbody2.velocity = new Vector2(vector2.x * velocidadMovimiento, rigidbody2.velocity.y);
+        }
+        else if (botonDash && dashRestantes > 0)
+        {
+            //rigidbody2.velocity = vector2 * velocidadDash * velocidadMovimiento;
+            rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, rigidbody2.velocity.y);
+            dashRestantes--;
+            botonDash = false;
+            
         }
 
         botonSalto = false;
