@@ -371,7 +371,7 @@ MonoBehaviour:
     m_Bits: 16
   dimensionHitBoxSalto: {x: 1, y: 1}
   cantidadSaltos: 2
-  velocidadDash: 50
+  velocidadDash: 30
   botonDash: 0
   cantidadDash: 1
   dashRestantes: 0

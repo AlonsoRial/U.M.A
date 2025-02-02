@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("SWITCH")]
-    public bool estadoSwitch = false;
+    [SerializeField] private bool estadoSwitch = false;
 
     [Header("SALTO")]
     [SerializeField] private Transform groundTransform;
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool botonDash;
     [SerializeField] private int cantidadDash;
     [SerializeField] private int dashRestantes;
+
+    [SerializeField] private float tiempoDash;
 
     // Start is called before the first frame update
     void Start()
@@ -92,13 +94,22 @@ public class PlayerController : MonoBehaviour
             //rigidbody2.velocity = vector2 * velocidadDash * velocidadMovimiento;
             rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, rigidbody2.velocity.y);
             dashRestantes--;
-            botonDash = false;
+            
+            StartCoroutine("Espera");
             
         }
 
         botonSalto = false;
     }
 
+
+    public IEnumerator Espera() 
+    {
+        
+        yield return new WaitForSeconds(tiempoDash);
+        botonDash = false;
+
+    }
 
     public void Salto() 
     {
