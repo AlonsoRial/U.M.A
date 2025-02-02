@@ -375,6 +375,7 @@ MonoBehaviour:
   botonDash: 0
   cantidadDash: 1
   dashRestantes: 0
+  tiempoDash: 0.1
 --- !u!212 &792798465
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         else if (botonDash && dashRestantes > 0)
         {
             //rigidbody2.velocity = vector2 * velocidadDash * velocidadMovimiento;
-            rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, rigidbody2.velocity.y);
+            rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, vector2.y * velocidadDash);
             dashRestantes--;
             
             StartCoroutine("Espera");
