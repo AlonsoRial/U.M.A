@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 dimensionHitBoxSalto;
     private bool botonSalto;
     [SerializeField] private int cantidadSaltos;
-    private int saltosRestantes;
+    [SerializeField] private int saltosRestantes;
 
     [Header("Dash")]
     [SerializeField] private float velocidadDash;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         // rigidbody2.transform.position += new Vector3(vector2.x,0,0) * Time.deltaTime * velocidadMovimiento;
 
 
-        //playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
+        playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
 
 
