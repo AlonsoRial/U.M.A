@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int cantidadSaltos;
     [SerializeField] private int saltosRestantes;
 
+    [Header("SALTO MURO")]
+    [SerializeField] private Transform muroTransform;
+    [SerializeField] private Vector2 dimensionHitBoxSaltoMuro;
+
     [Header("Dash")]
     [SerializeField] private float velocidadDash;
     [SerializeField] private bool botonDash;
@@ -46,7 +50,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Flip();
         // vector2.x = Input.GetAxisRaw("Horizontal");
 
         // el transform positition es de tontos
@@ -103,6 +107,23 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public void Flip() 
+    {
+
+
+        if (vector2.x > 0)
+        {
+          
+            rigidbody2.transform.localRotation = Quaternion.Euler(0,0,0);
+        }
+        else if (vector2.x < 0) 
+        {
+            
+            rigidbody2.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        
+    }
+
     public IEnumerator Espera() 
     {
         
@@ -128,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
         vector2 = callbackContext.ReadValue<Vector2>();
 
-        Debug.Log(vector2);
+        //Debug.Log(vector2);
 
     }
 
