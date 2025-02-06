@@ -1000,7 +1000,7 @@ MonoBehaviour:
   dimensionControladorMuro: {x: 0.13, y: 1.43}
   deslizando: 0
   velocidadDeslizamiento: 1
-  fuerzaSaltoMuro: {x: 1, y: 1}
+  fuerzaSaltoMuro: {x: 8, y: 7}
   tiempoSaltoMuro: 1
   saltoDeParez: 0
   velocidadDash: 30
