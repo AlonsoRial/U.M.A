@@ -25,17 +25,23 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("SALTO")]
-    [SerializeField] private Transform groundTransform;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private Vector2 dimensionHitBoxSalto;
+    [SerializeField] private Transform controladorSuelo;
+    [SerializeField] private LayerMask capaSuelo;
+    [SerializeField] private Vector2 dimensionControladorSalto;
     private bool botonSalto;
     [SerializeField] private int cantidadSaltos;
     [SerializeField] private int saltosRestantes;
 
 
     [Header("SALTO MURO")]
-    [SerializeField] private Transform muroTransform;
-    [SerializeField] private Vector2 dimensionHitBoxSaltoMuro;
+    [SerializeField] private Transform controaldorMuro;
+    [SerializeField] private Vector2 dimensionControladorMuro;
+    [SerializeField] private bool deslizando;
+    [SerializeField] private float velocidadDeslizamiento;
+    [SerializeField] private Vector2 fuerzaSaltoMuro;
+    [SerializeField] private float tiempoSaltoMuro;
+    [SerializeField] private bool saltoDeParez;
+
 
 
     [Header("DASH")]
@@ -70,16 +76,27 @@ public class PlayerController : MonoBehaviour
             dashRestantes = cantidadDash;
         }
 
+
+        if (!EstaEnTierra() && EstaEnMuro() && vector2.x != 0)
+        {
+            deslizando = true;
+        }
+        else 
+        {
+            deslizando= false;
+        }
+
+
     }
 
     //Update para fisicas
     private void FixedUpdate()
     {
         //Si el boton del salto esta activado
-        if (botonSalto) 
+        if (botonSalto ) 
         {
             //Si esta tocando la capa de tierra el colisionador de salto, llama el metodo de salto
-            if (EstaEnTierra()) 
+            if (EstaEnTierra() && !deslizando) 
             {
                 Salto();
             }//Para hacer el doble salto, si no esta el tierra, el boton de salto vuelve a estar activo (por que el frame del primero es distinto) y tiene saltos restantes, salta otra vez
@@ -89,10 +106,18 @@ public class PlayerController : MonoBehaviour
                 saltosRestantes--;
                 
             }
+
+            if (EstaEnMuro() && deslizando) 
+            {
+                SaltoMuro();
+            }
+
         }
 
+
+
         //Si el botón dash no esta activo, el personaje se mueve normal
-        if (!botonDash)
+        if (!botonDash && !EstaEnMuro() && !saltoDeParez)
         {
             rigidbody2.velocity = new Vector2(vector2.x * velocidadMovimiento, rigidbody2.velocity.y);
         }
@@ -104,11 +129,18 @@ public class PlayerController : MonoBehaviour
             dashRestantes--;
             
             //Llama al "hilo"
-            StartCoroutine("Espera");
+            StartCoroutine(Espera());
             
         }
 
         botonSalto = false;
+
+
+        if (deslizando)
+        {
+            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x,Mathf.Clamp(rigidbody2.velocity.y,-velocidadDeslizamiento,float.MaxValue));
+        }
+
     }
 
     //Metodo para voltear el personaje
@@ -143,17 +175,36 @@ public class PlayerController : MonoBehaviour
         botonSalto = false;
     }
 
+    public void SaltoMuro() 
+    {
+        //si no funciona, convertir la funcion en metodo del saltoMuro
+        rigidbody2.velocity = new Vector2(fuerzaSaltoMuro.x * -vector2.x,fuerzaSaltoMuro.y);
+        StartCoroutine(CambiosSaltosPared());
+    }
+
+    public IEnumerator CambiosSaltosPared()
+    {
+        saltoDeParez = true;
+        yield return new WaitForSeconds(tiempoSaltoMuro);
+        saltoDeParez = false;
+    }
+
     //Metodo booleano que devuelve si la colision del salto esta tocando la capa del suelo
     public bool EstaEnTierra() 
     {
-        return Physics2D.OverlapBox(groundTransform.position, dimensionHitBoxSalto, 0,groundLayer);
+        return Physics2D.OverlapBox(controladorSuelo.position, dimensionControladorSalto, 0,capaSuelo);
+    }
+
+    public bool EstaEnMuro()
+    {
+        return Physics2D.OverlapBox(controaldorMuro.position, dimensionControladorMuro, 0, capaSuelo);
     }
 
 
     //Todos estos metodos son del apartado de los controles
     //Si pone CallbackContext, son los controles
     //el callbackContext es el valor del input
-    
+
     //Existe una forma de hacerlo sin crear tantos metodos, simplemente creando y llamando a un objeto para que pasé su valor, pero a mi me gustá más asi, da más control
     //Cambiar de una forma a otra no seria un gran ploblema, igual con el antiguo metodo
 
@@ -195,7 +246,10 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(groundTransform.position, dimensionHitBoxSalto);
+        Gizmos.DrawWireCube(controladorSuelo.position, dimensionControladorSalto);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(controaldorMuro.position, dimensionControladorMuro);
 
     }
 
