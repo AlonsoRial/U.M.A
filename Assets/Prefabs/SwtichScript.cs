@@ -23,9 +23,9 @@ public class SwtichScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
 
-        estado = jugador.estadoSwitch;
+
+        estado = jugador.EstadoSwitch;
 
         if (this.CompareTag("ROJO"))
         {
@@ -33,7 +33,7 @@ public class SwtichScript : MonoBehaviour
         }
 
         boxCollider.enabled = estado;
-
+        
         
         if (estado)
         {

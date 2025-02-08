@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("SWITCH")]
-    [SerializeField] public bool estadoSwitch = false;
+    [SerializeField] private bool estadoSwitch = false;
 
 
     [Header("SALTO")]
@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int cantidadDash;
     [SerializeField] private int dashRestantes;
     [SerializeField] private float tiempoDash;
+
+    public bool EstadoSwitch { get => estadoSwitch; }
 
     // Start is called before the first frame update
     void Start()
