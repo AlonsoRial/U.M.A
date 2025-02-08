@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("SWITCH")]
-    [SerializeField] private bool estadoSwitch = false;
+    [SerializeField] public bool estadoSwitch = false;
 
 
     [Header("SALTO")]
