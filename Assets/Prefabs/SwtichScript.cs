@@ -27,7 +27,7 @@ public class SwtichScript : MonoBehaviour
 
         estado = jugador.EstadoSwitch;
 
-        if (this.CompareTag("ROJO"))
+        if (this.CompareTag("SWITCH-ROJO"))
         {
             estado = !estado;
         }
@@ -38,12 +38,12 @@ public class SwtichScript : MonoBehaviour
         if (estado)
         {
 
-            if (this.CompareTag("ROJO"))
+            if (this.CompareTag("SWITCH-ROJO"))
             {
                 spriteRenderer.color = new Color(255, 0, 0, 255);
             }
 
-            if (this.CompareTag("VERDE"))
+            if (this.CompareTag("SWITCH-VERDE"))
             {
                 spriteRenderer.color = new Color(0, 255, 0, 255);
             }

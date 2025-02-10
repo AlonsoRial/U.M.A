@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5570929030332743496}
   m_Layer: 0
   m_Name: VERDE
-  m_TagString: VERDE
+  m_TagString: SWITCH-VERDE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,3 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
+  estado: 0
