@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int dashRestantes;
     [SerializeField] private float tiempoDash;
 
+    Vector3 posicionGuardado;
+
     public bool EstadoSwitch { get => estadoSwitch; }
 
     // Start is called before the first frame update
@@ -257,10 +259,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
+
         if (collision.gameObject.CompareTag("HAZARDS"))
         {
             Debug.Log("muerte");
-            rigidbody2.transform.position = new Vector3(0,0,0);
+            rigidbody2.transform.position = posicionGuardado;
+        }
+
+        if (collision.gameObject.CompareTag("CHECKPOINT"))
+        {
+            Debug.Log("checkpoint guardado");
+
+            posicionGuardado = collision.transform.position; 
+            
         }
     }
 
