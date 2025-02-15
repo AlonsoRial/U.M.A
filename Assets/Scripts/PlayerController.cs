@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEditor.ShaderData;
 using static UnityEngine.InputSystem.InputAction;
 
 
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     PlayerInput playerInput;
     Rigidbody2D rigidbody2;
     Vector2 vector2 = Vector2.zero;
+    Vector3 posicionGuardado;
 
     [Header("MOVIMIENTO")]
     [SerializeField] private float velocidadMovimiento;
@@ -51,7 +53,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int dashRestantes;
     [SerializeField] private float tiempoDash;
 
-    Vector3 posicionGuardado;
+    [Header("PAUSAR JUEGO")]
+    [SerializeField] private Canvas canvas;
+
+    bool botonPausa;
 
     public bool EstadoSwitch { get => estadoSwitch; }
 
@@ -89,6 +94,8 @@ public class PlayerController : MonoBehaviour
         {
             deslizando= false;
         }
+
+
 
 
     }
@@ -246,7 +253,35 @@ public class PlayerController : MonoBehaviour
         botonDash = callbackContext.ReadValueAsButton();
     }
 
-    /*
+    public void Pausa(CallbackContext callbackContext)
+    {
+        
+       bool enPausa = callbackContext.ReadValueAsButton();
+       
+        if (!enPausa)
+        {
+            botonPausa = !botonPausa;
+        }
+
+        if (botonPausa)
+        {
+            Time.timeScale = 0;
+            canvas.enabled = true;
+        }
+        else 
+        {
+            Time.timeScale = 1;
+            canvas.enabled = false;
+        }
+
+    }
+
+    public void Pausar(bool pausa) 
+    {
+
+    }
+
+    /* f
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("HAZARDS")) 

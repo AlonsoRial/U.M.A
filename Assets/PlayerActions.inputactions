@@ -2,7 +2,7 @@
     "name": "PlayerActions",
     "maps": [
         {
-            "name": "Player_Map",
+            "name": "EnJuego",
             "id": "ff16ae12-5c71-48df-b707-e3dfdb601ef4",
             "actions": [
                 {
@@ -36,6 +36,15 @@
                     "name": "Dash",
                     "type": "Button",
                     "id": "aa090dbf-7460-4048-bd1a-33c5503970cb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pausa",
+                    "type": "Button",
+                    "id": "20123ee9-a942-43d5-9602-cb436d546f0c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -111,23 +120,91 @@
                 },
                 {
                     "name": "",
-                    "id": "a2142afe-25ea-4376-a6c6-23e33e04dd38",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "66351ee2-82f8-478d-b82a-db2c132e8a8d",
                     "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c3ab6f95-7119-4929-98ba-e32a5d14c1ac",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pausa",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "EnHUB",
+            "id": "5bae0dbf-b8f1-4a00-955e-812537d9cbef",
+            "actions": [
+                {
+                    "name": "Aceptar",
+                    "type": "Button",
+                    "id": "1dea5a24-6686-4953-a9fe-5f0c9d539896",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Rechazar",
+                    "type": "Button",
+                    "id": "a3607e69-4dbb-41ea-bb37-b9ac663bf969",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pausa",
+                    "type": "Button",
+                    "id": "ec96e0c0-b3b0-4931-93be-287eb8285c2c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5888878b-ad14-4ce5-965f-9ee7cad0b77a",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aceptar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01075401-3492-4572-a857-8076c87dfeb3",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rechazar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0760d95-9d1f-4328-a583-e034f869f727",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pausa",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
