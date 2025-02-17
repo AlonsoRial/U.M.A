@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3961495460317335394}
   - component: {fileID: 2930327000751906171}
   - component: {fileID: 1584712384116122083}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: ROJO
   m_TagString: SWITCH-ROJO
   m_Icon: {fileID: 0}
