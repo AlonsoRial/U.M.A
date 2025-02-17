@@ -2301,7 +2301,7 @@ MonoBehaviour:
   capaSuelo:
     serializedVersion: 2
     m_Bits: 16
-  dimensionControladorSalto: {x: 0.3, y: 0.24}
+  dimensionControladorSalto: {x: 0.42, y: 0.24}
   cantidadSaltos: 2
   saltosRestantes: 0
   controaldorMuro: {fileID: 1776206823}
