@@ -1604,7 +1604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9192278030351663159, guid: e82a942fbebca4e40b14892156cfa497, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.072375
+      value: 12.54
       objectReference: {fileID: 0}
     - target: {fileID: 9192278030351663159, guid: e82a942fbebca4e40b14892156cfa497, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2265,18 +2265,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 20123ee9-a942-43d5-9602-cb436d546f0c
     m_ActionName: EnJuego/Pausa[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1dea5a24-6686-4953-a9fe-5f0c9d539896
-    m_ActionName: EnHUB/Aceptar[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a3607e69-4dbb-41ea-bb37-b9ac663bf969
-    m_ActionName: EnHUB/Rechazar[/Keyboard/backspace]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ec96e0c0-b3b0-4931-93be-287eb8285c2c
-    m_ActionName: EnHUB/Pausa[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: EnJuego
@@ -2313,7 +2301,7 @@ MonoBehaviour:
   saltoDeParez: 0
   velocidadDash: 30
   botonDash: 0
-  cantidadDash: 1
+  cantidadDash: 3
   dashRestantes: 0
   tiempoDash: 0.1
   canvas: {fileID: 1737382543}

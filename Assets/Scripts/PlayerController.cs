@@ -12,12 +12,14 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerController : MonoBehaviour
 {
     // El PlayerInput maneja el nuevo sistema de inputs y la camara, si queremos que el jugador pueda cambiar los controles, se debe de hacer con esto, en teoria...
-    PlayerInput playerInput;
+    
     Rigidbody2D rigidbody2;
     Vector2 vector2 = Vector2.zero;
     Vector3 posicionGuardado;
 
-
+    PlayerInput playerInput;
+    InputAction accionMover;
+    InputAction accionSwitch;
 
     [Header("MOVIMIENTO")]
     [SerializeField] private float velocidadMovimiento;
@@ -71,11 +73,16 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
+        accionMover = playerInput.actions["Mover"];
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    
+
+
         Flip();
 
       
@@ -103,6 +110,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         
+
         if (botonSalto ) 
         {
           
@@ -130,7 +138,7 @@ public class PlayerController : MonoBehaviour
         {
             
             rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, vector2.y * velocidadDash);
-            dashRestantes--;
+           
          
             StartCoroutine(Espera());
             
@@ -201,11 +209,18 @@ public class PlayerController : MonoBehaviour
         return Physics2D.OverlapBox(controaldorMuro.position, dimensionControladorMuro, 0, capaSuelo);
     }
 
-
+    
     public void Mover(CallbackContext callbackContext)
     {
-        vector2 = callbackContext.ReadValue<Vector2>();
+        vector2 = accionMover.ReadValue<Vector2>();
+        //Debug.Log(callbackContext.phase);
+
+        if (callbackContext.started) 
+        {
+            Debug.Log("oli");
+        }
     }
+    
 
     public void CambioSwitch(CallbackContext callbackContext) 
     {
@@ -229,8 +244,13 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(CallbackContext callbackContext)
     {
-       
-        botonDash = callbackContext.ReadValueAsButton();
+
+        if (callbackContext.started)
+        {
+            botonDash = true;
+            dashRestantes--;
+        }
+     
     }
 
     public void Pausa(CallbackContext callbackContext)
