@@ -2301,7 +2301,7 @@ MonoBehaviour:
   saltoDeParez: 0
   velocidadDash: 30
   botonDash: 0
-  cantidadDash: 3
+  cantidadDash: 2
   dashRestantes: 0
   tiempoDash: 0.1
   canvas: {fileID: 1737382543}

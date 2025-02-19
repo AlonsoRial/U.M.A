@@ -240,7 +240,16 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.started)
         {
             botonDash = true;
-            dashRestantes--;
+            
+        }
+
+        if (callbackContext.canceled) 
+        {
+            --dashRestantes;
+            if (dashRestantes < 0) 
+            {
+                dashRestantes = 0;
+            }
         }
      
     }
