@@ -18,8 +18,7 @@ public class PlayerController : MonoBehaviour
     Vector3 posicionGuardado;
 
     PlayerInput playerInput;
-    InputAction accionMover;
-    InputAction accionSwitch;
+
 
     [Header("MOVIMIENTO")]
     [SerializeField] private float velocidadMovimiento;
@@ -73,15 +72,12 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-        accionMover = playerInput.actions["Mover"];
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-
-    
-
 
         Flip();
 
@@ -212,7 +208,7 @@ public class PlayerController : MonoBehaviour
     
     public void Mover(CallbackContext callbackContext)
     {
-        vector2 = accionMover.ReadValue<Vector2>();
+        vector2 = callbackContext.ReadValue<Vector2>();
         //Debug.Log(callbackContext.phase);
 
         if (callbackContext.started) 
@@ -224,14 +220,10 @@ public class PlayerController : MonoBehaviour
 
     public void CambioSwitch(CallbackContext callbackContext) 
     {
-
-        bool estado = callbackContext.ReadValueAsButton();
-        
-        if (!estado) 
+        if (callbackContext.started) 
         {
             estadoSwitch = !estadoSwitch;
         }
-
     }
 
 
@@ -255,10 +247,8 @@ public class PlayerController : MonoBehaviour
 
     public void Pausa(CallbackContext callbackContext)
     {
-        
-       bool enPausa = callbackContext.ReadValueAsButton();
        
-        if (!enPausa)
+        if (callbackContext.started)
         {
             botonPausa = !botonPausa;
         }
