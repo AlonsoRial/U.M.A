@@ -31,13 +31,15 @@ public class PlayerController : MonoBehaviour
 
 
 
-    [Header("SALTO")]
+    [Header("SALTOS")]
     [SerializeField] private Transform controladorSuelo;
     [SerializeField] private LayerMask capaSuelo;
     [SerializeField] private Vector2 dimensionControladorSalto;
     private bool botonSalto;
     [SerializeField] private int cantidadSaltos;
     [SerializeField] private int saltosRestantes;
+    [SerializeField] private int cantidadSaltosDobles;
+    [SerializeField] private int saltosRestantesDobles;
 
 
 
@@ -89,6 +91,7 @@ public class PlayerController : MonoBehaviour
         if (EstaEnTierra() || (!EstaEnTierra() && EstaEnMuro() && vector2.x!=0 )) {
             saltosRestantes = cantidadSaltos;
             dashRestantes = cantidadDash;
+            saltosRestantesDobles = cantidadSaltosDobles;
         }
 
 
@@ -109,17 +112,22 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        //cacatua
 
         if (botonSalto ) 
         {
-          
-            
-            if (saltosRestantes>0) 
+
+
+            if (saltosRestantes > 0 && EstaEnTierra())
             {
                 Salto();
                 --saltosRestantes;
-                
+
+            }
+            else if (saltosRestantesDobles > 0 && !EstaEnTierra() && !EstaEnMuro()) 
+            {
+                Salto();
+                --saltosRestantesDobles;
             }
 
             if (EstaEnMuro() && deslizando) 
@@ -146,6 +154,11 @@ public class PlayerController : MonoBehaviour
 
         botonSalto = false;
 
+        /*AQUI HAY BUG TOCHO*/
+
+        /*COMPRUEBA CON LA FRIZION MATERIAL*/
+        /*Se le aplicaria en el box collider del jugador*/
+        /*Con eso tambien puedes hacer rebotes contra el suelo como una colchoneta*/
 
         if (deslizando)
         {
@@ -158,6 +171,8 @@ public class PlayerController : MonoBehaviour
             rigidbody2.constraints = RigidbodyConstraints2D.None;
             rigidbody2.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+
+
 
     }
 
@@ -193,7 +208,8 @@ public class PlayerController : MonoBehaviour
 
     public void SaltoMuro() 
     {
-       
+   
+
         rigidbody2.velocity = new Vector2(fuerzaSaltoMuro.x * -vector2.x,fuerzaSaltoMuro.y);
         StartCoroutine(CambiosSaltosPared());
     }
@@ -240,7 +256,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(CallbackContext callbackContext)
     {
-       
+
         botonSalto = callbackContext.ReadValueAsButton();
     }
 
