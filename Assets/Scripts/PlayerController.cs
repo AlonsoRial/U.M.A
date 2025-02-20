@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
 
-        if (EstaEnTierra() || (!EstaEnTierra() && EstaEnMuro() )) {
+        if (EstaEnTierra() || (!EstaEnTierra() && EstaEnMuro() && vector2.x!=0 )) {
             saltosRestantes = cantidadSaltos;
             dashRestantes = cantidadDash;
         }

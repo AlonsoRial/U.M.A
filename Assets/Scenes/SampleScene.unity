@@ -226,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1254768855514708739, guid: db400afee6c078b4cbca9b049a307e05, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3163375011928601814, guid: db400afee6c078b4cbca9b049a307e05, type: 3}
       propertyPath: m_LocalScale.y
@@ -1602,6 +1602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ROJO
       objectReference: {fileID: 0}
+    - target: {fileID: 2962686731374962708, guid: e82a942fbebca4e40b14892156cfa497, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9192278030351663159, guid: e82a942fbebca4e40b14892156cfa497, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.54
@@ -1948,7 +1952,7 @@ GameObject:
   - component: {fileID: 1640499157}
   - component: {fileID: 1640499156}
   - component: {fileID: 1640499155}
-  m_Layer: 4
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2288,7 +2292,7 @@ MonoBehaviour:
   controladorSuelo: {fileID: 56544875}
   capaSuelo:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 8
   dimensionControladorSalto: {x: 0.42, y: 0.24}
   cantidadSaltos: 2
   saltosRestantes: 0
@@ -3174,7 +3178,7 @@ GameObject:
   - component: {fileID: 1954024397}
   - component: {fileID: 1954024396}
   - component: {fileID: 1954024398}
-  m_Layer: 4
+  m_Layer: 3
   m_Name: Muro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
