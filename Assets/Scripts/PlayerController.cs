@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
     public bool EstadoSwitch { get => estadoSwitch; }
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,14 +86,17 @@ public class PlayerController : MonoBehaviour
         playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
 
-        if (EstaEnTierra()) {
+        if (EstaEnTierra() || (!EstaEnTierra() && EstaEnMuro() )) {
             saltosRestantes = cantidadSaltos;
             dashRestantes = cantidadDash;
         }
 
 
+
+
         if (!EstaEnTierra() && EstaEnMuro() && vector2.x != 0)
         {
+            
             deslizando = true;
         }
         else 
@@ -145,7 +149,14 @@ public class PlayerController : MonoBehaviour
 
         if (deslizando)
         {
-            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x,Mathf.Clamp(rigidbody2.velocity.y,-velocidadDeslizamiento,float.MaxValue));
+            rigidbody2.constraints = RigidbodyConstraints2D.FreezePositionY;
+
+            //rigidbody2.velocity = new Vector2(rigidbody2.velocity.x,Mathf.Clamp(rigidbody2.velocity.y,-velocidadDeslizamiento,float.MaxValue));
+        }
+        else
+        {
+            rigidbody2.constraints = RigidbodyConstraints2D.None;
+            rigidbody2.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
     }
