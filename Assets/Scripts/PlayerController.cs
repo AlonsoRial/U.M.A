@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     [Header("MOVIMIENTO")]
     [SerializeField] private float velocidadMovimiento;
     [SerializeField] private float velocidadSalto;
-
+    private Vector2 vectorSaltoMovimiento;
 
 
     [Header("SWITCH")]
@@ -114,6 +114,8 @@ public class PlayerController : MonoBehaviour
     {
         //cacatua
 
+        Debug.Log(vectorSaltoMovimiento);
+
         if (botonSalto && botonSaltoArriba ) 
         {
 
@@ -124,7 +126,7 @@ public class PlayerController : MonoBehaviour
                 --saltosRestantes;
 
             }
-            else if (saltosRestantesDobles > 0 && !EstaEnTierra() && !EstaEnMuro()) 
+            else if (saltosRestantesDobles > 0 && !EstaEnTierra() ) 
             {
                 Salto();
                 --saltosRestantesDobles;
@@ -143,28 +145,32 @@ public class PlayerController : MonoBehaviour
             rigidbody2.gravityScale = escalaGravedad;
         }
 
-     
+
+
         if (!botonDash && !EstaEnMuro() && !saltoDeParez)
         {
             rigidbody2.velocity = new Vector2(vector2.x * velocidadMovimiento, rigidbody2.velocity.y);
         }
         else if (botonDash && dashRestantes > 0)
         {
-            
+
             rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, vector2.y * velocidadDash);
-           
-         
+
+
             StartCoroutine(Espera());
-            
+
+        }
+
+
+        //Esto podria estar bien, pero habria que hacer que la velocidad de Movimiento tuviera acceleración y rango
+        if (!EstaEnTierra() && !EstaEnMuro()) 
+        {
+            rigidbody2.velocity = new Vector2(vectorSaltoMovimiento.x * velocidadMovimiento, rigidbody2.velocity.y);
         }
 
         botonSalto = false;
 
-        /*AQUI HAY BUG TOCHO*/
 
-        /*COMPRUEBA CON LA FRIZION MATERIAL*/
-        /*Se le aplicaria en el box collider del jugador*/
-        /*Con eso tambien puedes hacer rebotes contra el suelo como una colchoneta*/
 
 
 
@@ -235,10 +241,7 @@ public class PlayerController : MonoBehaviour
         vector2 = callbackContext.ReadValue<Vector2>();
         //Debug.Log(callbackContext.phase);
 
-        if (callbackContext.started) 
-        {
-            Debug.Log("oli");
-        }
+
     }
     
 
@@ -258,6 +261,11 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.canceled) 
         {
             BotonSaltoArriba();
+        }
+
+        if (callbackContext.started) 
+        {
+            vectorSaltoMovimiento = vector2;
         }
     }
 
