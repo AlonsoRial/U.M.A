@@ -162,7 +162,9 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        //Esto podria estar bien, pero habria que hacer que la velocidad de Movimiento tuviera acceleración y rango
+        //Esto podria estar bien, pero habria que hacer que la velocidad de Movimiento tuviera acceleración y rango,
+        //y que al tocar un muro, active el flib
+        
         if (!EstaEnTierra() && !EstaEnMuro()) 
         {
             rigidbody2.velocity = new Vector2(vectorSaltoMovimiento.x * velocidadMovimiento, rigidbody2.velocity.y);
