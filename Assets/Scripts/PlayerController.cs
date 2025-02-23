@@ -41,12 +41,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int cantidadSaltosDobles;
     [SerializeField] private int saltosRestantesDobles;
 
+    [Header("Regulación Salto")]
+    [Range(0, 1)][SerializeField] private float multiplicadorCancelarSalto;
+    [SerializeField] private float multiplicadorGavedad;
+    private float escalaGravedad;
+
+    private bool botonSaltoArriba = true;
+
 
 
     [Header("SALTO MURO")]
     [SerializeField] private Transform controaldorMuro;
     [SerializeField] private Vector2 dimensionControladorMuro;
-    [SerializeField] private bool deslizando;
+
     [SerializeField] private float velocidadDeslizamiento;
     [SerializeField] private Vector2 fuerzaSaltoMuro;
     [SerializeField] private float tiempoSaltoMuro;
@@ -75,6 +82,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
+        escalaGravedad = rigidbody2.gravityScale;
        
     }
 
@@ -97,15 +105,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (!EstaEnTierra() && EstaEnMuro() && vector2.x != 0)
-        {
-            
-            deslizando = true;
-        }
-        else 
-        {
-            deslizando= false;
-        }
+  
 
     }
 
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         //cacatua
 
-        if (botonSalto ) 
+        if (botonSalto && botonSaltoArriba ) 
         {
 
 
@@ -129,12 +129,18 @@ public class PlayerController : MonoBehaviour
                 Salto();
                 --saltosRestantesDobles;
             }
+           
+   
 
-            if (EstaEnMuro() && deslizando) 
-            {
-                SaltoMuro();
-            }
+        }
 
+        if (rigidbody2.velocity.y < 0 && !EstaEnTierra())
+        {
+            rigidbody2.gravityScale = escalaGravedad * multiplicadorGavedad;
+        }
+        else 
+        {
+            rigidbody2.gravityScale = escalaGravedad;
         }
 
      
@@ -160,17 +166,6 @@ public class PlayerController : MonoBehaviour
         /*Se le aplicaria en el box collider del jugador*/
         /*Con eso tambien puedes hacer rebotes contra el suelo como una colchoneta*/
 
-        if (deslizando)
-        {
-            rigidbody2.constraints = RigidbodyConstraints2D.FreezePositionY;
-
-            //rigidbody2.velocity = new Vector2(rigidbody2.velocity.x,Mathf.Clamp(rigidbody2.velocity.y,-velocidadDeslizamiento,float.MaxValue));
-        }
-        else
-        {
-            rigidbody2.constraints = RigidbodyConstraints2D.None;
-            rigidbody2.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
 
 
 
@@ -201,9 +196,11 @@ public class PlayerController : MonoBehaviour
 
     public void Salto() 
     {
-        rigidbody2.velocity = new Vector2(0f, velocidadSalto);
+        //rigidbody2.velocity = new Vector2(0f, velocidadSalto);
+        rigidbody2.AddForce(Vector2.up * velocidadSalto, ForceMode2D.Impulse);
         
         botonSalto = false;
+        botonSaltoArriba = false;
     }
 
     public void SaltoMuro() 
@@ -258,8 +255,22 @@ public class PlayerController : MonoBehaviour
     {
 
         botonSalto = callbackContext.ReadValueAsButton();
+        if (callbackContext.canceled) 
+        {
+            BotonSaltoArriba();
+        }
     }
 
+    private void BotonSaltoArriba() 
+    {
+        if (rigidbody2.velocity.y>0) 
+        {
+            rigidbody2.AddForce(Vector2.down * rigidbody2.velocity.y * (1-multiplicadorCancelarSalto), ForceMode2D.Impulse );
+        }
+
+        botonSaltoArriba = true;
+        botonSalto = false;
+    }
 
     public void Dash(CallbackContext callbackContext)
     {
