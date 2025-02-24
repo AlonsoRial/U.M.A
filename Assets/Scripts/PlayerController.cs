@@ -21,17 +21,18 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("MOVIMIENTO")]
-    [SerializeField] private float velocidadMovimiento;
-    [SerializeField] private float velocidadSalto;
-    private Vector2 vectorSaltoMovimiento;
+    [SerializeField] private float maxVelocidadMovimiento;
+    [SerializeField] private float velocidad;
+    [SerializeField] private float aceleracion;
+    private Vector2 ultimoMovimiento;
 
 
     [Header("SWITCH")]
     [SerializeField] private bool estadoSwitch = false;
 
 
-
-    [Header("SALTOS")]
+    [Header("SALTO")]
+    [SerializeField] private float velocidadSalto;
     [SerializeField] private Transform controladorSuelo;
     [SerializeField] private LayerMask capaSuelo;
     [SerializeField] private Vector2 dimensionControladorSalto;
@@ -40,8 +41,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int saltosRestantes;
     [SerializeField] private int cantidadSaltosDobles;
     [SerializeField] private int saltosRestantesDobles;
+    private Vector2 vectorSaltoMovimiento;
 
-    [Header("Regulación Salto")]
+    [Header("Regulaciï¿½n Salto")]
     [Range(0, 1)][SerializeField] private float multiplicadorCancelarSalto;
     [SerializeField] private float multiplicadorGavedad;
     private float escalaGravedad;
@@ -102,10 +104,21 @@ public class PlayerController : MonoBehaviour
             saltosRestantesDobles = cantidadSaltosDobles;
         }
 
+        if (vector2.x!=0) 
+        {
+            if (velocidad < maxVelocidadMovimiento)
+            {
+                velocidad += aceleracion * Time.deltaTime;
+            }
+        }
+        else 
+        {
+            if (velocidad > 0)
+            {
+                velocidad -= 2* aceleracion * Time.deltaTime;
+            }
+        }
 
-
-
-  
 
     }
 
@@ -114,7 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         //cacatua
 
-        Debug.Log(vectorSaltoMovimiento);
+        
 
         if (botonSalto && botonSaltoArriba ) 
         {
@@ -146,10 +159,14 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
-        if (!botonDash && !EstaEnMuro() && !saltoDeParez)
+        
+        if (!botonDash && !EstaEnMuro() && !saltoDeParez && vector2.x!=0)
         {
-            rigidbody2.velocity = new Vector2(vector2.x * velocidadMovimiento, rigidbody2.velocity.y);
+            rigidbody2.velocity = new Vector2(vector2.x * velocidad, rigidbody2.velocity.y);
+        }
+        else if (!botonDash && !EstaEnMuro() && !saltoDeParez && vector2.x == 0) 
+        {
+            rigidbody2.velocity = new Vector2(ultimoMovimiento.x * velocidad, rigidbody2.velocity.y);
         }
         else if (botonDash && dashRestantes > 0)
         {
@@ -162,12 +179,12 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        //Esto podria estar bien, pero habria que hacer que la velocidad de Movimiento tuviera acceleración y rango,
+        //Esto podria estar bien, pero habria que hacer que la velocidad de Movimiento tuviera acceleraciï¿½n y rango,
         //y que al tocar un muro, active el flib
         
         if (!EstaEnTierra() && !EstaEnMuro()) 
         {
-            rigidbody2.velocity = new Vector2(vectorSaltoMovimiento.x * velocidadMovimiento, rigidbody2.velocity.y);
+            rigidbody2.velocity = new Vector2(vectorSaltoMovimiento.x * velocidad, rigidbody2.velocity.y);
         }
 
         botonSalto = false;
@@ -243,6 +260,11 @@ public class PlayerController : MonoBehaviour
         vector2 = callbackContext.ReadValue<Vector2>();
         //Debug.Log(callbackContext.phase);
 
+        if (callbackContext.started) 
+        {
+            ultimoMovimiento = vector2;
+        }
+        
 
     }
     
@@ -269,6 +291,7 @@ public class PlayerController : MonoBehaviour
         {
             vectorSaltoMovimiento = vector2;
         }
+
     }
 
     private void BotonSaltoArriba() 
