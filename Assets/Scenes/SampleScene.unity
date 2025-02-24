@@ -2286,11 +2286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8394893a7a9cb43b4c34c9787e4692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocidadMovimiento: 7
-  velocidad: 0
-  aceleracion: 5
-  estadoSwitch: 0
+  velocidadMovimiento: 10
   velocidadSalto: 8
+  estadoSwitch: 0
   controladorSuelo: {fileID: 56544875}
   capaSuelo:
     serializedVersion: 2
