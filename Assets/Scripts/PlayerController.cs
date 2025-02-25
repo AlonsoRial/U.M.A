@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("MOVIMIENTO")]
     [SerializeField] private float velocidadMovimiento;
-    [SerializeField] private float velocidadSalto;
+
 
 
 
@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("SALTOS")]
+    [SerializeField] private float fuerzaSalto;
+    [SerializeField] private float fuerzaSaltoDoble;
     [SerializeField] private Transform controladorSuelo;
     [SerializeField] private LayerMask capaSuelo;
     [SerializeField] private Vector2 dimensionControladorSalto;
@@ -128,16 +130,18 @@ public class PlayerController : MonoBehaviour
         //Salto
         if (botonSalto && botonSaltoArriba)
         {
-            Salto();
+
 
             if (saltosRestantes > 0 && EstaEnTierra())
             {
                 --saltosRestantes;
+                Salto();
 
             }
             else if (saltosRestantesDobles > 0 && !EstaEnTierra() )
             {
                 --saltosRestantesDobles;
+                SaltoDoble();
             }
         }
         botonSalto = false;
@@ -171,7 +175,16 @@ public class PlayerController : MonoBehaviour
     public void Salto()
     {
         //rigidbody2.velocity = new Vector2(0f, velocidadSalto);
-        rigidbody2.AddForce(Vector2.up * velocidadSalto, ForceMode2D.Impulse);
+        rigidbody2.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+
+        botonSalto = false;
+        botonSaltoArriba = false;
+    }
+
+    public void SaltoDoble()
+    {
+        //rigidbody2.velocity = new Vector2(0f, velocidadSalto);
+        rigidbody2.AddForce(Vector2.up * fuerzaSaltoDoble, ForceMode2D.Impulse);
 
         botonSalto = false;
         botonSaltoArriba = false;

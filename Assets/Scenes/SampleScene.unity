@@ -2287,8 +2287,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadMovimiento: 10
-  velocidadSalto: 8
   estadoSwitch: 0
+  fuerzaSalto: 5
+  fuerzaSaltoDoble: 10
   controladorSuelo: {fileID: 56544875}
   capaSuelo:
     serializedVersion: 2
@@ -2298,8 +2299,8 @@ MonoBehaviour:
   saltosRestantes: 0
   cantidadSaltosDobles: 1
   saltosRestantesDobles: 0
-  multiplicadorCancelarSalto: 0.1
-  multiplicadorGavedad: 1.5
+  multiplicadorCancelarSalto: 0
+  multiplicadorGavedad: 5
   controaldorMuro: {fileID: 1776206823}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
   velocidadDeslizamiento: 1
