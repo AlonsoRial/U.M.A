@@ -77,6 +77,21 @@ public class PlayerController : MonoBehaviour
     public bool EstadoSwitch { get => estadoSwitch; }
 
 
+    public void Flip()
+    {
+
+        if (vector2.x > 0)
+        {
+            rigidbody2.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (vector2.x < 0)
+        {
+            rigidbody2.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,37 +119,30 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
-
-
-
     }
 
 
     private void FixedUpdate()
     {
-        //cacatua
-
+   
+        //Salto
         if (botonSalto && botonSaltoArriba)
         {
-
+            Salto();
 
             if (saltosRestantes > 0 && EstaEnTierra())
             {
-                Salto();
                 --saltosRestantes;
 
             }
-            else if (saltosRestantesDobles > 0 && !EstaEnTierra() && !EstaEnMuro())
+            else if (saltosRestantesDobles > 0 && !EstaEnTierra() )
             {
-                Salto();
                 --saltosRestantesDobles;
             }
-
-
-
         }
+        botonSalto = false;
 
+        //Gravedad
         if (rigidbody2.velocity.y < 0 && !EstaEnTierra())
         {
             rigidbody2.gravityScale = escalaGravedad * multiplicadorGavedad;
@@ -144,54 +152,19 @@ public class PlayerController : MonoBehaviour
             rigidbody2.gravityScale = escalaGravedad;
         }
 
-
+        //Movimiento y Dash
         if (!botonDash && !EstaEnMuro() && !saltoDeParez)
         {
             rigidbody2.velocity = new Vector2(vector2.x * velocidadMovimiento, rigidbody2.velocity.y);
         }
         else if (botonDash && dashRestantes > 0)
         {
-
             rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, vector2.y * velocidadDash);
-
 
             StartCoroutine(Espera());
 
         }
 
-        botonSalto = false;
-
-        /*AQUI HAY BUG TOCHO*/
-
-        /*COMPRUEBA CON LA FRIZION MATERIAL*/
-        /*Se le aplicaria en el box collider del jugador*/
-        /*Con eso tambien puedes hacer rebotes contra el suelo como una colchoneta*/
-
-
-
-
-    }
-
-    public void Flip()
-    {
-
-        if (vector2.x > 0)
-        {
-            rigidbody2.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (vector2.x < 0)
-        {
-            rigidbody2.transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-
-    }
-
-
-    public IEnumerator Espera()
-    {
-
-        yield return new WaitForSeconds(tiempoDash);
-        botonDash = false;
 
     }
 
@@ -204,12 +177,32 @@ public class PlayerController : MonoBehaviour
         botonSaltoArriba = false;
     }
 
+    private void BotonSaltoArriba()
+    {
+        if (rigidbody2.velocity.y > 0)
+        {
+            rigidbody2.AddForce(Vector2.down * rigidbody2.velocity.y * (1 - multiplicadorCancelarSalto), ForceMode2D.Impulse);
+        }
+
+        botonSaltoArriba = true;
+        botonSalto = false;
+    }
+
+
     public void SaltoMuro()
     {
 
 
         rigidbody2.velocity = new Vector2(fuerzaSaltoMuro.x * -vector2.x, fuerzaSaltoMuro.y);
         StartCoroutine(CambiosSaltosPared());
+    }
+
+    public IEnumerator Espera()
+    {
+
+        yield return new WaitForSeconds(tiempoDash);
+        botonDash = false;
+
     }
 
     public IEnumerator CambiosSaltosPared()
@@ -229,6 +222,8 @@ public class PlayerController : MonoBehaviour
     {
         return Physics2D.OverlapBox(controaldorMuro.position, dimensionControladorMuro, 0, capaSuelo);
     }
+
+
 
 
     public void Mover(CallbackContext callbackContext)
@@ -262,16 +257,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void BotonSaltoArriba()
-    {
-        if (rigidbody2.velocity.y > 0)
-        {
-            rigidbody2.AddForce(Vector2.down * rigidbody2.velocity.y * (1 - multiplicadorCancelarSalto), ForceMode2D.Impulse);
-        }
-
-        botonSaltoArriba = true;
-        botonSalto = false;
-    }
 
     public void Dash(CallbackContext callbackContext)
     {
