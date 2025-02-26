@@ -2289,27 +2289,18 @@ MonoBehaviour:
   velocidadMovimiento: 10
   estadoSwitch: 0
   fuerzaSalto: 5
-  fuerzaSaltoDoble: 10
+  cantidadSaltos: 2
+  saltosRestantes: 0
   controladorSuelo: {fileID: 56544875}
   capaSuelo:
     serializedVersion: 2
     m_Bits: 8
   dimensionControladorSalto: {x: 0.42, y: 0.24}
-  cantidadSaltos: 1
-  saltosRestantes: 0
-  cantidadSaltosDobles: 1
-  saltosRestantesDobles: 0
-  multiplicadorCancelarSalto: 0
-  multiplicadorGavedad: 5
   controaldorMuro: {fileID: 1776206823}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
-  velocidadDeslizamiento: 1
-  fuerzaSaltoMuro: {x: 8, y: 14}
-  tiempoSaltoMuro: 1
-  saltoDeParez: 0
   velocidadDash: 30
   botonDash: 0
-  cantidadDash: 2
+  cantidadDash: 1
   dashRestantes: 0
   tiempoDash: 0.1
   canvas: {fileID: 1737382543}
