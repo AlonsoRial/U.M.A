@@ -2065,8 +2065,8 @@ Transform:
   m_GameObject: {fileID: 1640499154}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1932, y: -3.69, z: 0}
-  m_LocalScale: {x: 26.509794, y: 1.1768, z: 1.1768}
+  m_LocalPosition: {x: 1.3025, y: -3.69, z: 0}
+  m_LocalScale: {x: 26.28772, y: 1.1768, z: 1.1768}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2286,7 +2286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8394893a7a9cb43b4c34c9787e4692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadMovimiento: 10
+  gravedad: 1
+  velocidadMax: 8
+  aceleracion: 6
+  velocidad: 0
   estadoSwitch: 0
   fuerzaSalto: 5
   cantidadSaltos: 2
