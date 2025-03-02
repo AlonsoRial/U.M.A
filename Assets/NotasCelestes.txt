@@ -1,0 +1,15 @@
+Cosas que tiene Celeste y que debes de implementar:
+
+- Agregar tiempo de pausa al inicio del dash
+
+- Si el vector X no se mueve, el personaje tampoco, y si se mueve, el personaje tambien se moverá. Ejemplo: Si saltas, y durante el salto dejas de pulsar las teclas de movimiento, el personaje tambien se detiene. NO CONTINUA MOVIENDOSE.
+
+- El personaje puede hacer un dash si que este presionado vector X, su direción se basará en la direción donde mira el personaje.
+
+- La gravedad es alta.
+
+- Si vector X no es 0, y está colisionando con un muro, su velocidad de caida se reduce (En mi caso se debe de detener)
+
+- Lo que es aceleración no tiene, y si tiene pues es muy alta.
+
+- La regulación de salto si tiene
