@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("MOVIMIENTO")]
-    [SerializeField] private int gravedad;
+    [SerializeField] private float gravedad;
     [SerializeField] private float velocidadMax;
     [SerializeField] private float aceleracion;
     [SerializeField] private float velocidad;
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-        rigidbody2.gravityScale = gravedad;
+      
         
 
     }
@@ -132,16 +132,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        //Movimiento y Dash
-        /*
-         * if (!botonDash && !EstaEnMuro())
-        {
-            rigidbody2.velocity = new Vector2(vector2.x * velocidadMax, rigidbody2.velocity.y);
-        }
-        */
+        rigidbody2.gravityScale = gravedad;
 
-       
-            rigidbody2.velocity = new Vector2(vector2.x * velocidad, rigidbody2.velocity.y);
+        rigidbody2.velocity = new Vector2(vector2.x * velocidad, rigidbody2.velocity.y);
        
 
 
@@ -183,7 +176,7 @@ public class PlayerController : MonoBehaviour
 
     public void Mover(CallbackContext callbackContext)
     {
-        vector2 = callbackContext.ReadValue<Vector2>();
+        vector2.x = callbackContext.ReadValue<Vector2>().x;
 
 
     }
@@ -201,7 +194,10 @@ public class PlayerController : MonoBehaviour
     public void Jump(CallbackContext callbackContext)
     {
 
-       // botonSalto = callbackContext.ReadValueAsButton();
+        if (callbackContext.started) 
+        {
+            rigidbody2.AddForce(new Vector2(vector2.x, fuerzaSalto), ForceMode2D.Impulse);
+        }
 
     }
 
