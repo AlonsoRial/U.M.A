@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("MOVIMIENTO")]
     [SerializeField] private float gravedad;
-    [SerializeField] private float velocidadMax;
-    [SerializeField] private float aceleracion;
     [SerializeField] private float velocidad;
 
 
@@ -113,18 +111,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (vector2.x != 0)
-        {
 
-            if (velocidad < velocidadMax)
-            {
-                velocidad += aceleracion * Time.deltaTime;
-            }
-        }
-        else 
-        {
-            velocidad = 0; 
-        }
 
     }
 

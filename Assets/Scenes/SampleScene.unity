@@ -2286,10 +2286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8394893a7a9cb43b4c34c9787e4692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravedad: 1
-  velocidadMax: 8
-  aceleracion: 6
-  velocidad: 0
+  gravedad: 1.6
+  velocidad: 8
   estadoSwitch: 0
   fuerzaSalto: 5
   cantidadSaltos: 2
