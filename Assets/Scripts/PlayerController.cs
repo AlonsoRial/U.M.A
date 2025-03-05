@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
         //DASH
         if (botonDash && dashRestantes > 0)
         {
-            rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, vector2.y * velocidadDash);
+            rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, 0);
 
             StartCoroutine(Espera());
 
