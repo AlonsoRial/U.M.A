@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     [Header("MOVIMIENTO")]
     [SerializeField] private float gravedad;
     [SerializeField] private float velocidad;
-
+    [SerializeField] private float gravedadCaida;
+    [SerializeField] private float MAX_Velocidad_Caida;
 
 
 
@@ -35,9 +36,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("SALTOS")]
     [SerializeField] private float fuerzaSalto;
-    [SerializeField] private int cantidadSaltos;
-    [SerializeField] private int saltosRestantes;
-    private bool botonSalto;
+    [SerializeField] private float fuerzaDetencionSalto;
     [SerializeField] private Transform controladorSuelo;
     [SerializeField] private LayerMask capaSuelo;
     [SerializeField] private Vector2 dimensionControladorSalto;
@@ -106,12 +105,20 @@ public class PlayerController : MonoBehaviour
 
         if (EstaEnTierra() || (!EstaEnTierra() && EstaEnMuro() && vector2.x != 0))
         {
-            saltosRestantes = cantidadSaltos;
             dashRestantes = cantidadDash;
 
         }
 
 
+        if (EstaEnTierra()) 
+        {
+            rigidbody2.gravityScale = gravedad;
+        }
+
+        if (rigidbody2.velocity.y<0 && rigidbody2.gravityScale < MAX_Velocidad_Caida)
+        {
+            rigidbody2.gravityScale += Time.deltaTime * gravedadCaida;
+        }
 
     }
 
@@ -119,7 +126,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        rigidbody2.gravityScale = gravedad;
+
 
         rigidbody2.velocity = new Vector2(vector2.x * velocidad, rigidbody2.velocity.y);
        
@@ -181,9 +188,16 @@ public class PlayerController : MonoBehaviour
     public void Jump(CallbackContext callbackContext)
     {
 
-        if (callbackContext.started) 
+        if (callbackContext.started && EstaEnTierra()) 
         {
-            rigidbody2.AddForce(new Vector2(vector2.x, fuerzaSalto), ForceMode2D.Impulse);
+            Debug.Log("started");
+            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
+        }
+
+        if (callbackContext.canceled && rigidbody2.velocity.y > 0) 
+        {
+            Debug.Log("canceled");
+            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, rigidbody2.velocity.y/fuerzaDetencionSalto);
         }
 
     }
