@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("SALTOS")]
     [SerializeField] private float fuerzaSalto;
+    [SerializeField] private float fuerzaSaltoDoble;
     [SerializeField] private float fuerzaDetencionSalto;
     [SerializeField] private Transform controladorSuelo;
     [SerializeField] private LayerMask capaSuelo;
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       // Debug.Log(rigidbody2.velocity.y + " ||||| " + rigidbody2.gravityScale);
         Flip();
 
 
@@ -115,9 +116,15 @@ public class PlayerController : MonoBehaviour
             rigidbody2.gravityScale = gravedad;
         }
 
-        if (rigidbody2.velocity.y<0 && rigidbody2.gravityScale < MAX_Velocidad_Caida)
+        if (rigidbody2.velocity.y<0)
         {
             rigidbody2.gravityScale += Time.deltaTime * gravedadCaida;
+        }
+
+        if (rigidbody2.velocity.y < MAX_Velocidad_Caida) 
+        {
+          //  Debug.Log("Sobrepasado");
+            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, MAX_Velocidad_Caida);
         }
 
     }
@@ -184,21 +191,34 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    //hola
     public void Jump(CallbackContext callbackContext)
     {
 
         if (callbackContext.started && EstaEnTierra()) 
         {
-            Debug.Log("started");
+     
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
         }
 
         if (callbackContext.canceled && rigidbody2.velocity.y > 0) 
         {
-            Debug.Log("canceled");
+      
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, rigidbody2.velocity.y/fuerzaDetencionSalto);
+
+
         }
+
+
+        //Tal vez, si al started le ponemos un bool de habilitación del segundo salto, este se pueda dar
+        /*
+        if (callbackContext.started && !EstaEnTierra() && rigidbody2.velocity.y > 0)
+        {
+        
+            rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse);
+            //rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble);
+        }
+        */
 
     }
 

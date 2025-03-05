@@ -2288,11 +2288,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravedad: 1.6
   velocidad: 8
-  gravedadCaida: 20
-  MAX_Velocidad_Caida: 30
+  gravedadCaida: 10
+  MAX_Velocidad_Caida: -9
   estadoSwitch: 0
-  fuerzaSalto: 10
-  fuerzaDetencionSalto: 2
+  fuerzaSalto: 7
+  fuerzaSaltoDoble: 12
+  fuerzaDetencionSalto: 3
   controladorSuelo: {fileID: 56544875}
   capaSuelo:
     serializedVersion: 2
