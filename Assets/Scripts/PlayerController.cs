@@ -41,7 +41,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform controladorSuelo;
     [SerializeField] private LayerMask capaSuelo;
     [SerializeField] private Vector2 dimensionControladorSalto;
-
+    [SerializeField] private bool botonSaltoDoble;
+    [SerializeField] private int cantidadSaltosDobles;
+    [SerializeField] private int saltosDoblesRestantes;
 
 
 
@@ -114,11 +116,14 @@ public class PlayerController : MonoBehaviour
         if (EstaEnTierra()) 
         {
             rigidbody2.gravityScale = gravedad;
+            botonSaltoDoble = false;
+            saltosDoblesRestantes = cantidadSaltosDobles;
         }
 
         if (rigidbody2.velocity.y<0)
         {
             rigidbody2.gravityScale += Time.deltaTime * gravedadCaida;
+          
         }
 
         if (rigidbody2.velocity.y < MAX_Velocidad_Caida) 
@@ -197,18 +202,32 @@ public class PlayerController : MonoBehaviour
 
         if (callbackContext.started && EstaEnTierra()) 
         {
-     
+            Debug.Log("started");
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
+            
         }
 
         if (callbackContext.canceled && rigidbody2.velocity.y > 0) 
         {
-      
+            Debug.Log("canceled");
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, rigidbody2.velocity.y/fuerzaDetencionSalto);
-
+            
 
         }
 
+        if (callbackContext.canceled) 
+        {
+            botonSaltoDoble = true; 
+        }
+
+        if (callbackContext.started && botonSaltoDoble && saltosDoblesRestantes!=0) 
+        {
+            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, 0);
+            Debug.Log("SaltoDoble");
+            rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse);
+            botonSaltoDoble = false;
+            saltosDoblesRestantes--;
+        }
 
         //Tal vez, si al started le ponemos un bool de habilitación del segundo salto, este se pueda dar
         /*
