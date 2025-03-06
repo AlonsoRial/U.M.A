@@ -52,6 +52,11 @@ public class PlayerController : MonoBehaviour
     [Header("SALTO MURO")]
     [SerializeField] private Transform controaldorMuro;
     [SerializeField] private Vector2 dimensionControladorMuro;
+    private bool deslizando;
+    [SerializeField] private Vector2 fuerzaSaltoPared;
+    [SerializeField] private float tiempoSaltoPared;
+    bool saltandoParez;
+
 
 
 
@@ -142,6 +147,17 @@ public class PlayerController : MonoBehaviour
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, MAX_Velocidad_Caida);
         }
 
+
+
+        if (EstaEnMuro() && !EstaEnTierra() && vector2.x != 0)
+        {
+            deslizando = true;
+        }
+        else 
+        {
+            deslizando= false;
+        }
+
     }
 
 
@@ -149,9 +165,10 @@ public class PlayerController : MonoBehaviour
     {
 
 
-
-        rigidbody2.velocity = new Vector2(vector2.x * velocidad, rigidbody2.velocity.y);
-       
+        if (!saltandoParez)
+        {
+            rigidbody2.velocity = new Vector2(vector2.x * velocidad, rigidbody2.velocity.y);
+        }
 
 
         //DASH
@@ -161,6 +178,12 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(Espera());
 
+        }
+
+        if (deslizando) 
+        {
+            
+            rigidbody2.velocity = new Vector2 (rigidbody2.velocity.x, Mathf.Clamp(rigidbody2.velocity.y, -0, float.MaxValue));
         }
 
 
@@ -212,14 +235,14 @@ public class PlayerController : MonoBehaviour
 
         if (callbackContext.started && EstaEnTierra()) 
         {
-            Debug.Log("started");
+          
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
             
         }
 
         if (callbackContext.canceled && rigidbody2.velocity.y > 0) 
         {
-            Debug.Log("canceled");
+           
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, rigidbody2.velocity.y/fuerzaDetencionSalto);
             
 
@@ -233,24 +256,42 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.started && botonSaltoDoble && saltosDoblesRestantes!=0) 
         {
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, 0);
-            Debug.Log("SaltoDoble");
+          
             rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse);
             botonSaltoDoble = false;
             saltosDoblesRestantes--;
         }
 
-        //Tal vez, si al started le ponemos un bool de habilitación del segundo salto, este se pueda dar
-        /*
-        if (callbackContext.started && !EstaEnTierra() && rigidbody2.velocity.y > 0)
+
+
+        if (callbackContext.started && EstaEnMuro() && deslizando) 
         {
-        
-            rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse);
-            //rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble);
+            Debug.Log("MUROOOO");
+            rigidbody2.velocity = new Vector2(fuerzaSaltoPared.x * -vector2.x, fuerzaSaltoPared.y);
+            StartCoroutine(TiempoSaltoParez());
         }
-        */
 
     }
 
+
+    IEnumerator TiempoSaltoParez() 
+    {
+        saltandoParez = true;
+
+       //Interesanto tambien
+        //vector2.x = -vector2.x;
+        
+        yield return new WaitForSeconds(tiempoSaltoPared);
+
+
+        saltandoParez = false;
+
+        //Interesanto esto
+        /*
+        vector2.x = 0;
+        Debug.Log("DCADF");
+        */
+    }
 
     public void Dash(CallbackContext callbackContext)
     {

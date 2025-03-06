@@ -234,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163375011928601814, guid: db400afee6c078b4cbca9b049a307e05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.51
+      value: 4.51
       objectReference: {fileID: 0}
     - target: {fileID: 3163375011928601814, guid: db400afee6c078b4cbca9b049a307e05, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2304,6 +2304,8 @@ MonoBehaviour:
   saltosDoblesRestantes: 0
   controaldorMuro: {fileID: 1776206823}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
+  fuerzaSaltoPared: {x: 8.2, y: 15.1}
+  tiempoSaltoPared: 0.8
   velocidadDash: 30
   botonDash: 0
   cantidadDash: 1
