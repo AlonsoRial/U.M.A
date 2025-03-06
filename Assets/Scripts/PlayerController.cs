@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float velocidad;
     [SerializeField] private float gravedadCaida;
     [SerializeField] private float MAX_Velocidad_Caida;
+    private bool girando = true;
 
 
 
@@ -73,7 +74,15 @@ public class PlayerController : MonoBehaviour
 
     public void Flip()
     {
+        if (girando && vector2.x < 0f || !girando && vector2.x>0f) 
+        {
+            girando = !girando;
+            Vector3 escalaLocal = transform.localScale;
+            escalaLocal.x *= -1f;
+            transform.localScale = escalaLocal;
+        }
 
+        /*
         if (vector2.x > 0)
         {
             rigidbody2.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -83,6 +92,7 @@ public class PlayerController : MonoBehaviour
             rigidbody2.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
 
+        */
     }
 
 
