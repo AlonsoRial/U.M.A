@@ -2297,15 +2297,16 @@ MonoBehaviour:
   controladorSuelo: {fileID: 56544875}
   capaSuelo:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   dimensionControladorSalto: {x: 0.42, y: 0.24}
   botonSaltoDoble: 0
   cantidadSaltosDobles: 1
   saltosDoblesRestantes: 0
   controaldorMuro: {fileID: 1776206823}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
-  fuerzaSaltoPared: {x: 8.2, y: 15.1}
-  tiempoSaltoPared: 0.8
+  fuerzaSaltoPared: {x: 7.1, y: 22.3}
+  tiempoSaltoPared: 1.2
+  saltandoParez: 0
   velocidadDash: 30
   botonDash: 0
   cantidadDash: 1

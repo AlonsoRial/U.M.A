@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravedadCaida;
     [SerializeField] private float MAX_Velocidad_Caida;
     private bool girando = true;
+    private float auxiMove;
 
 
 
@@ -55,7 +56,7 @@ public class PlayerController : MonoBehaviour
     private bool deslizando;
     [SerializeField] private Vector2 fuerzaSaltoPared;
     [SerializeField] private float tiempoSaltoPared;
-    bool saltandoParez;
+    [SerializeField] private bool saltandoParez;
 
 
 
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int cantidadDash;
     [SerializeField] private int dashRestantes;
     [SerializeField] private float tiempoDash;
+    private int direcionDash;
 
 
 
@@ -158,6 +160,16 @@ public class PlayerController : MonoBehaviour
             deslizando= false;
         }
 
+
+        if (transform.localScale.x>0f) 
+        {
+            direcionDash = 1;
+        }
+        else 
+        {
+            direcionDash = -1;
+        }
+
     }
 
 
@@ -174,7 +186,7 @@ public class PlayerController : MonoBehaviour
         //DASH
         if (botonDash && dashRestantes > 0)
         {
-            rigidbody2.velocity = new Vector2(vector2.x * velocidadDash, 0);
+            rigidbody2.velocity = new Vector2(direcionDash * velocidadDash, 0);
 
             StartCoroutine(Espera());
 
@@ -216,7 +228,7 @@ public class PlayerController : MonoBehaviour
     public void Mover(CallbackContext callbackContext)
     {
         vector2.x = callbackContext.ReadValue<Vector2>().x;
-
+        auxiMove = callbackContext.ReadValue<Vector2>().x;
 
     }
 
@@ -279,19 +291,22 @@ public class PlayerController : MonoBehaviour
         saltandoParez = true;
 
        //Interesanto tambien
-        //vector2.x = -vector2.x;
-        
-        yield return new WaitForSeconds(tiempoSaltoPared);
+        vector2.x = -vector2.x;
 
+        yield return new WaitForSeconds(tiempoSaltoPared);
+        //yield return new WaitUntil(EstaEnTierra);
 
         saltandoParez = false;
+        vector2.x = auxiMove;
 
         //Interesanto esto
-        /*
-        vector2.x = 0;
-        Debug.Log("DCADF");
-        */
+        //vector2.x = 0;
+
+     
+
     }
+
+
 
     public void Dash(CallbackContext callbackContext)
     {
