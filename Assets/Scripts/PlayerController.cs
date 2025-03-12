@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("PAUSAR JUEGO")]
     [SerializeField] private Canvas canvas;
-    private bool botonPausa;
+
 
     public bool EstadoSwitch { get => estadoSwitch; }
 
@@ -331,22 +331,15 @@ public class PlayerController : MonoBehaviour
     public void Pausa(CallbackContext callbackContext)
     {
 
+      
         if (callbackContext.started)
-        {
-            botonPausa = !botonPausa;
-        }
-
-        if (botonPausa)
         {
             Time.timeScale = 0;
             canvas.enabled = true;
+            this.gameObject.SetActive(false);
+           // this.gameObject.SetActive(false);   
         }
-        else
-        {
-            Time.timeScale = 1;
-            canvas.enabled = false;
-        }
-
+    
     }
 
 
