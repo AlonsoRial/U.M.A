@@ -18,6 +18,8 @@ public class Menu : MonoBehaviour
     public Canvas[] canvas;
     public GameObject jugador;
 
+    public float volumenEfectos = 0.5f;
+
     public void Renudar()
     {
         canvas[0].enabled = false;
@@ -57,6 +59,12 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
+    }
+
+
+    public void CambiarVolumenEfectos(float volumen) 
+    {
+        volumenEfectos = volumen;
     }
 
 }
