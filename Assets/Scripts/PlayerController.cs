@@ -7,11 +7,9 @@ using static UnityEditor.ShaderData;
 using static UnityEngine.InputSystem.InputAction;
 
 
-
-//Hola Eric, te comento el codigo para que lo entiendas un poco mejor :)
 public class PlayerController : MonoBehaviour
 {
-    // El PlayerInput maneja el nuevo sistema de inputs y la camara, si queremos que el jugador pueda cambiar los controles, se debe de hacer con esto, en teoria...
+   
 
     Rigidbody2D rigidbody2;
     Vector2 vector2 = Vector2.zero;
@@ -22,7 +20,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("MOVIMIENTO")]
     [SerializeField] private float gravedad;
-    [SerializeField] private float velocidad;
+    [SerializeField] private float velocidadX;
+    [SerializeField] private float velocidadXCaida;
     [SerializeField] private float gravedadCaida;
     [SerializeField] private float MAX_Velocidad_Caida;
     private bool girando = true;
@@ -179,8 +178,16 @@ public class PlayerController : MonoBehaviour
 
         if (!saltandoParez)
         {
-            rigidbody2.velocity = new Vector2(vector2.x * velocidad, rigidbody2.velocity.y);
+            rigidbody2.velocity = new Vector2(vector2.x * velocidadX, rigidbody2.velocity.y);
         }
+
+        if (rigidbody2.velocity.y < 0 && vector2.x != 0)
+        {
+            rigidbody2.velocity = new Vector2(velocidadXCaida * vector2.x, rigidbody2.velocity.y);
+        }
+
+        Debug.Log(rigidbody2.velocity.x);
+
 
 
         //DASH
@@ -197,6 +204,8 @@ public class PlayerController : MonoBehaviour
             
             rigidbody2.velocity = new Vector2 (rigidbody2.velocity.x, Mathf.Clamp(rigidbody2.velocity.y, -0, float.MaxValue));
         }
+
+ 
 
 
     }
