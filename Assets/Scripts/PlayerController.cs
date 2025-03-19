@@ -302,7 +302,10 @@ public class PlayerController : MonoBehaviour
        //Interesanto tambien
         vector2.x = -vector2.x;
 
+        if (EstaEnMuro()) yield return true;
+      
         yield return new WaitForSeconds(tiempoSaltoPared);
+
         //yield return new WaitUntil(EstaEnTierra);
 
         saltandoParez = false;

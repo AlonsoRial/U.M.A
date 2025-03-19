@@ -3833,8 +3833,8 @@ MonoBehaviour:
   saltosDoblesRestantes: 0
   controaldorMuro: {fileID: 1776206823}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
-  fuerzaSaltoPared: {x: 7.1, y: 22.3}
-  tiempoSaltoPared: 1.2
+  fuerzaSaltoPared: {x: 7.1, y: 12}
+  tiempoSaltoPared: 0.7
   saltandoParez: 0
   velocidadDash: 30
   botonDash: 0
@@ -5137,7 +5137,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1954024395}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 26b027692887a6d42ae417f811fec8b8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
