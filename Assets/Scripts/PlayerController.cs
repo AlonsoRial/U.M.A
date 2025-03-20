@@ -11,10 +11,10 @@ public class PlayerController : MonoBehaviour
 {
    
 
-    Rigidbody2D rigidbody2;
-    Vector2 vector2 = Vector2.zero;
-    PlayerInput playerInput;
-    Vector3 posicionGuardado;
+    private Rigidbody2D rigidbody2;
+    private Vector2 vector2 = Vector2.zero;
+    private PlayerInput playerInput;
+    private Vector3 posicionGuardado;
 
 
 
@@ -42,9 +42,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform controladorSuelo;
     [SerializeField] private LayerMask capaSuelo;
     [SerializeField] private Vector2 dimensionControladorSalto;
-    [SerializeField] private bool botonSaltoDoble;
+    private bool botonSaltoDoble;
     [SerializeField] private int cantidadSaltosDobles;
-    [SerializeField] private int saltosDoblesRestantes;
+    private int saltosDoblesRestantes;
 
 
 
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     private bool deslizando;
     [SerializeField] private Vector2 fuerzaSaltoPared;
     [SerializeField] private float tiempoSaltoPared;
-    [SerializeField] private bool saltandoParez;
+    private bool saltandoParez;
 
 
 
@@ -63,9 +63,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("DASH")]
     [SerializeField] private float velocidadDash;
-    [SerializeField] private bool botonDash;
+     private bool botonDash;
     [SerializeField] private int cantidadDash;
-    [SerializeField] private int dashRestantes;
+     private int dashRestantes;
     [SerializeField] private float tiempoDash;
     private int direcionDash;
 
@@ -88,34 +88,22 @@ public class PlayerController : MonoBehaviour
             transform.localScale = escalaLocal;
         }
 
-        /*
-        if (vector2.x > 0)
-        {
-            rigidbody2.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (vector2.x < 0)
-        {
-            rigidbody2.transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-
-        */
+ 
     }
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-      
-        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log(rigidbody2.velocity.y + " ||||| " + rigidbody2.gravityScale);
+      
         Flip();
 
 
@@ -135,19 +123,6 @@ public class PlayerController : MonoBehaviour
             botonSaltoDoble = false;
             saltosDoblesRestantes = cantidadSaltosDobles;
         }
-
-        if (rigidbody2.velocity.y<0)
-        {
-            rigidbody2.gravityScale += Time.deltaTime * gravedadCaida;
-          
-        }
-
-        if (rigidbody2.velocity.y < MAX_Velocidad_Caida) 
-        {
-          //  Debug.Log("Sobrepasado");
-            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, MAX_Velocidad_Caida);
-        }
-
 
 
         if (EstaEnMuro() && !EstaEnTierra() && vector2.x != 0)
@@ -171,17 +146,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    
+
 
     private void FixedUpdate()
     {
-
 
         if (!saltandoParez)
         {
             rigidbody2.velocity = new Vector2(vector2.x * velocidadX, rigidbody2.velocity.y);
         }
 
-        if (rigidbody2.velocity.y < 0 && vector2.x != 0)
+        if (rigidbody2.velocity.y < 0)
         {
             rigidbody2.velocity = new Vector2(velocidadXCaida * vector2.x, rigidbody2.velocity.y);
         }
@@ -205,18 +181,23 @@ public class PlayerController : MonoBehaviour
             rigidbody2.velocity = new Vector2 (rigidbody2.velocity.x, Mathf.Clamp(rigidbody2.velocity.y, -0, float.MaxValue));
         }
 
- 
 
+        if (rigidbody2.velocity.y < 0)
+        {
+            rigidbody2.gravityScale += Time.deltaTime * gravedadCaida;
+
+        }
+
+        if (rigidbody2.velocity.y < MAX_Velocidad_Caida)
+        {
+
+            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, MAX_Velocidad_Caida);
+        }
 
     }
 
- 
-
-
-
     public IEnumerator Espera()
     {
-
         yield return new WaitForSeconds(tiempoDash);
         botonDash = false;
 
@@ -250,7 +231,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //hola
+   
     public void Jump(CallbackContext callbackContext)
     {
 
@@ -276,7 +257,8 @@ public class PlayerController : MonoBehaviour
 
         if (callbackContext.started && botonSaltoDoble && saltosDoblesRestantes!=0) 
         {
-            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, 0);
+            //Esto con el salto muro falla un poco
+            rigidbody2.velocity = new Vector2(0, 0);
           
             rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse);
             botonSaltoDoble = false;
@@ -299,22 +281,15 @@ public class PlayerController : MonoBehaviour
     {
         saltandoParez = true;
 
-       //Interesanto tambien
+      
         vector2.x = -vector2.x;
 
         if (EstaEnMuro()) yield return true;
       
         yield return new WaitForSeconds(tiempoSaltoPared);
 
-        //yield return new WaitUntil(EstaEnTierra);
-
         saltandoParez = false;
         vector2.x = auxiMove;
-
-        //Interesanto esto
-        //vector2.x = 0;
-
-     
 
     }
 
@@ -343,13 +318,12 @@ public class PlayerController : MonoBehaviour
     public void Pausa(CallbackContext callbackContext)
     {
 
-      
         if (callbackContext.started)
         {
             Time.timeScale = 0;
             canvas.enabled = true;
             this.gameObject.SetActive(false);
-           // this.gameObject.SetActive(false);   
+          
         }
     
     }

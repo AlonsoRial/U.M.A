@@ -3816,7 +3816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravedad: 1.6
   velocidadX: 12
-  velocidadXCaida: 9
+  velocidadXCaida: 6
   gravedadCaida: 10
   MAX_Velocidad_Caida: -7
   estadoSwitch: 0
@@ -3833,7 +3833,7 @@ MonoBehaviour:
   saltosDoblesRestantes: 0
   controaldorMuro: {fileID: 1776206823}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
-  fuerzaSaltoPared: {x: 7.1, y: 12}
+  fuerzaSaltoPared: {x: 8, y: 8}
   tiempoSaltoPared: 0.7
   saltandoParez: 0
   velocidadDash: 30
@@ -5496,6 +5496,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 526265745}
   - {fileID: 619394802}
   - {fileID: 1640499157}
   - {fileID: 1356052646}
@@ -5503,6 +5504,5 @@ SceneRoots:
   - {fileID: 1644786593}
   - {fileID: 1774600995}
   - {fileID: 1954024397}
-  - {fileID: 526265745}
   - {fileID: 1534516336}
   - {fileID: 1777800739}
