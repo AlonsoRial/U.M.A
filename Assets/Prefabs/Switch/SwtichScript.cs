@@ -15,8 +15,8 @@ public class SwtichScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boxCollider = GetComponent<BoxCollider2D>();   
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();   //colision del muro
+        spriteRenderer = GetComponent<SpriteRenderer>(); //cambio de los sprites del muro
      
     }
 
@@ -24,17 +24,18 @@ public class SwtichScript : MonoBehaviour
     void Update()
     {
 
-
+        //guarda en su variable el estado del switch del jugador
         estado = jugador.EstadoSwitch;
 
-        if (this.CompareTag("SWITCH-ROJO"))
+        if (this.CompareTag("SWITCH-ROJO")) //para que un muro esté activado y el otro no
         {
             estado = !estado;
         }
 
-        boxCollider.enabled = estado;
+        boxCollider.enabled = estado; //habilita o desabilita la colisión del muro
         
         
+        //cambia el color del muro, cuando tengamos sprites, en vez de cambiar de color, se cambiará los sprites
         if (estado)
         {
 
