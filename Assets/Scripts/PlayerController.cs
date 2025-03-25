@@ -119,6 +119,8 @@ public class PlayerController : MonoBehaviour
 
         }
 
+
+
         //si el jugador está tocando el suelo, se resetea la gravedad y los dobles saltos
         if (EstaEnTierra()) 
         {
@@ -241,7 +243,7 @@ public class PlayerController : MonoBehaviour
         //Llamada al salto normal
         if (callbackContext.started && EstaEnTierra()) 
         {
-          
+            //EN TEORIA, AQUI SE LLAMA LA ANIMACION DE PREPARACION
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
             
         }
@@ -264,7 +266,7 @@ public class PlayerController : MonoBehaviour
         //una vez ejecutado el doble salto
         if (callbackContext.started && botonSaltoDoble && saltosDoblesRestantes!=0) 
         {
-      
+            //EN TEORIA, AQUI SE LLAMA LA ANIMACION DE PREPARACION
             rigidbody2.velocity = new Vector2(0, 0); //la velocidad pasará a ser 0
           
             rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse); // se le aplica una fuerza para la nueva velocidad
