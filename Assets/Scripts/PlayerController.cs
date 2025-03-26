@@ -162,7 +162,6 @@ public class PlayerController : MonoBehaviour
             rigidbody2.velocity = new Vector2(velocidadXCaida * vector2.x, rigidbody2.velocity.y);
         }
 
-        Debug.Log(rigidbody2.velocity.x);
 
 
 
@@ -269,7 +268,8 @@ public class PlayerController : MonoBehaviour
 
         if (callbackContext.started && EstaEnMuro() && deslizando) 
         {
-            Debug.Log("MUROOOO");
+         
+
             rigidbody2.velocity = new Vector2(fuerzaSaltoPared.x * -vector2.x, fuerzaSaltoPared.y);
             StartCoroutine(TiempoSaltoParez());
         }
@@ -335,13 +335,15 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("HAZARDS"))
         {
-            Debug.Log("muerte");
+         
+
             rigidbody2.transform.position = posicionGuardado;
         }
 
         if (collision.gameObject.CompareTag("CHECKPOINT"))
         {
-            Debug.Log("checkpoint guardado");
+      
+
 
             posicionGuardado = collision.transform.position;
 
