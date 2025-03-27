@@ -7,11 +7,17 @@ public class PlataformaEnMovimiento : MonoBehaviour
 
     [SerializeField] private Transform[] points;
     [SerializeField] private float velocidad;
+    private float velocidadInicial;
     [SerializeField] private bool retorno;
     private int siguientePlataforma = 1;
     private bool ordenPlataforma = true;
+    [SerializeField] private int tiempo = 3;
 
-   
+
+    private void Awake()
+    {
+        velocidadInicial = velocidad;
+    }
 
     // Update is called once per frame
     void Update()
@@ -48,7 +54,7 @@ public class PlataformaEnMovimiento : MonoBehaviour
 
             }
 
-            
+            StartCoroutine(Cambio());
 
         }
 
@@ -59,12 +65,26 @@ public class PlataformaEnMovimiento : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player")) 
+        {
+            collision.transform.SetParent(this.transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.transform.SetParent(null);
     }
 
     public IEnumerator Cambio() 
     {
-        yield return new WaitForSeconds(5); ;
+        velocidad = 0;
+        Debug.Log("HOLA");
+        yield return new WaitForSeconds(tiempo);
+        Debug.Log("Adios");
+        velocidad = velocidadInicial;
+
     }
+    //hola
 
 }
