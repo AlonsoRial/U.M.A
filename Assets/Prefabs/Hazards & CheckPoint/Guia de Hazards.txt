@@ -1,0 +1,15 @@
+Hay 2 formas de colocar un hazard
+
+*FORMA 1*
+1- De los modelos de Prueba, coloca la imagen del hazards en el Proyecto de Unity
+2- En propiedades de la imagen, en Sprite Mode, en Mesh Type, elige Full Rect
+3- Lo arrastras al campo Sprite del hazards del Sprite Renderer
+4- En el Draw Mode del Sprite Renderer del Hazards, elige Sliced
+
+*FORMA 2*
+1- Pon la imagen del Hazards en la Scena donde más prefieras
+2- Escalalo a tu gusto
+3- Dale el Collider 2D que prefieras, Box, Circle, Capsule, Polygon, etc...
+4- Marcalo como Trigger
+5- En el Tag, selecionalo como HAZARDS
+6- *opcional* Puedes arrastrar ese objeto al Proyecto para que así te generé un prefabs y no tengas que volver a repetir el paso

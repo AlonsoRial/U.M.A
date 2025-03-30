@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
     [Header("SWITCH")]
     [SerializeField] private bool estadoSwitch = false; //el estado del switch
 
+    [Header("Hazards")]
+    [SerializeField] private float tiempoMuerte;
+
 
 
     [Header("SALTOS")]
@@ -347,19 +350,28 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("HAZARDS"))
         {
             Debug.Log("muerte");
-            rigidbody2.transform.position = posicionGuardado;
+            playerInput.enabled = false;
+            StartCoroutine(RespawnTime());
         }
 
         //Si choca un checkpoint, ese será el nuevo checkpoint
         if (collision.gameObject.CompareTag("CHECKPOINT"))
         {
             Debug.Log("checkpoint guardado");
-
+          
             posicionGuardado = collision.transform.position;
 
         }
     }
 
+
+    IEnumerator RespawnTime()
+    {
+        
+        yield return new WaitForSeconds(tiempoMuerte);
+        rigidbody2.transform.position = posicionGuardado;
+        playerInput.enabled = true;
+    }
 
     private void OnDrawGizmos()
     {
