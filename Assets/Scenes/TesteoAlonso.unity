@@ -3885,8 +3885,11 @@ MonoBehaviour:
   dimensionControladorSalto: {x: 0.42, y: 0.24}
   capaSuelo:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   cantidadSaltosDobles: 1
+  capaMuroSaltable:
+    serializedVersion: 2
+    m_Bits: 8
   controaldorMuro: {fileID: 1776206823}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
   fuerzaSaltoPared: {x: 8, y: 8}
@@ -5164,7 +5167,7 @@ GameObject:
   - component: {fileID: 1954024397}
   - component: {fileID: 1954024396}
   - component: {fileID: 1954024398}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Muro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5247,7 +5250,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1954024395}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 26b027692887a6d42ae417f811fec8b8, type: 2}
+  m_Material: {fileID: 6200000, guid: e6d3bd1f4bb4c7c4b990f3062162b727, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

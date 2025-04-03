@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("SALTO MURO")]
+    [SerializeField] private LayerMask capaMuroSaltable; //la capa donde el jugador pueda saltar en Muro
     [SerializeField] private Transform controaldorMuro; //La hitbox cuando choca con un muro
     [SerializeField] private Vector2 dimensionControladorMuro; //el tamaño de dicha hitbox
     private bool enMuro; //si el personaje esta chocando con el muro a la vez que esta cayendo
@@ -133,6 +134,8 @@ public class PlayerController : MonoBehaviour
         }
 
         //detecta si el jugador está cayendo mientras toca el muro
+        enMuro = EstaEnMuro() && !EstaEnTierra() && vector2.x != 0 ? true : false;
+        /*
         if (EstaEnMuro() && !EstaEnTierra() && vector2.x != 0)
         {
             enMuro = true;
@@ -141,8 +144,11 @@ public class PlayerController : MonoBehaviour
         {
             enMuro= false;
         }
+        */
 
         //calcula diración del dash
+        direcionDash = transform.localScale.x > 0f ? 1 : -1;
+        /*
         if (transform.localScale.x>0f) 
         {
             direcionDash = 1;
@@ -151,6 +157,7 @@ public class PlayerController : MonoBehaviour
         {
             direcionDash = -1;
         }
+        */
 
     }
 
@@ -218,7 +225,7 @@ public class PlayerController : MonoBehaviour
     //Función que devuelve si el jugador está tocando el muro o no
     public bool EstaEnMuro()
     {
-        return Physics2D.OverlapBox(controaldorMuro.position, dimensionControladorMuro, 0, capaSuelo);
+        return Physics2D.OverlapBox(controaldorMuro.position, dimensionControladorMuro, 0, capaMuroSaltable);
     }
 
     /*ZONA DE INPUTS*/
