@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1713791552755535211}
   - component: {fileID: 4174323562832061429}
   - component: {fileID: 2836417892383317726}
-  - component: {fileID: 5106568849596040245}
+  - component: {fileID: -5375482762296798683}
   m_Layer: 0
   m_Name: HazardPinchosTiempo
   m_TagString: HAZARDS
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.8822422}
   m_EdgeRadius: 0
---- !u!114 &5106568849596040245
+--- !u!114 &-5375482762296798683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,4 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca0dc391c1974b46a49d51992521ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempo: 5
+  tiempoDesactivado: 0
+  tiempoActivado: 0
+  tiempoDurmiendo: 0
