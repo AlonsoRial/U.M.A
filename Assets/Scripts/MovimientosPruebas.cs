@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using static UnityEditor.ShaderData;
 using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.InputSystem;
+using TMPro;
+using UnityEditor.UIElements;
 
-
-public class PlayerController : MonoBehaviour
+public class MovimientosPruebas : MonoBehaviour
 {
 
 
@@ -91,7 +90,7 @@ public class PlayerController : MonoBehaviour
             Vector3 escalaLocal = transform.localScale;
             escalaLocal.x *= -1f;
             transform.localScale = escalaLocal;
-
+            
         }
 
     }
@@ -102,7 +101,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-
+        
 
     }
 
@@ -229,7 +228,7 @@ public class PlayerController : MonoBehaviour
 
         foreach (Collider2D col in colliders)
         {
-            if (col.CompareTag("PARKOUR"))
+            if (col.CompareTag("PARKOUR")) 
             {
                 return true;
             }
@@ -404,3 +403,4 @@ public class PlayerController : MonoBehaviour
 
 
 }
+

@@ -5167,7 +5167,7 @@ GameObject:
   - component: {fileID: 1954024397}
   - component: {fileID: 1954024396}
   - component: {fileID: 1954024398}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Muro
   m_TagString: Untagged
   m_Icon: {fileID: 0}

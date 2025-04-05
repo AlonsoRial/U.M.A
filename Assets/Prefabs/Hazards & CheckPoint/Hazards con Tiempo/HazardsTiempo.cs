@@ -26,12 +26,12 @@ public class HazardPinchos : MonoBehaviour
     IEnumerator PinchosTime()
     {
         yield return new WaitForSeconds(tiempoDurmiendo);
-        Debug.Log("Despierto");
+       
         while (true)
         {
 
             tiempo = boxcollider2D.enabled == true ? tiempoActivado : tiempoDesactivado;
-            Debug.Log(tiempo);
+            
             yield return new WaitForSeconds(tiempo);
             sprite.enabled = !sprite.enabled;
             boxcollider2D.enabled = !boxcollider2D.enabled;
