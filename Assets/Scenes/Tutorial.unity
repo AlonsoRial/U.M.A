@@ -212,6 +212,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.884659
@@ -361,6 +373,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 203530802}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.203827
@@ -658,6 +682,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5853424
@@ -715,6 +751,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 203530802}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.203827
@@ -777,6 +825,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5853424
@@ -952,6 +1012,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 203530802}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.203827
@@ -1019,6 +1091,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.884659
@@ -2789,6 +2873,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5853424
@@ -2938,6 +3034,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5853424
@@ -3240,7 +3348,7 @@ MonoBehaviour:
   dimensionControladorSalto: {x: 0.42, y: 0.24}
   capaSuelo:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 8
   cantidadSaltosDobles: 1
   controaldorMuro: {fileID: 2055195494}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
@@ -3403,6 +3511,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 203530802}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.203827
@@ -3529,6 +3649,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.884659
@@ -3689,6 +3821,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.884659
@@ -3932,6 +4076,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 203530802}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.203827
@@ -4076,6 +4232,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5853424
@@ -4133,6 +4301,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 203530802}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.203827
@@ -4309,6 +4489,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.884659
@@ -4370,6 +4562,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 203530802}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.203827
@@ -4478,6 +4682,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1587412210}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5853424
@@ -4535,6 +4751,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 203530802}
     m_Modifications:
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoActivado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDurmiendo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5375482762296798683, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
+      propertyPath: tiempoDesactivado
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1713791552755535211, guid: 6b70ceba3e86825469e940a1f0c48a39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.203827

@@ -229,7 +229,7 @@ public class PlayerController : MonoBehaviour
 
         foreach (Collider2D col in colliders)
         {
-            if (col.CompareTag("PARKOUR"))
+            if (col.CompareTag("PARKOUR") || col.CompareTag("SWITCH-VERDE") || col.CompareTag("SWITCH-ROJO"))
             {
                 return true;
             }
