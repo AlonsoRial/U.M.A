@@ -18571,7 +18571,7 @@ Transform:
   m_GameObject: {fileID: 895404585}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.59, y: -4.07, z: 0}
+  m_LocalPosition: {x: -1.59, y: -6.043, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18789,6 +18789,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   cantidadSaltosDobles: 1
+  recuperacionSalto: 0.3
   controaldorMuro: {fileID: 2055195494}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
   fuerzaSaltoPared: {x: 8, y: 8}
@@ -20063,7 +20064,7 @@ Transform:
   m_GameObject: {fileID: 1284676876}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.59, y: -2.77, z: -10}
+  m_LocalPosition: {x: -1.59, y: -4.743, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20915,7 +20916,7 @@ Transform:
   m_GameObject: {fileID: 1697969595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.59, y: -2.77, z: -10}
+  m_LocalPosition: {x: -1.59, y: -4.743, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

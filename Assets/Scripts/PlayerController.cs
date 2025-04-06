@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private bool botonSaltoDoble; //booleado que indica si se ha activado la acción de doble salto
     [SerializeField] private int cantidadSaltosDobles; //los saltos dobles / secundarios que puede hacer el jugador
     private int saltosDoblesRestantes; // la cantidad de saltos dobles que el jugador puede ejercer
-
+    [SerializeField] float recuperacionSalto;
 
 
 
@@ -78,6 +78,9 @@ public class PlayerController : MonoBehaviour
     [Header("PAUSAR JUEGO")]
     [SerializeField] private Canvas canvas; //El Canvas para Pausar el juego
 
+    private Animator animator;
+
+    private int controlAniX, controlAniY;
 
     public bool EstadoSwitch { get => estadoSwitch; } //Get del estadoSwitch para que el codigo SwitchScript pueda haceder a él
 
@@ -102,7 +105,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
-
+        animator = GetComponent<Animator>();
 
     }
 
@@ -123,7 +126,22 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (botonDash)
+        {
+            animator.SetBool("B_Dash", true);
+        }
+        else 
+        {
+            animator.SetBool("B_Dash", false);
+        }
 
+       
+        controlAniX = rigidbody2.velocity.x !=0.0f && EstaEnTierra() ? 1:0;
+        controlAniY = rigidbody2.velocity.y != 0.0f && !EstaEnTierra() ? 1 : 0;
+
+        animator.SetInteger("V_X",controlAniX);
+        animator.SetInteger("V_Y", controlAniY);
+      
 
         //si el jugador está tocando el suelo, se resetea la gravedad y los dobles saltos
         if (EstaEnTierra())
@@ -162,7 +180,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    
 
     private void FixedUpdate()
     {
@@ -186,6 +204,7 @@ public class PlayerController : MonoBehaviour
         //DASH
         if (botonDash && dashRestantes > 0)
         {
+           
             rigidbody2.velocity = new Vector2(direcionDash * velocidadDash, 0);
 
             StartCoroutine(Espera());
@@ -208,9 +227,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public IEnumerator RecuperarCaida()
+    {
+        playerInput.enabled = false;
+        yield return new WaitForSeconds(recuperacionSalto);
+        playerInput.enabled = true;
+       
+
+    }
+
     //Tiempo de espera del dash, una vez cumplido podrá hacer otro dash
     public IEnumerator Espera()
     {
+        
         yield return new WaitForSeconds(tiempoDash);
         botonDash = false;
 
@@ -267,7 +296,7 @@ public class PlayerController : MonoBehaviour
         {
             //EN TEORIA, AQUI SE LLAMA LA ANIMACION DE PREPARACION
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
-
+            animator.SetTrigger("PrepaJump");
         }
 
         //Regula el salto apra hacerlo regulable
