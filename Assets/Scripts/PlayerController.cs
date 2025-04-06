@@ -84,6 +84,24 @@ public class PlayerController : MonoBehaviour
 
     public bool EstadoSwitch { get => estadoSwitch; } //Get del estadoSwitch para que el codigo SwitchScript pueda haceder a él
 
+    private AudioSource source => GetComponent<AudioSource>();
+
+    [Header("Sonido Pasos")]
+    [SerializeField] private AudioClip sonidoPasos;
+    [SerializeField] private float tiempoRepeticion;
+
+    [Header("Sonido Salto")]
+    [SerializeField] private AudioClip sonidoSalto;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        rigidbody2 = GetComponent<Rigidbody2D>();
+        playerInput = GetComponent<PlayerInput>();
+        animator = GetComponent<Animator>();
+
+        InvokeRepeating(nameof(SonidosAlAndar), 0, tiempoRepeticion);
+    }
 
     //Metodo que se encarga del giro del jugador
     public void Flip()
@@ -96,16 +114,6 @@ public class PlayerController : MonoBehaviour
             transform.localScale = escalaLocal;
 
         }
-
-    }
-
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        rigidbody2 = GetComponent<Rigidbody2D>();
-        playerInput = GetComponent<PlayerInput>();
-        animator = GetComponent<Animator>();
 
     }
 
@@ -177,9 +185,19 @@ public class PlayerController : MonoBehaviour
         }
         */
 
+  
+
+
     }
 
+    public void SonidosAlAndar() 
+    {
 
+        if (EstaEnTierra() && vector2.x != 0) 
+        {
+            source.PlayOneShot(sonidoPasos);
+        }
+    }
     
 
     private void FixedUpdate()
@@ -229,6 +247,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator RecuperarCaida()
     {
+        source.PlayOneShot(sonidoPasos);
         playerInput.enabled = false;
         yield return new WaitForSeconds(recuperacionSalto);
         playerInput.enabled = true;
@@ -294,6 +313,7 @@ public class PlayerController : MonoBehaviour
         //Llamada al salto normal
         if (callbackContext.started && EstaEnTierra())
         {
+            source.PlayOneShot(sonidoSalto);
             //EN TEORIA, AQUI SE LLAMA LA ANIMACION DE PREPARACION
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
             animator.SetTrigger("PrepaJump");
