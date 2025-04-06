@@ -9,6 +9,7 @@ TagManager:
   - HAZARDS
   - CHECKPOINT
   - PARKOUR
+  - Pullup
   layers:
   - Default
   - TransparentFX

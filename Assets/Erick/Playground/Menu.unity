@@ -122,6 +122,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &213945120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 213945122}
+  - component: {fileID: 213945121}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &213945121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213945120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99754895588e29499175b9912459891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &213945122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213945120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 888.26917, y: 547.47375, z: -4.1172323}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350121803
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 170.54614, y: 87.82382}
+  m_AnchoredPosition: {x: 279, y: 159}
   m_SizeDelta: {x: 777.334, y: 398.6971}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &422721306
@@ -479,7 +523,6 @@ GameObject:
   - component: {fileID: 842677396}
   - component: {fileID: 842677395}
   - component: {fileID: 842677394}
-  - component: {fileID: 842677393}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -487,18 +530,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &842677393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842677392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99754895588e29499175b9912459891, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &842677394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,9 +843,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 842677393}
+      - m_Target: {fileID: 213945121}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1216,7 +1247,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 842677393}
+      - m_Target: {fileID: 213945121}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: LoadGame
         m_Mode: 1
@@ -1273,3 +1304,4 @@ SceneRoots:
   - {fileID: 1929635649}
   - {fileID: 842677397}
   - {fileID: 1186366002}
+  - {fileID: 213945122}

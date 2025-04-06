@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TesteoAlonso.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Erick/Playground/Menu.unity
+    guid: ad50b57b0425afc45900a96b3f8e5acb
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: b7230da496d28654ea9634683ab42fc5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 84ab92c3b8171fc4992675d407fdc376, type: 2}
