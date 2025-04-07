@@ -352,6 +352,7 @@ public class PlayerController : MonoBehaviour
             //la velocidad pasa a ser a la de la fuerza del salto, se le invierte el input de horizontal para el giro del jugador
             rigidbody2.velocity = new Vector2(fuerzaSaltoPared.x * -vector2.x, fuerzaSaltoPared.y);
             StartCoroutine(TiempoSaltoParez()); //llamada al hilo
+            rigidbody2.gravityScale = gravedad;
         }
 
     }
