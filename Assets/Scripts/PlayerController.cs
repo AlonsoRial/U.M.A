@@ -148,7 +148,8 @@ public class PlayerController : MonoBehaviour
         controlAniY = rigidbody2.velocity.y != 0.0f && !EstaEnTierra() ? 1 : 0;
 
         animator.SetInteger("V_X",controlAniX);
-        animator.SetInteger("V_Y", controlAniY);
+       // animator.SetInteger("V_Y", controlAniY);
+        animator.SetBool("EnMuro", EstaEnMuro());
       
 
         //si el jugador está tocando el suelo, se resetea la gravedad y los dobles saltos
