@@ -261,7 +261,7 @@ public class PlayerController : MonoBehaviour
         
         yield return new WaitForSeconds(tiempoDash);
         botonDash = false;
-
+        
     }
 
     //Función que devuelve si el jugador está tocando el suelo o no
@@ -323,7 +323,7 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.canceled && rigidbody2.velocity.y > 0)
         {
 
-            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, rigidbody2.velocity.y / fuerzaDetencionSalto);
+            //rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, rigidbody2.velocity.y / fuerzaDetencionSalto);
 
 
         }
@@ -420,7 +420,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("muerte");
             playerInput.enabled = false;
-            StartCoroutine(RespawnTime());
+            animator.SetTrigger("Muerte");
+            rigidbody2.velocity = Vector3.zero;
+            rigidbody2.gravityScale = 0;
+
+
+
         }
 
         //Si choca un checkpoint, ese será el nuevo checkpoint
@@ -433,13 +438,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    IEnumerator RespawnTime()
-    {
-
-        yield return new WaitForSeconds(tiempoMuerte);
+    public void RespawnTime() { 
+        
         rigidbody2.transform.position = posicionGuardado;
         playerInput.enabled = true;
+        rigidbody2.gravityScale = gravedad;
     }
 
     private void OnDrawGizmos()
