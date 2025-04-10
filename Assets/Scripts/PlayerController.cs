@@ -316,7 +316,7 @@ public class PlayerController : MonoBehaviour
         {
             source.PlayOneShot(sonidoSalto);
             //EN TEORIA, AQUI SE LLAMA LA ANIMACION DE PREPARACION
-            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
+            rigidbody2.velocity =Vector2.up * fuerzaSalto;
             animator.SetTrigger("PrepaJump");
         }
 
@@ -336,14 +336,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //una vez ejecutado el doble salto
-        if (callbackContext.started && botonSaltoDoble && saltosDoblesRestantes != 0)
+        if (callbackContext.started && botonSaltoDoble && saltosDoblesRestantes > 0)
         {
-            //EN TEORIA, AQUI SE LLAMA LA ANIMACION DE PREPARACION
-            rigidbody2.velocity = new Vector2(0, 0); //la velocidad pasará a ser 0
-
-            rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse); // se le aplica una fuerza para la nueva velocidad
-            botonSaltoDoble = false; //deja  de poder hacer el doble salto
-            saltosDoblesRestantes--; //un salto menos
+         
+            rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse); 
+            botonSaltoDoble = false; 
+            saltosDoblesRestantes--; 
         }
 
 
@@ -424,8 +422,6 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("Muerte");
             rigidbody2.velocity = Vector3.zero;
             rigidbody2.gravityScale = 0;
-
-
 
         }
 

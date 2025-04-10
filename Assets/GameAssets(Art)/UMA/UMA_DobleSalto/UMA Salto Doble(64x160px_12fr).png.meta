@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f66d12e9bd575614380aa6bbb6b4811b
+guid: 643c057cd59550641bb42a112a4689d2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UMA Salto_0
+      name: UMA Salto Doble(64x160px_12fr)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 50
+        y: 320
         width: 64
-        height: 64
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f765bc99aef428242882686d562bc054
-      internalID: -1921385602
+      spriteID: 3821a891e68ba92408641bcf1bc4789c
+      internalID: -864286720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_1
+      name: UMA Salto Doble(64x160px_12fr)_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 50
+        y: 320
         width: 64
-        height: 64
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb722ff54b9dd4d429e773146debd51a
-      internalID: -1152143773
+      spriteID: 8586cb2220b2df84caff5f05df9720bc
+      internalID: -1368922629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_2
+      name: UMA Salto Doble(64x160px_12fr)_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 50
+        y: 320
         width: 64
-        height: 64
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 366bc947ee730304ab2974912aba3c83
-      internalID: -287615103
+      spriteID: e0dcb3f3dd96099418c319a5b9e1a17d
+      internalID: 1159968781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_3
+      name: UMA Salto Doble(64x160px_12fr)_3
       rect:
         serializedVersion: 2
         x: 192
-        y: 50
+        y: 320
         width: 64
-        height: 64
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25579c0dd39d3384ea5ef0344c20b782
-      internalID: -2119941627
+      spriteID: b6cd9e9e26bfb2641ac5a79c91ea7c9e
+      internalID: -866418063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_4
+      name: UMA Salto Doble(64x160px_12fr)_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 50
+        x: 0
+        y: 160
         width: 64
-        height: 64
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,146 +234,146 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f568664451cca241ab55376e2155321
-      internalID: -2052506770
+      spriteID: 5fda0c73a64527c42be1a5f1ed4968b9
+      internalID: -716267177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_5
+      name: UMA Salto Doble(64x160px_12fr)_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 50
+        x: 64
+        y: 160
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 160
+      alignment: 9
+      pivot: {x: 0.46, y: 0.84}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a737abd557780fc4b95124348dce0697
-      internalID: -1571186088
+      spriteID: 8d739fbab4f70934ba943db8f2d888f5
+      internalID: 1211748899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_6
+      name: UMA Salto Doble(64x160px_12fr)_6
       rect:
         serializedVersion: 2
-        x: 384
-        y: 50
+        x: 128
+        y: 160
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 160
+      alignment: 9
+      pivot: {x: 0.46, y: 0.84}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac6fcf1989222514f85890cc3a9a3201
-      internalID: -287766310
+      spriteID: 82f5988c3637a0c469fe90bd1e7a29f3
+      internalID: 2125876292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_7
+      name: UMA Salto Doble(64x160px_12fr)_7
       rect:
         serializedVersion: 2
-        x: 448
-        y: 51
+        x: 192
+        y: 160
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 160
+      alignment: 9
+      pivot: {x: 0.46, y: 0.84}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c007c6f71eda3bd4fa2a2dffbf0f2b98
-      internalID: 479966213
+      spriteID: ac3dd687298bab84b8636e72e1d3da24
+      internalID: 1231284417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_8
+      name: UMA Salto Doble(64x160px_12fr)_8
       rect:
         serializedVersion: 2
-        x: 512
-        y: 51
+        x: 0
+        y: 0
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 160
+      alignment: 9
+      pivot: {x: 0.46, y: 0.84}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bd223832915a0e4d87c53b363ecb6d7
-      internalID: -20653049
+      spriteID: d64443776b846c84bba17359a03fbcfd
+      internalID: 192162530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_9
+      name: UMA Salto Doble(64x160px_12fr)_9
       rect:
         serializedVersion: 2
-        x: 576
-        y: 51
+        x: 64
+        y: 0
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 160
+      alignment: 9
+      pivot: {x: 0.46, y: 0.84}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a421969cf2b92084fa276aeb32cde490
-      internalID: 698846925
+      spriteID: f5d1ad2893772084e84c2e99676686a1
+      internalID: 1247907466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_10
+      name: UMA Salto Doble(64x160px_12fr)_10
       rect:
         serializedVersion: 2
-        x: 640
-        y: 51
+        x: 128
+        y: 0
         width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 160
+      alignment: 9
+      pivot: {x: 0.46, y: 0.84}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0172fae3cafb63940b8ca3b916721587
-      internalID: 914886061
+      spriteID: dc3a6057a25f75b40986aabdbe61b552
+      internalID: -379277088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UMA Salto_11
+      name: UMA Salto Doble(64x160px_12fr)_11
       rect:
         serializedVersion: 2
-        x: 704
-        y: 50
+        x: 192
+        y: 0
         width: 64
-        height: 64
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,8 +381,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df81378e1b55fb2459986fc1d6093ecc
-      internalID: -604381868
+      spriteID: 622da81958f934644b18088179b61bb7
+      internalID: 537642376
       vertices: []
       indices: 
       edges: []
@@ -398,18 +398,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UMA Salto_0: -1921385602
-      UMA Salto_1: -1152143773
-      UMA Salto_10: 914886061
-      UMA Salto_11: -604381868
-      UMA Salto_2: -287615103
-      UMA Salto_3: -2119941627
-      UMA Salto_4: -2052506770
-      UMA Salto_5: -1571186088
-      UMA Salto_6: -287766310
-      UMA Salto_7: 479966213
-      UMA Salto_8: -20653049
-      UMA Salto_9: 698846925
+      UMA Salto Doble(64x160px_12fr)_0: -864286720
+      UMA Salto Doble(64x160px_12fr)_1: -1368922629
+      UMA Salto Doble(64x160px_12fr)_10: -379277088
+      UMA Salto Doble(64x160px_12fr)_11: 537642376
+      UMA Salto Doble(64x160px_12fr)_2: 1159968781
+      UMA Salto Doble(64x160px_12fr)_3: -866418063
+      UMA Salto Doble(64x160px_12fr)_4: -716267177
+      UMA Salto Doble(64x160px_12fr)_5: 1211748899
+      UMA Salto Doble(64x160px_12fr)_6: 2125876292
+      UMA Salto Doble(64x160px_12fr)_7: 1231284417
+      UMA Salto Doble(64x160px_12fr)_8: 192162530
+      UMA Salto Doble(64x160px_12fr)_9: 1247907466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
