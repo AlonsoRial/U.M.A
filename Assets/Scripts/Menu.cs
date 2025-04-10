@@ -59,4 +59,28 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+
+    public void Guardar() 
+    {
+        PlayerPrefs.SetFloat("PosicionX" , jugador.transform.position.x);
+        PlayerPrefs.SetFloat("PosicionY", jugador.transform.position.y);
+        PlayerPrefs.SetFloat("PosicionZ", jugador.transform.position.z);
+        PlayerPrefs.SetInt("nivel", SceneManager.GetActiveScene().buildIndex);
+
+        PlayerPrefs.Save();
+    }
+
+    public void Cargar() 
+    {
+        jugador.transform.position = new Vector3(
+            PlayerPrefs.GetFloat("PosicionX"), 
+            PlayerPrefs.GetFloat("PosicionY"),
+            PlayerPrefs.GetFloat("PosicionZ"));
+
+        //SceneManager.LoadScene(PlayerPrefs.GetInt("nivel"));
+        //Time.timeScale = 1.0f;
+
+    }
+
+
 }
