@@ -79,9 +79,9 @@ public class PlataformaEnMovimiento : MonoBehaviour
     public IEnumerator Cambio() 
     {
         velocidad = 0;
-        Debug.Log("HOLA");
+       
         yield return new WaitForSeconds(tiempo);
-        Debug.Log("Adios");
+      
         velocidad = velocidadInicial;
 
     }

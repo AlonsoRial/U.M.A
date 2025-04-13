@@ -40,14 +40,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("SALTOS")]
     [SerializeField] private float fuerzaSalto; //fuerza del salto principal
-    [SerializeField] private float fuerzaSaltoDoble; //fuerza del doble salto o salto secundarío
-    [SerializeField] private float fuerzaDetencionSalto; // para hacer el salto regulable
     [SerializeField] private Transform controladorSuelo; //el objeto que hace de hitbox del salto, debe de ir en los pies del personaje
     [SerializeField] private Vector2 dimensionControladorSalto; //El tamaño de la hitbox del salto
     [SerializeField] private LayerMask capaSuelo; //la capa donde el jugador pueda saltar
-    private bool botonSaltoDoble; //booleado que indica si se ha activado la acción de doble salto
     [SerializeField] private int cantidadSaltosDobles; //los saltos dobles / secundarios que puede hacer el jugador
-    private int saltosDoblesRestantes; // la cantidad de saltos dobles que el jugador puede ejercer
+    [SerializeField] private int saltosDoblesRestantes; // la cantidad de saltos dobles que el jugador puede ejercer
     [SerializeField] float recuperacionSalto;
 
 
@@ -156,7 +153,6 @@ public class PlayerController : MonoBehaviour
         if (EstaEnTierra())
         {
             rigidbody2.gravityScale = gravedad;
-            botonSaltoDoble = false;
             saltosDoblesRestantes = cantidadSaltosDobles;
         }
 
@@ -186,8 +182,8 @@ public class PlayerController : MonoBehaviour
         }
         */
 
-  
 
+        animator.SetBool("EnTierra",EstaEnTierra());
 
     }
 
@@ -308,44 +304,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    public void Salto() 
+    {
+        source.PlayOneShot(sonidoSalto);
+        rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
+    }
+
     //Salto
     public void Jump(CallbackContext callbackContext)
     {
-        //Llamada al salto normal
-        if (callbackContext.started && EstaEnTierra())
+        if (EstaEnTierra())
         {
-            source.PlayOneShot(sonidoSalto);
-            //EN TEORIA, AQUI SE LLAMA LA ANIMACION DE PREPARACION
-            rigidbody2.velocity =Vector2.up * fuerzaSalto;
-            animator.SetTrigger("PrepaJump");
-        }
+            if (callbackContext.performed)
+            {
 
-        //Regula el salto apra hacerlo regulable
-        if (callbackContext.canceled && rigidbody2.velocity.y > 0)
-        {
-
-            //rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, rigidbody2.velocity.y / fuerzaDetencionSalto);
-
+                animator.SetTrigger("T_Salto");
+                
+            }
 
         }
-
-        //cuando el jugador deja de presionar el botón de salto, la acción de doble salto estará disponible
-        if (callbackContext.canceled)
+        else 
         {
-            botonSaltoDoble = true;
+            if (callbackContext.performed && saltosDoblesRestantes > 0 && !EstaEnMuro()) 
+            {
+                rigidbody2.gravityScale = gravedad;
+                animator.SetTrigger("T_D_Salto");
+                saltosDoblesRestantes--;
+            }
+
         }
 
-        //una vez ejecutado el doble salto
-        if (callbackContext.started && botonSaltoDoble && saltosDoblesRestantes > 0)
-        {
-         
-            rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse); 
-            botonSaltoDoble = false; 
-            saltosDoblesRestantes--; 
-        }
-
-
-        //Llamada del salto en la parez
+     
         if (callbackContext.started && EstaEnMuro() && enMuro)
         {
             //la velocidad pasa a ser a la de la fuerza del salto, se le invierte el input de horizontal para el giro del jugador
