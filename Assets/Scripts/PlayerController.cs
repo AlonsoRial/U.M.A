@@ -131,16 +131,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (botonDash)
-        {
-            animator.SetBool("B_Dash", true);
-        }
-        else 
-        {
-            animator.SetBool("B_Dash", false);
-        }
 
-       
         controlAniX = rigidbody2.velocity.x !=0.0f && EstaEnTierra() ? 1:0;
         controlAniY = rigidbody2.velocity.y != 0.0f && !EstaEnTierra() ? 1 : 0;
 
@@ -158,29 +149,9 @@ public class PlayerController : MonoBehaviour
 
         //detecta si el jugador está cayendo mientras toca el muro
         enMuro = EstaEnMuro() && !EstaEnTierra() && vector2.x != 0 ? true : false;
-        /*
-        if (EstaEnMuro() && !EstaEnTierra() && vector2.x != 0)
-        {
-            enMuro = true;
-        }
-        else 
-        {
-            enMuro= false;
-        }
-        */
 
-        //calcula diración del dash
+
         direcionDash = transform.localScale.x > 0f ? 1 : -1;
-        /*
-        if (transform.localScale.x>0f) 
-        {
-            direcionDash = 1;
-        }
-        else 
-        {
-            direcionDash = -1;
-        }
-        */
 
 
         animator.SetBool("EnTierra",EstaEnTierra());
@@ -214,18 +185,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-
-
-        //DASH
-        if (botonDash && dashRestantes > 0)
-        {
-           
-            rigidbody2.velocity = new Vector2(direcionDash * velocidadDash, 0);
-
-            StartCoroutine(Espera());
-
-        }
-
         //Metodo para que el jugador se paré cuando toque el muro para el salto de parez
         if (enMuro)
         {
@@ -252,14 +211,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //Tiempo de espera del dash, una vez cumplido podrá hacer otro dash
-    public IEnumerator Espera()
-    {
-        
-        yield return new WaitForSeconds(tiempoDash);
-        botonDash = false;
-        
-    }
 
     //Función que devuelve si el jugador está tocando el suelo o no
     public bool EstaEnTierra()
@@ -368,22 +319,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(CallbackContext callbackContext)
     {
-        //si llama al dash, esté puede hacer un dash
-        if (callbackContext.started)
-        {
-            botonDash = true;
-
-        }
-
-        //si levanta el boton de dash, esté se restará .
-        if (callbackContext.canceled)
-        {
-            --dashRestantes;
-            if (dashRestantes < 0)
-            {
-                dashRestantes = 0;
-            }
-        }
+    
 
     }
 
