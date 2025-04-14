@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool girando = true; //booleano que dice en que lado está mirando el jugador
 
 
-
+    CallbackContext _dash;
 
 
     [Header("SWITCH")]
@@ -59,17 +59,10 @@ public class PlayerController : MonoBehaviour
     private float auxiMove; // guarda el movimiento del jugador para cuando retome el control del movimiento
 
 
-
-
-
     [Header("DASH")]
     [SerializeField] private float velocidadDash; //velocidad del dash
-    private bool botonDash; //acción del dash
-    [SerializeField] private int cantidadDash; //cantidad de dashes
-    private int dashRestantes; //dashes restantes del juador
-    [SerializeField] private float tiempoDash; //tiempo que dura el dash
-    private int direcionDash; //La dirección el cual se hará el dash
-
+    bool estaenDash = false;
+    private int direcionDash;
 
 
     [Header("PAUSAR JUEGO")]
@@ -90,6 +83,8 @@ public class PlayerController : MonoBehaviour
     [Header("Sonido Salto")]
     [SerializeField] private AudioClip sonidoSalto;
 
+    Vector3 escalaLocal;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -106,7 +101,7 @@ public class PlayerController : MonoBehaviour
         if (girando && vector2.x < 0f || !girando && vector2.x > 0f)
         {
             girando = !girando;
-            Vector3 escalaLocal = transform.localScale;
+            escalaLocal = transform.localScale;
             escalaLocal.x *= -1f;
             transform.localScale = escalaLocal;
 
@@ -123,14 +118,14 @@ public class PlayerController : MonoBehaviour
         //codigo para que la camará siga al jugador
         playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
-
+        /*
         //Resetea la cantidad de dashes cuando cumpla estas condiciones
         if (EstaEnTierra() || (!EstaEnTierra() && EstaEnMuro() && vector2.x != 0))
         {
             dashRestantes = cantidadDash;
 
         }
-
+        */
 
         controlAniX = rigidbody2.velocity.x !=0.0f && EstaEnTierra() ? 1:0;
         controlAniY = rigidbody2.velocity.y != 0.0f && !EstaEnTierra() ? 1 : 0;
@@ -149,10 +144,7 @@ public class PlayerController : MonoBehaviour
 
         //detecta si el jugador está cayendo mientras toca el muro
         enMuro = EstaEnMuro() && !EstaEnTierra() && vector2.x != 0 ? true : false;
-
-
         direcionDash = transform.localScale.x > 0f ? 1 : -1;
-
 
         animator.SetBool("EnTierra",EstaEnTierra());
 
@@ -166,7 +158,12 @@ public class PlayerController : MonoBehaviour
             source.PlayOneShot(sonidoPasos);
         }
     }
-    
+
+
+    public void DetenerDash() 
+    {
+        estaenDash = false;
+    }
 
     private void FixedUpdate()
     {
@@ -183,6 +180,14 @@ public class PlayerController : MonoBehaviour
             rigidbody2.gravityScale += Time.deltaTime * gravedadCaida; //se le suma la gravedad
         }
 
+       
+      
+        
+
+        if (estaenDash) 
+        {
+            rigidbody2.AddForce(new Vector2(direcionDash* velocidadDash,0));
+        }
 
 
         //Metodo para que el jugador se paré cuando toque el muro para el salto de parez
@@ -208,7 +213,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(recuperacionSalto);
         playerInput.enabled = true;
        
-
     }
 
 
@@ -269,9 +273,7 @@ public class PlayerController : MonoBehaviour
         {
             if (callbackContext.performed)
             {
-
                 animator.SetTrigger("T_Salto");
-                
             }
 
         }
@@ -284,6 +286,11 @@ public class PlayerController : MonoBehaviour
                 saltosDoblesRestantes--;
             }
 
+        }
+
+        if (callbackContext.started) 
+        {
+            estaenDash = false;
         }
 
      
@@ -319,9 +326,17 @@ public class PlayerController : MonoBehaviour
 
     public void Dash(CallbackContext callbackContext)
     {
-    
-
+        _dash = callbackContext;
+        
+        if (callbackContext.started) 
+        {
+         
+            animator.SetTrigger("T_Dash");
+            estaenDash = true;
+            
+        }
     }
+
 
     public void Pausa(CallbackContext callbackContext)
     {

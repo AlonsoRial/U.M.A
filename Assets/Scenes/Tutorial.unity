@@ -25022,7 +25022,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1.5, y: 2}
     newSize: {x: 0.48, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -25188,22 +25188,19 @@ MonoBehaviour:
   estadoSwitch: 0
   tiempoMuerte: 0
   fuerzaSalto: 12
-  fuerzaSaltoDoble: 12
-  fuerzaDetencionSalto: 3
   controladorSuelo: {fileID: 950300861}
   dimensionControladorSalto: {x: 0.42, y: 0.24}
   capaSuelo:
     serializedVersion: 2
     m_Bits: 8
   cantidadSaltosDobles: 1
+  saltosDoblesRestantes: 0
   recuperacionSalto: 0
   controaldorMuro: {fileID: 2055195494}
   dimensionControladorMuro: {x: 0.13, y: 1.43}
   fuerzaSaltoPared: {x: 8, y: 16}
   tiempoSaltoPared: 0.7
-  velocidadDash: 30
-  cantidadDash: 1
-  tiempoDash: 0.1
+  velocidadDash: 600
   canvas: {fileID: 0}
   sonidoPasos: {fileID: 8300000, guid: 74cf47c03e8560d40bf7b7110721992d, type: 3}
   tiempoRepeticion: 0.3
@@ -25331,7 +25328,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1.5, y: 2}
     newSize: {x: 0.48, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
