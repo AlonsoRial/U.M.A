@@ -50,9 +50,6 @@ TagManager:
   - name: Background
     uniqueID: 72000915
     locked: 0
-  - name: Midground
-    uniqueID: 3737778913
-    locked: 0
   - name: Playground
     uniqueID: 2183567549
     locked: 0
