@@ -83,6 +83,19 @@ public class PlayerController : MonoBehaviour
     [Header("Sonido Salto")]
     [SerializeField] private AudioClip sonidoSalto;
 
+    [Header("Sonido Dash")]
+    [SerializeField] private AudioClip sonidoDash;
+
+    [Header("Sonido Switch")]
+    [SerializeField] private AudioClip sonidoSwitch;
+
+
+    [Header("Sonido Aterrizaje")]
+    [SerializeField] private AudioClip sonidoAterrizaje;
+
+    [Header("Sonido Muerte")]
+    [SerializeField] private AudioClip sonidoMuerte;
+
     Vector3 escalaLocal;
 
     // Start is called before the first frame update
@@ -215,6 +228,11 @@ public class PlayerController : MonoBehaviour
        
     }
 
+    public void Caida() 
+    {
+        source.PlayOneShot(sonidoAterrizaje);
+    }
+
 
     //Función que devuelve si el jugador está tocando el suelo o no
     public bool EstaEnTierra()
@@ -255,6 +273,7 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.started)
         {
+            source.PlayOneShot(sonidoSwitch);
             estadoSwitch = !estadoSwitch;
         }
     }
@@ -330,7 +349,7 @@ public class PlayerController : MonoBehaviour
         
         if (callbackContext.started) 
         {
-         
+            source.PlayOneShot(sonidoDash);
             animator.SetTrigger("T_Dash");
             estaenDash = true;
             
