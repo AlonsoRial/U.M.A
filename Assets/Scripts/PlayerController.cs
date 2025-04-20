@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Member;
 using static UnityEditor.ShaderData;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -74,38 +75,31 @@ public class PlayerController : MonoBehaviour
 
     public bool EstadoSwitch { get => estadoSwitch; } //Get del estadoSwitch para que el codigo SwitchScript pueda haceder a él
 
-    private AudioSource source => GetComponent<AudioSource>();
-
-    [Header("Sonido Pasos")]
-    [SerializeField] private AudioClip sonidoPasos;
-    [SerializeField] private float tiempoRepeticion;
-
-    [Header("Sonido Salto")]
-    [SerializeField] private AudioClip sonidoSalto;
-
-    [Header("Sonido Dash")]
-    [SerializeField] private AudioClip sonidoDash;
-
-    [Header("Sonido Switch")]
-    [SerializeField] private AudioClip sonidoSwitch;
-
-
-    [Header("Sonido Aterrizaje")]
-    [SerializeField] private AudioClip sonidoAterrizaje;
-
-    [Header("Sonido Muerte")]
-    [SerializeField] private AudioClip sonidoMuerte;
+  
+    [SerializeField] private Audio_Script _audio;
+    
 
     Vector3 escalaLocal;
+
+    private void Start()
+    {
+        _audio = FindObjectOfType<Audio_Script>();
+
+        if (_audio == null)
+        {
+            Debug.LogError("No se encontró el script Audio_Script en la escena.");
+        }
+    }
 
     // Start is called before the first frame update
     void Awake()
     {
+        
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
 
-        InvokeRepeating(nameof(SonidosAlAndar), 0, tiempoRepeticion);
+        InvokeRepeating(nameof(SonidosAlAndar), 0, _audio.TiempoRepeticionPasos);
     }
 
     //Metodo que se encarga del giro del jugador
@@ -165,11 +159,14 @@ public class PlayerController : MonoBehaviour
 
     public void SonidosAlAndar() 
     {
+        
 
-        if (EstaEnTierra() && vector2.x != 0) 
+        if (EstaEnTierra() && vector2.x!=0) 
         {
-            source.PlayOneShot(sonidoPasos);
+            Debug.Log("fdasfda");
+            _audio.AudioPasos.PlayOneShot(_audio.AudioPasos.clip);
         }
+        
     }
 
 
@@ -216,21 +213,11 @@ public class PlayerController : MonoBehaviour
 
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, MAX_Velocidad_Caida);
         }
-
     }
 
-    public IEnumerator RecuperarCaida()
+    public void Caida()
     {
-        source.PlayOneShot(sonidoPasos);
-        playerInput.enabled = false;
-        yield return new WaitForSeconds(recuperacionSalto);
-        playerInput.enabled = true;
-       
-    }
-
-    public void Caida() 
-    {
-        source.PlayOneShot(sonidoAterrizaje);
+        _audio.AudioAterrizaje.PlayOneShot(_audio.AudioAterrizaje.clip);
     }
 
 
@@ -273,7 +260,8 @@ public class PlayerController : MonoBehaviour
     {
         if (callbackContext.started)
         {
-            source.PlayOneShot(sonidoSwitch);
+            //source.PlayOneShot(sonidoSwitch);
+            _audio.AudioSwitch.PlayOneShot(_audio.AudioSwitch.clip);
             estadoSwitch = !estadoSwitch;
         }
     }
@@ -281,7 +269,8 @@ public class PlayerController : MonoBehaviour
 
     public void Salto() 
     {
-        source.PlayOneShot(sonidoSalto);
+        //source.PlayOneShot(sonidoSalto);
+        _audio.AudioSalto.PlayOneShot(_audio.AudioSalto.clip);
         rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, fuerzaSalto);
     }
 
@@ -349,7 +338,9 @@ public class PlayerController : MonoBehaviour
         
         if (callbackContext.started) 
         {
-            source.PlayOneShot(sonidoDash);
+            //source.PlayOneShot(sonidoDash);
+            _audio.AudioDash.PlayOneShot(_audio.AudioDash.clip);
+           
             animator.SetTrigger("T_Dash");
             estaenDash = true;
             
