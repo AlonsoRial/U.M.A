@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 vector2 = Vector2.zero; //El valor input que envia el jugador
     private PlayerInput playerInput; // La cámara persigue el jugador
     private Vector3 posicionGuardado; //guarda la posición del checkpoint
-
+    private CapsuleCollider2D capsuleCollider2D;
 
 
     [Header("MOVIMIENTO")]
@@ -94,11 +94,12 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
-
+        vector2.x = 0;
+        rigidbody2.velocity = Vector3.zero;
         InvokeRepeating(nameof(SonidosAlAndar), 0, _audio.TiempoRepeticionPasos);
     }
 
@@ -191,12 +192,11 @@ public class PlayerController : MonoBehaviour
         }
 
        
-      
-        
 
         if (estaenDash) 
         {
-            rigidbody2.AddForce(new Vector2(direcionDash* velocidadDash,0));
+            //rigidbody2.AddForce(new Vector2(direcionDash* velocidadDash,0));
+            rigidbody2.velocity = new Vector2(direcionDash* velocidadDash ,0);
         }
 
 
@@ -266,6 +266,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SonidoExplision() 
+    {
+        _audio.AudioMuerte.PlayOneShot(_audio.AudioMuerte.clip);
+    }
 
     public void Salto() 
     {
@@ -368,10 +372,12 @@ public class PlayerController : MonoBehaviour
         //Si choca con un hazards, el jugador pasa a ser teletransportado al checkpoint
         if (collision.gameObject.CompareTag("HAZARDS"))
         {
-            Debug.Log("muerte");
+            capsuleCollider2D.enabled = false;
             playerInput.enabled = false;
             animator.SetTrigger("Muerte");
-            rigidbody2.velocity = Vector3.zero;
+           
+            rigidbody2.constraints = RigidbodyConstraints2D.FreezePosition;
+
             rigidbody2.gravityScale = 0;
 
         }
@@ -386,10 +392,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void RespawnTime() { 
-        
+    public void RespawnTime() {
+        _audio.AudioRespawn.PlayOneShot(_audio.AudioRespawn.clip);
+        capsuleCollider2D.enabled = true;
         rigidbody2.transform.position = posicionGuardado;
         playerInput.enabled = true;
+        rigidbody2.constraints = RigidbodyConstraints2D.None;
+        rigidbody2.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rigidbody2.transform.eulerAngles = Vector3.zero;
         rigidbody2.gravityScale = gravedad;
     }
 
