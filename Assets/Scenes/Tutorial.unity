@@ -27929,7 +27929,7 @@ Transform:
   m_GameObject: {fileID: 1284676876}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.28, y: -2.6799998, z: -10}
+  m_LocalPosition: {x: 57.12, y: 4.6200004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29476,7 +29476,7 @@ Transform:
   m_GameObject: {fileID: 1697969595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.28, y: -2.6799998, z: -10}
+  m_LocalPosition: {x: 57.12, y: 4.6200004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85705,16 +85705,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 761942552}
     - target: {fileID: 1622756575648952809, guid: f8aedb94850c2344eb0e51a33a5e19b4, type: 3}
+      propertyPath: gravedadCaida
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622756575648952809, guid: f8aedb94850c2344eb0e51a33a5e19b4, type: 3}
       propertyPath: velocidadDash
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1622756575648952809, guid: f8aedb94850c2344eb0e51a33a5e19b4, type: 3}
+      propertyPath: MAX_Velocidad_Caida
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 3349475989272745047, guid: f8aedb94850c2344eb0e51a33a5e19b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.28
+      value: 57.12
       objectReference: {fileID: 0}
     - target: {fileID: 3349475989272745047, guid: f8aedb94850c2344eb0e51a33a5e19b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.98
+      value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 3349475989272745047, guid: f8aedb94850c2344eb0e51a33a5e19b4, type: 3}
       propertyPath: m_LocalPosition.z
