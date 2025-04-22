@@ -5,6 +5,7 @@ using UnityEngine;
 public class BichoBehaviour : MonoBehaviour
 {
     public int velocidad = 5;
+    bool corre;
     public int tiempoVivo;
     Rigidbody2D rb;
     private Animator animator;
@@ -21,6 +22,8 @@ public class BichoBehaviour : MonoBehaviour
         if (tiempoVivo < 0)
             Destroy(gameObject);
             
+        if (corre)
+            tiempoVivo -= 1;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +31,7 @@ public class BichoBehaviour : MonoBehaviour
         if (collision.tag == "Player")
         {
             rb.velocity = new Vector2(velocidad, 0);
-            tiempoVivo -= 1;
+            corre = true;
             animator.SetTrigger("Visto");
         }
         
