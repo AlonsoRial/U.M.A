@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class BichoBehaviour : MonoBehaviour
 {
-    bool correr = false;
     public int velocidad = 5;
     public int tiempoVivo;
+    Rigidbody2D rb;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (correr)
-        {
-            transform.position += new Vector3(velocidad * Time.deltaTime, 0, 0);
-            tiempoVivo -= 1;
-
-        }
         if (tiempoVivo < 0)
             Destroy(gameObject);
             
@@ -31,7 +27,9 @@ public class BichoBehaviour : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            correr = true;
+            rb.velocity = new Vector2(velocidad, 0);
+            tiempoVivo -= 1;
+            animator.SetTrigger("Visto");
         }
         
     }

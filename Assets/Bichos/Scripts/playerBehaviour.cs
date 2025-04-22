@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerBehaviour : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,10 @@ public class playerBehaviour : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.position += new Vector3(5 *Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += new Vector3(-5 * Time.deltaTime, 0, 0);
         }
     }
 }
