@@ -85705,6 +85705,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 761942552}
     - target: {fileID: 1622756575648952809, guid: f8aedb94850c2344eb0e51a33a5e19b4, type: 3}
+      propertyPath: tiempoDash
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622756575648952809, guid: f8aedb94850c2344eb0e51a33a5e19b4, type: 3}
       propertyPath: gravedadCaida
       value: 10
       objectReference: {fileID: 0}

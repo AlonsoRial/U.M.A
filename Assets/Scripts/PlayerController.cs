@@ -62,8 +62,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("DASH")]
     [SerializeField] private float velocidadDash; //velocidad del dash
-    bool estaenDash = false;
+    private bool estaenDash = false;
     private int direcionDash;
+    private bool puedeDash = true;
+    [SerializeField] private float tiempoDash;
 
 
     [Header("PAUSAR JUEGO")]
@@ -174,7 +176,15 @@ public class PlayerController : MonoBehaviour
     public void DetenerDash() 
     {
         estaenDash = false;
+        StartCoroutine(hiloDash());
     }
+
+    IEnumerator hiloDash() 
+    {
+        yield return new WaitForSeconds(tiempoDash);
+        puedeDash = true;
+    }
+
 
     private void FixedUpdate()
     {
@@ -340,11 +350,11 @@ public class PlayerController : MonoBehaviour
     {
         _dash = callbackContext;
         
-        if (callbackContext.started) 
+        if (callbackContext.started && puedeDash) 
         {
             //source.PlayOneShot(sonidoDash);
             _audio.AudioDash.PlayOneShot(_audio.AudioDash.clip);
-           
+            puedeDash = false;
             animator.SetTrigger("T_Dash");
             estaenDash = true;
             
