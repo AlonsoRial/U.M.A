@@ -6,17 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
 
-    public InputActionAsset actions;
-
-    
-    //public Canvas panelControles;
-    //public Canvas panelSonidos;
-    //public Canvas MainCanva;
-
-    public Canvas[] canvas;
-    public GameObject jugador;
+    [SerializeField] private Canvas[] canvas;
+    [SerializeField] private GameObject jugador;
 
     public void Renudar()
     {
@@ -25,28 +17,47 @@ public class Menu : MonoBehaviour
         jugador.SetActive(true);
     }
 
-    public void Sonidos() 
-    {
-        canvas[2].enabled = true;
-        canvas[0].enabled = false;
-    }
+    
 
-
-    public void ActivaControles() 
+    public void IrOpciones() 
     {
+        canvas[0].enabled = false ;
         canvas[1].enabled = true;
-        canvas[0].enabled = false;
     }
 
-    public void VolverAlMenu() 
+    public void IrControles() 
     {
-        foreach (Canvas canvaIndi in canvas) 
+        canvas[1].enabled = false;
+        canvas[2].enabled = true;
+    }
+
+    public void IrSonidos() 
+    {
+        canvas[1].enabled = false;
+        canvas[3].enabled = true;
+    }
+
+    public void VolverAOpciones() 
+    {
+        foreach (Canvas canvaIndi in canvas)
+        {
+            canvaIndi.enabled = false;
+        }
+
+        canvas[1].enabled = true;
+    }
+
+    public void VolverAPausa() 
+    {
+        foreach (Canvas canvaIndi in canvas)
         {
             canvaIndi.enabled = false;
         }
 
         canvas[0].enabled = true;
     }
+
+
 
     public void Salir() 
     {
