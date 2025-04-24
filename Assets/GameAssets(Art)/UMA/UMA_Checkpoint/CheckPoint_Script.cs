@@ -24,4 +24,10 @@ public class CheckPoint_Script : MonoBehaviour
         }
     }
 
+    public void AniParticulas() 
+    {
+        Debug.Log("KAKAKAKAAKAK");
+        animator.SetTrigger("T_Par");
+    }
+
 }

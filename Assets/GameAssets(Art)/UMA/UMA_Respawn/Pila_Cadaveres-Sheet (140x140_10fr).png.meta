@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4b078ab1c38ad244aa90649be6e5286a
+guid: 97431316c6720984e8eb52783e9c9ce7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,215 +93,254 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_0
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e640da46af6c02b4cab56d982ccb7938
-      internalID: 1547979346
+      spriteID: 564454b6aa76c4f4895977a5c1871fe1
+      internalID: -210524361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_1
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_1
       rect:
         serializedVersion: 2
         x: 140
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8538c13d47abea94b98be50a6543e275
-      internalID: -377037427
+      spriteID: 71af8d472832ef04fba6c590263a901c
+      internalID: 281939776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_2
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_2
       rect:
         serializedVersion: 2
         x: 280
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dc61a8095b17b544a9c8115f53e8e57
-      internalID: -1328334077
+      spriteID: 823976ee352655746a682f541f2c875f
+      internalID: 24299028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_3
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_3
       rect:
         serializedVersion: 2
         x: 420
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4de604db9c328e24b816b61f3f0541b7
-      internalID: 1502857161
+      spriteID: 11f82504e55a3e5498896c38bf453701
+      internalID: 1674031021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_4
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_4
       rect:
         serializedVersion: 2
         x: 560
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f097e200b25a4ff4db256927a344e314
-      internalID: 1973836747
+      spriteID: aad8a8d46543f0943a17b5b742688770
+      internalID: -291307073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_5
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_5
       rect:
         serializedVersion: 2
         x: 700
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2cb6178dfb42f04f82b4c333b98fd82
-      internalID: -1673990842
+      spriteID: 9aef8d2343d56664286bea24192f3816
+      internalID: -906907662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_6
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_6
       rect:
         serializedVersion: 2
         x: 840
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cd580e990584bd41901743d44697eff
-      internalID: -6461595
+      spriteID: 8874e037260284a418297c6faea6706a
+      internalID: -1256653107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_7
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_7
       rect:
         serializedVersion: 2
         x: 980
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2deafaa2461f064794466510df2387c
-      internalID: 1464387106
+      spriteID: c9718648519410c4989255f900e4f440
+      internalID: 928969404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_8
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_8
       rect:
         serializedVersion: 2
         x: 1120
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0d7f26190202af468d0d45b73d36891
-      internalID: 1857804828
+      spriteID: 66dd6470e2d88484399ebdba5be49c2b
+      internalID: 1611623490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Respawn-Sheet(140x140px_10fr)_9
+      name: Pila_Cadaveres-Sheet (140x140_10fr)_9
       rect:
         serializedVersion: 2
         x: 1260
         y: 0
         width: 140
-        height: 140
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8162b01632c61834b8299b155b4a8228
-      internalID: 93134065
+      spriteID: ba42eb183791bee4098b110969b4b9a1
+      internalID: 546374810
       vertices: []
       indices: 
       edges: []
@@ -317,16 +356,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Respawn-Sheet(140x140px_10fr)_0: 1547979346
-      Respawn-Sheet(140x140px_10fr)_1: -377037427
-      Respawn-Sheet(140x140px_10fr)_2: -1328334077
-      Respawn-Sheet(140x140px_10fr)_3: 1502857161
-      Respawn-Sheet(140x140px_10fr)_4: 1973836747
-      Respawn-Sheet(140x140px_10fr)_5: -1673990842
-      Respawn-Sheet(140x140px_10fr)_6: -6461595
-      Respawn-Sheet(140x140px_10fr)_7: 1464387106
-      Respawn-Sheet(140x140px_10fr)_8: 1857804828
-      Respawn-Sheet(140x140px_10fr)_9: 93134065
+      Pila_Cadaveres-Sheet (140x140_10fr)_0: -210524361
+      Pila_Cadaveres-Sheet (140x140_10fr)_1: 281939776
+      Pila_Cadaveres-Sheet (140x140_10fr)_2: 24299028
+      Pila_Cadaveres-Sheet (140x140_10fr)_3: 1674031021
+      Pila_Cadaveres-Sheet (140x140_10fr)_4: -291307073
+      Pila_Cadaveres-Sheet (140x140_10fr)_5: -906907662
+      Pila_Cadaveres-Sheet (140x140_10fr)_6: -1256653107
+      Pila_Cadaveres-Sheet (140x140_10fr)_7: 928969404
+      Pila_Cadaveres-Sheet (140x140_10fr)_8: 1611623490
+      Pila_Cadaveres-Sheet (140x140_10fr)_9: 546374810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

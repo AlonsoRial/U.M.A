@@ -83,6 +83,9 @@ public class PlayerController : MonoBehaviour
 
     Vector3 escalaLocal;
 
+    public CheckPoint_Script[] checkPoint;
+    int puntoGuardado;
+
     private void Start()
     {
         _audio = FindObjectOfType<Audio_Script>();
@@ -91,11 +94,13 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("No se encontró el script Audio_Script en la escena.");
         }
+     
     }
 
     // Start is called before the first frame update
     void Awake()
     {
+
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         rigidbody2 = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
@@ -398,10 +403,16 @@ public class PlayerController : MonoBehaviour
 
             posicionGuardado = collision.transform.position;
 
+            //Hacer bucle foreach  dentro
+            if (collision.gameObject.CompareTag("fdsa") == checkPoint[1]) 
+            {
+            
+            }
         }
     }
 
     public void RespawnTime() {
+       
         _audio.AudioRespawn.PlayOneShot(_audio.AudioRespawn.clip);
         capsuleCollider2D.enabled = true;
         rigidbody2.transform.position = posicionGuardado;
@@ -410,6 +421,9 @@ public class PlayerController : MonoBehaviour
         rigidbody2.constraints = RigidbodyConstraints2D.FreezeRotation;
         rigidbody2.transform.eulerAngles = Vector3.zero;
         rigidbody2.gravityScale = gravedad;
+        animator.SetTrigger("T_Respawn");
+        //checkPoint.AniParticulas();f
+        
     }
 
     private void OnDrawGizmos()
