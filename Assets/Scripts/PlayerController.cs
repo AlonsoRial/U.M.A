@@ -166,7 +166,6 @@ public class PlayerController : MonoBehaviour
 
         if (EstaEnTierra() && vector2.x!=0) 
         {
-            Debug.Log("fdasfda");
             _audio.AudioPasos.PlayOneShot(_audio.AudioPasos.clip);
         }
         
