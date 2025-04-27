@@ -18,6 +18,8 @@ public class Audio_Script : MonoBehaviour
     [SerializeField] private AudioSource audioMuerte;
     [SerializeField] private AudioSource audioRespawn;
 
+    public AudioSource[] efectos;
+
 
 
     public AudioSource AudioPasos { get => audioPasos; }
@@ -29,9 +31,22 @@ public class Audio_Script : MonoBehaviour
     public AudioSource AudioRespawn { get => audioRespawn; }
     public AudioSource AudioTema { get => audioTema; }
     public float TiempoRepeticionPasos { get => tiempoRepeticionPasos;  }
-   //bv
-
-  
+    //bv
 
     
+
+    public void CambiarVolumenEfectos(float valor)
+    {
+        // print("Volumen efectos: " +  valor);
+
+
+        foreach (AudioSource audio in efectos) 
+        {
+            audio.volume = valor;
+           
+        }
+
+    }
+
+
 }
