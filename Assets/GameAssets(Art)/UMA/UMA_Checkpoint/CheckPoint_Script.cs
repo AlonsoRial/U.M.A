@@ -13,20 +13,21 @@ public class CheckPoint_Script : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-   
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           
-            animator.SetTrigger("T_Jugador");
+            
+             animator.SetTrigger("T_Jugador");
+           // animator.SetBool("B_Ini", Globales.guardar);
         }
     }
 
     public void AniParticulas() 
     {
-        Debug.Log("KAKAKAKAAKAK");
+        
         animator.SetTrigger("T_Par");
     }
 

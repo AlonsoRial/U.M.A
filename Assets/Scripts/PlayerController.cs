@@ -83,8 +83,6 @@ public class PlayerController : MonoBehaviour
 
     Vector3 escalaLocal;
 
-    public CheckPoint_Script[] checkPoint;
-    int puntoGuardado;
 
     private void Start()
     {
@@ -379,6 +377,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private CheckPoint_Script check;
+
+
     //Las colisiones
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -393,21 +394,20 @@ public class PlayerController : MonoBehaviour
             rigidbody2.constraints = RigidbodyConstraints2D.FreezePosition;
 
             rigidbody2.gravityScale = 0;
+            
 
         }
 
         //Si choca un checkpoint, ese será el nuevo checkpoint
-        if (collision.gameObject.CompareTag("CHECKPOINT"))
-        {
-            Debug.Log("checkpoint guardado");
+        if (collision.gameObject.CompareTag("CHECKPOINT") )
+        {   
+            
+            check = collision.gameObject.GetComponent<CheckPoint_Script>();
+           
 
             posicionGuardado = collision.transform.position;
 
-            //Hacer bucle foreach  dentro
-            if (collision.gameObject.CompareTag("fdsa") == checkPoint[1]) 
-            {
-            
-            }
+          
         }
     }
 
@@ -422,7 +422,8 @@ public class PlayerController : MonoBehaviour
         rigidbody2.transform.eulerAngles = Vector3.zero;
         rigidbody2.gravityScale = gravedad;
         animator.SetTrigger("T_Respawn");
-        //checkPoint.AniParticulas();f
+        check.AniParticulas();
+
         
     }
 
