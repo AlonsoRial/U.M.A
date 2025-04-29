@@ -48,5 +48,14 @@ public class Audio_Script : MonoBehaviour
 
     }
 
+    public void MutearEfectos(bool valor) 
+    {
+        foreach (AudioSource audio in efectos)
+        {
+            audio.mute = valor;
+
+        }
+    }
+
 
 }
