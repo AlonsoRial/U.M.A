@@ -18,7 +18,7 @@ public class Audio_Script : MonoBehaviour
     [SerializeField] private AudioSource audioMuerte;
     [SerializeField] private AudioSource audioRespawn;
 
-    public AudioSource[] efectos;
+    [SerializeField] private AudioSource[] efectos;
 
 
 
