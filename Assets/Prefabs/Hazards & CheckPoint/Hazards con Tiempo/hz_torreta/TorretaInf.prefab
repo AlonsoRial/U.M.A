@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.494, y: -6.376, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6992925133258244665}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2111399747
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b95386dbf0a529543a813108153b650d, type: 3}
+  m_SortingOrder: 6
+  m_Sprite: {fileID: 21300000, guid: 9a46957aaea12954db626c8f81fc3186, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 4779264430839873389}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4649999, y: 0.10900008, z: 0}
+  m_LocalPosition: {x: -0.009, y: -1.095, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 6992925133258244665}
   - component: {fileID: 6981377312813026358}
   - component: {fileID: 7667356165791723312}
+  - component: {fileID: 2318684774359123567}
   m_Layer: 0
   m_Name: TorretaSup
   m_TagString: Untagged
@@ -190,8 +191,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2111399747
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 08fcc79ad906ca6439f9499178ae3ed3, type: 3}
+  m_SortingOrder: 6
+  m_Sprite: {fileID: -1763818916, guid: f8d8355e2f7d6d440af82a43b3203521, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -216,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FollowingTarget: 1
   fireRate: 1
-  bulletPrefab: {fileID: 8363308532379890552, guid: 3583a32ed5b05b14d874639711c445c5, type: 3}
+  bulletPrefab: {fileID: 2762057449180197689, guid: ed8d817221ea0f34c8170c91d7c04ea4, type: 3}
   firePoint: {fileID: 5346343173020988307}
   player: {fileID: 4865899748557674818, guid: f8aedb94850c2344eb0e51a33a5e19b4, type: 3}
   detectionRange: 10
@@ -224,3 +225,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   turretSprite: {fileID: 6981377312813026358}
+--- !u!95 &2318684774359123567
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700556636716503988}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5594043be3f2d746b29288d75ff5e82, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
