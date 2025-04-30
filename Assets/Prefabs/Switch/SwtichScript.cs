@@ -12,6 +12,7 @@ public class SwtichScript : MonoBehaviour
 
     public bool estado;
     //tonto quien lo lea XD
+    // ahh estamos comediantes
     // Start is called before the first frame update
     void Start()
     {
@@ -36,23 +37,29 @@ public class SwtichScript : MonoBehaviour
         
         
         //cambia el color del muro, cuando tengamos sprites, en vez de cambiar de color, se cambiará los sprites
+        // top 10 las peores mentiras del anime
         if (estado)
         {
 
             if (this.CompareTag("SWITCH-ROJO"))
             {
-                spriteRenderer.color = new Color(255, 0, 0, 255);
+                //spriteRenderer.color = new Color(255, 255, 255, 255);
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+
             }
 
             if (this.CompareTag("SWITCH-VERDE"))
             {
-                spriteRenderer.color = new Color(0, 255, 0, 255);
+                //spriteRenderer.color = new Color(255, 255, 255, 255);
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                
             }
 
         }
         else 
         {
-            spriteRenderer.color = new Color(0, 0, 255, 255);
+            //spriteRenderer.color = new Color(0, 0, 255, 255);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
 
         }
        

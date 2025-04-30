@@ -172,7 +172,7 @@ MonoBehaviour:
   velocidadX: 12
   velocidadXCaida: 8
   gravedadCaida: 10
-  MAX_Velocidad_Caida: -8
+  MAX_Velocidad_Caida: -15
   estadoSwitch: 0
   tiempoMuerte: 0
   fuerzaSalto: 12
@@ -188,7 +188,8 @@ MonoBehaviour:
   dimensionControladorMuro: {x: 0.13, y: 1.43}
   fuerzaSaltoPared: {x: 8, y: 16}
   tiempoSaltoPared: 0.7
-  velocidadDash: 600
+  velocidadDash: 20
+  tiempoDash: 1
   canvas: {fileID: 0}
   _audio: {fileID: 0}
 --- !u!114 &156481181218952530
