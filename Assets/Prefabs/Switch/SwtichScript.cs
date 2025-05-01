@@ -51,7 +51,7 @@ public class SwtichScript : MonoBehaviour
             if (this.CompareTag("SWITCH-VERDE"))
             {
                 //spriteRenderer.color = new Color(255, 255, 255, 255);
-                spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
                 
             }
 
@@ -59,7 +59,7 @@ public class SwtichScript : MonoBehaviour
         else 
         {
             //spriteRenderer.color = new Color(0, 0, 255, 255);
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.1f);
 
         }
        
