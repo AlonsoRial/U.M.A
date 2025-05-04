@@ -21,4 +21,14 @@ public class Ascensor_Scrip : MonoBehaviour
         }
     }
 
+    public void MenuInicio() 
+    {
+        SceneManager.LoadScene(escena.name);
+    }
+
+    public void Salir()
+    {
+        Application.Quit();
+    }
+
 }
