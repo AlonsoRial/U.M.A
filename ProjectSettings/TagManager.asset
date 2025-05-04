@@ -10,6 +10,8 @@ TagManager:
   - CHECKPOINT
   - PARKOUR
   - Pullup
+  - NO_CONTROL
+  - ANI
   layers:
   - Default
   - TransparentFX

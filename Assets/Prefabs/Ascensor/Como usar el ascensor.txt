@@ -1,0 +1,6 @@
+El Objeto no control lo que hace es que al jugador se le desactiva los controles y camine siempre a la izquierda, eso es para generar un efecto de animación automatica.
+Seguira caminando hasta que colisione con el ascensor.
+
+IMPORTATE
+- UMA caminara siempre en linea recta, a si que no pongais obstaculos en medio
+- Si salta un error con el ascensor, es por la version de unity, no pasa nada, ignorarlo.

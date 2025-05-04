@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
     Vector3 escalaLocal;
 
 
+
     private void Start()
     {
         _audio = FindObjectOfType<Audio_Script>();
@@ -167,7 +168,7 @@ public class PlayerController : MonoBehaviour
     {
         
 
-        if (EstaEnTierra() && vector2.x!=0) 
+        if (EstaEnTierra() && rigidbody2.velocity.x !=0) 
         {
             _audio.AudioPasos.PlayOneShot(_audio.AudioPasos.clip);
         }
@@ -190,41 +191,44 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Velocidad normal del jugador mientras no esté saltando en la parez
-        if (!saltandoParez)
-        {
-            rigidbody2.velocity = new Vector2(vector2.x * velocidadX, rigidbody2.velocity.y);
-        }
+        
+            //Velocidad normal del jugador mientras no esté saltando en la parez
+            if (!saltandoParez)
+            {
+                rigidbody2.velocity = new Vector2(vector2.x * velocidadX, rigidbody2.velocity.y);
+            }
 
 
-        if (rigidbody2.velocity.y < 0)
-        {
-            rigidbody2.velocity = new Vector2(velocidadXCaida * vector2.x, rigidbody2.velocity.y); //la velocidad horizontal cuando el jugador caiga
-            rigidbody2.gravityScale += Time.deltaTime * gravedadCaida; //se le suma la gravedad
-        }
-
-       
-
-        if (estaenDash) 
-        {
-            //rigidbody2.AddForce(new Vector2(direcionDash* velocidadDash,0));
-            rigidbody2.velocity = new Vector2(direcionDash* velocidadDash ,0);
-        }
+            if (rigidbody2.velocity.y < 0)
+            {
+                rigidbody2.velocity = new Vector2(velocidadXCaida * vector2.x, rigidbody2.velocity.y); //la velocidad horizontal cuando el jugador caiga
+                rigidbody2.gravityScale += Time.deltaTime * gravedadCaida; //se le suma la gravedad
+            }
 
 
-        //Metodo para que el jugador se paré cuando toque el muro para el salto de parez
-        if (enMuro)
-        {
 
-            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, Mathf.Clamp(rigidbody2.velocity.y, -0, float.MaxValue));
-        }
+            if (estaenDash)
+            {
+                //rigidbody2.AddForce(new Vector2(direcionDash* velocidadDash,0));
+                rigidbody2.velocity = new Vector2(direcionDash * velocidadDash, 0);
+            }
 
-        //si la velocidad de caida sobrepasa a la maxima, la maxima velocidad de caida será la velocidad de caida
-        if (rigidbody2.velocity.y < MAX_Velocidad_Caida)
-        {
 
-            rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, MAX_Velocidad_Caida);
-        }
+            //Metodo para que el jugador se paré cuando toque el muro para el salto de parez
+            if (enMuro)
+            {
+
+                rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, Mathf.Clamp(rigidbody2.velocity.y, -0, float.MaxValue));
+            }
+
+            //si la velocidad de caida sobrepasa a la maxima, la maxima velocidad de caida será la velocidad de caida
+            if (rigidbody2.velocity.y < MAX_Velocidad_Caida)
+            {
+
+                rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, MAX_Velocidad_Caida);
+            }
+
+  
     }
 
     public void Caida()
@@ -409,7 +413,30 @@ public class PlayerController : MonoBehaviour
 
           
         }
+
+        if (collision.gameObject.CompareTag("NO_CONTROL")) 
+        {
+            
+            playerInput.enabled = false;
+            vector2.x = 1;
+
+          
+            
+        }
+
+        if (collision.gameObject.CompareTag("ANI"))
+        {
+
+            Debug.Log("hola soy Rodolfo Mascarpone, igual el que te lo quita como el que te lo pone");
+            gameObject.SetActive(false);
+          
+
+
+        }
+
+
     }
+
 
     public void RespawnTime() {
        

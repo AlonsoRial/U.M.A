@@ -1,0 +1,1352 @@
+fileFormatVersion: 2
+guid: 2126c575db8d0e5449e5c7d8558baf78
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 32
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638819893807630729
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Ascensor_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.020833332}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 610
+      width: 128
+      height: 192
+    spriteID: 3dde4f71877b9b34295bbd1a82045676
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 610}
+  - name: Ascensor_Frame_1
+    originalName: 
+    pivot: {x: 0.5151515, y: -0.020833332}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1821
+      width: 132
+      height: 192
+    spriteID: 049b9cf67fdd62a49a5be7d37a02f914
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1821}
+  - name: Ascensor_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 408
+      width: 128
+      height: 196
+    spriteID: c6ea668e5575e964f96dd6ae822602bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 408}
+  - name: Ascensor_Frame_3
+    originalName: 
+    pivot: {x: 0.57894737, y: -0.015544041}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 152
+      height: 193
+    spriteID: e0d92c534375ab040ae05d4d93c8f862
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Ascensor_Frame_4
+    originalName: 
+    pivot: {x: 0.5114504, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1215
+      width: 131
+      height: 194
+    spriteID: 9fdf118e47e290f46baca4ee92d5da21
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1215}
+  - name: Ascensor_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 1019
+      width: 128
+      height: 194
+    spriteID: 75d20154c97540041b9c2f68b85015a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 1019}
+  - name: Ascensor_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.0051282053}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 816
+      width: 128
+      height: 195
+    spriteID: bfc6607220091fd459b71a851faeb3cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 816}
+  - name: Ascensor_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 612
+      width: 128
+      height: 196
+    spriteID: c51a4627d4a4d3b45acb084c8ddf5e15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 612}
+  - name: Ascensor_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 1221
+      width: 128
+      height: 194
+    spriteID: 81a0cf8567b44134d918989bd6882090
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 1221}
+  - name: Ascensor_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 1423
+      width: 128
+      height: 194
+    spriteID: 4a777ba34e02c0e4fb5f7375a4b72242
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 1423}
+  - name: Ascensor_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 1625
+      width: 128
+      height: 194
+    spriteID: 54c1eca95d3a08647a8fc5640bdd810f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 1625}
+  - name: Ascensor_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 1827
+      width: 128
+      height: 194
+    spriteID: 78566985908f249488f23f9f4e3c6c8b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 1827}
+  - name: Ascensor_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 4
+      width: 128
+      height: 194
+    spriteID: 2707af285183abe44bcae622153af07f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 4}
+  - name: Ascensor_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 206
+      width: 128
+      height: 194
+    spriteID: 4623ea0c04993084295548cdaeca8327
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 206}
+  - name: Ascensor_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 408
+      width: 128
+      height: 194
+    spriteID: d2362d340e203c24cbc4657091c7c4bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 408}
+  - name: Ascensor_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 610
+      width: 128
+      height: 194
+    spriteID: cbd68fa00a250ea44b7158adcf4f7f5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 610}
+  - name: Ascensor_Frame_16
+    originalName: 
+    pivot: {x: 0.48484847, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 811
+      width: 132
+      height: 194
+    spriteID: 487073393a441174391e05d6b8462250
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 811}
+  - name: Ascensor_Frame_17
+    originalName: 
+    pivot: {x: 0.48120302, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 609
+      width: 133
+      height: 194
+    spriteID: d4be18972e2dfc54fafe1788972a5fba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 609}
+  - name: Ascensor_Frame_18
+    originalName: 
+    pivot: {x: 0.47761193, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 205
+      width: 134
+      height: 194
+    spriteID: 634c8f46ac1316341a3617252728e062
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 205}
+  - name: Ascensor_Frame_19
+    originalName: 
+    pivot: {x: 0.49230772, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 4
+      width: 130
+      height: 194
+    spriteID: e4c6c3842b9231e4faf865f865208ec9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 4}
+  - name: Ascensor_Frame_20
+    originalName: 
+    pivot: {x: 0.48854965, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1417
+      width: 131
+      height: 194
+    spriteID: 098c87e706ee4f041be079c6fc1503a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1417}
+  - name: Ascensor_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 812
+      width: 128
+      height: 194
+    spriteID: 74f2f46113e10de4bb2cab3119649664
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 812}
+  - name: Ascensor_Frame_22
+    originalName: 
+    pivot: {x: 0.50769234, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 206
+      width: 130
+      height: 194
+    spriteID: 6d8ae13f8c98d1c4eb84381400724079
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 206}
+  - name: Ascensor_Frame_23
+    originalName: 
+    pivot: {x: 0.52238804, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 407
+      width: 134
+      height: 194
+    spriteID: 1b04b1737a0fbb045b405cd66be7d9ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 407}
+  - name: Ascensor_Frame_24
+    originalName: 
+    pivot: {x: 0.5151515, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1013
+      width: 132
+      height: 194
+    spriteID: 89d73a44993d50f45ac65899f39e1431
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1013}
+  - name: Ascensor_Frame_25
+    originalName: 
+    pivot: {x: 0.5114504, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1619
+      width: 131
+      height: 194
+    spriteID: 3801296a71febfa4e81ac9a252ff1066
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1619}
+  - name: Ascensor_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 1014
+      width: 128
+      height: 194
+    spriteID: 3efa860193e766a44ba2050999d22de0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 1014}
+  - name: Ascensor_Frame_27
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 1216
+      width: 128
+      height: 194
+    spriteID: af53fec69eafaa44d9aca477c01ed0ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 1216}
+  - name: Ascensor_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 1418
+      width: 128
+      height: 194
+    spriteID: 74b86d828e4609a4a9c5426dcb83ee0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 1418}
+  - name: Ascensor_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 1620
+      width: 128
+      height: 194
+    spriteID: 6440283b703075744a54697b32cc62c6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 1620}
+  - name: Ascensor_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 302
+      y: 1822
+      width: 128
+      height: 194
+    spriteID: 21c0457c5e5ba16489bb116626db0aa0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 302, y: 1822}
+  - name: Ascensor_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 4
+      width: 128
+      height: 194
+    spriteID: acd6e6743fb90ad42b336b7b550996a7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 4}
+  - name: Ascensor_Frame_32
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 206
+      width: 128
+      height: 194
+    spriteID: 6724309c9e00a2f42a959bc29c6b983c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 206}
+  - name: Ascensor_Frame_33
+    originalName: 
+    pivot: {x: 0.5, y: -0.010309277}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 408
+      width: 128
+      height: 194
+    spriteID: fa443318e2eea1146a4d2d2a2a5f7e94
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 408}
+  - name: Ascensor_Frame_34
+    originalName: 
+    pivot: {x: 0.5, y: -0.020833332}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 810
+      width: 128
+      height: 192
+    spriteID: b1812dd9d246a514bba7e6d6236025cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 810}
+  - name: Ascensor_Frame_35
+    originalName: 
+    pivot: {x: 0.5, y: -0.020833332}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 1010
+      width: 128
+      height: 192
+    spriteID: 236ef2e628b25fd44ae193f11d077fb0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 1010}
+  - name: Ascensor_Frame_36
+    originalName: 
+    pivot: {x: 0.5, y: -0.020833332}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 1210
+      width: 128
+      height: 192
+    spriteID: 1f8460d1cc8afd4469cc1fc87384fa41
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 1210}
+  - name: Ascensor_Frame_37
+    originalName: 
+    pivot: {x: 0.5, y: -0.020833332}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 1410
+      width: 128
+      height: 192
+    spriteID: 6f8cf6e7db52bd74e911131df087a6e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 1410}
+  - name: Ascensor_Frame_38
+    originalName: 
+    pivot: {x: 0.5, y: -0.020833332}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 1610
+      width: 128
+      height: 192
+    spriteID: 9696aaecf1345ee4e8dea80418b43c17
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 1610}
+  - name: Ascensor_Frame_39
+    originalName: 
+    pivot: {x: 0.5, y: -0.020833332}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 1810
+      width: 128
+      height: 192
+    spriteID: 970db040b1193e346a036d0a9654ac8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 438, y: 1810}
+  - name: Ascensor_Frame_40
+    originalName: 
+    pivot: {x: 0.5, y: -0.020833332}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 574
+      y: 4
+      width: 128
+      height: 192
+    spriteID: 2e715a06f70be73498e97fb346497f56
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 574, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -338942304
+    name: Ascensor
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Ascensor_Frame_0
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 4
+        width: 128
+        height: 192
+      spriteId: 3dde4f71877b9b34295bbd1a82045676
+    - name: Ascensor_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 2
+        y: 4
+        width: 132
+        height: 192
+      spriteId: 049b9cf67fdd62a49a5be7d37a02f914
+    - name: Ascensor_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 0
+        width: 128
+        height: 196
+      spriteId: c6ea668e5575e964f96dd6ae822602bf
+    - name: Ascensor_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: -18
+        y: 3
+        width: 152
+        height: 193
+      spriteId: e0d92c534375ab040ae05d4d93c8f862
+    - name: Ascensor_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 3
+        y: 2
+        width: 131
+        height: 194
+      spriteId: 9fdf118e47e290f46baca4ee92d5da21
+    - name: Ascensor_Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 75d20154c97540041b9c2f68b85015a5
+    - name: Ascensor_Frame_6
+      frameIndex: 6
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 1
+        width: 128
+        height: 195
+      spriteId: bfc6607220091fd459b71a851faeb3cd
+    - name: Ascensor_Frame_7
+      frameIndex: 7
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 0
+        width: 128
+        height: 196
+      spriteId: c51a4627d4a4d3b45acb084c8ddf5e15
+    - name: Ascensor_Frame_8
+      frameIndex: 8
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 81a0cf8567b44134d918989bd6882090
+    - name: Ascensor_Frame_9
+      frameIndex: 9
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 4a777ba34e02c0e4fb5f7375a4b72242
+    - name: Ascensor_Frame_10
+      frameIndex: 10
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 54c1eca95d3a08647a8fc5640bdd810f
+    - name: Ascensor_Frame_11
+      frameIndex: 11
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 78566985908f249488f23f9f4e3c6c8b
+    - name: Ascensor_Frame_12
+      frameIndex: 12
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 2707af285183abe44bcae622153af07f
+    - name: Ascensor_Frame_13
+      frameIndex: 13
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 4623ea0c04993084295548cdaeca8327
+    - name: Ascensor_Frame_14
+      frameIndex: 14
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: d2362d340e203c24cbc4657091c7c4bb
+    - name: Ascensor_Frame_15
+      frameIndex: 15
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: cbd68fa00a250ea44b7158adcf4f7f5b
+    - name: Ascensor_Frame_16
+      frameIndex: 16
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 132
+        height: 194
+      spriteId: 487073393a441174391e05d6b8462250
+    - name: Ascensor_Frame_17
+      frameIndex: 17
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 133
+        height: 194
+      spriteId: d4be18972e2dfc54fafe1788972a5fba
+    - name: Ascensor_Frame_18
+      frameIndex: 18
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 134
+        height: 194
+      spriteId: 634c8f46ac1316341a3617252728e062
+    - name: Ascensor_Frame_19
+      frameIndex: 19
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 130
+        height: 194
+      spriteId: e4c6c3842b9231e4faf865f865208ec9
+    - name: Ascensor_Frame_20
+      frameIndex: 20
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 131
+        height: 194
+      spriteId: 098c87e706ee4f041be079c6fc1503a0
+    - name: Ascensor_Frame_21
+      frameIndex: 21
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 74f2f46113e10de4bb2cab3119649664
+    - name: Ascensor_Frame_22
+      frameIndex: 22
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 2
+        width: 130
+        height: 194
+      spriteId: 6d8ae13f8c98d1c4eb84381400724079
+    - name: Ascensor_Frame_23
+      frameIndex: 23
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 2
+        width: 134
+        height: 194
+      spriteId: 1b04b1737a0fbb045b405cd66be7d9ab
+    - name: Ascensor_Frame_24
+      frameIndex: 24
+      additiveSortOrder: 0
+      cellRect:
+        x: 2
+        y: 2
+        width: 132
+        height: 194
+      spriteId: 89d73a44993d50f45ac65899f39e1431
+    - name: Ascensor_Frame_25
+      frameIndex: 25
+      additiveSortOrder: 0
+      cellRect:
+        x: 3
+        y: 2
+        width: 131
+        height: 194
+      spriteId: 3801296a71febfa4e81ac9a252ff1066
+    - name: Ascensor_Frame_26
+      frameIndex: 26
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 3efa860193e766a44ba2050999d22de0
+    - name: Ascensor_Frame_27
+      frameIndex: 27
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: af53fec69eafaa44d9aca477c01ed0ed
+    - name: Ascensor_Frame_28
+      frameIndex: 28
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 74b86d828e4609a4a9c5426dcb83ee0c
+    - name: Ascensor_Frame_29
+      frameIndex: 29
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 6440283b703075744a54697b32cc62c6
+    - name: Ascensor_Frame_30
+      frameIndex: 30
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 21c0457c5e5ba16489bb116626db0aa0
+    - name: Ascensor_Frame_31
+      frameIndex: 31
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: acd6e6743fb90ad42b336b7b550996a7
+    - name: Ascensor_Frame_32
+      frameIndex: 32
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: 6724309c9e00a2f42a959bc29c6b983c
+    - name: Ascensor_Frame_33
+      frameIndex: 33
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 2
+        width: 128
+        height: 194
+      spriteId: fa443318e2eea1146a4d2d2a2a5f7e94
+    - name: Ascensor_Frame_34
+      frameIndex: 34
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 4
+        width: 128
+        height: 192
+      spriteId: b1812dd9d246a514bba7e6d6236025cd
+    - name: Ascensor_Frame_35
+      frameIndex: 35
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 4
+        width: 128
+        height: 192
+      spriteId: 236ef2e628b25fd44ae193f11d077fb0
+    - name: Ascensor_Frame_36
+      frameIndex: 36
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 4
+        width: 128
+        height: 192
+      spriteId: 1f8460d1cc8afd4469cc1fc87384fa41
+    - name: Ascensor_Frame_37
+      frameIndex: 37
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 4
+        width: 128
+        height: 192
+      spriteId: 6f8cf6e7db52bd74e911131df087a6e3
+    - name: Ascensor_Frame_38
+      frameIndex: 38
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 4
+        width: 128
+        height: 192
+      spriteId: 9696aaecf1345ee4e8dea80418b43c17
+    - name: Ascensor_Frame_39
+      frameIndex: 39
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 4
+        width: 128
+        height: 192
+      spriteId: 970db040b1193e346a036d0a9654ac8f
+    - name: Ascensor_Frame_40
+      frameIndex: 40
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 4
+        width: 128
+        height: 192
+      spriteId: 2e715a06f70be73498e97fb346497f56
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 140, y: 200}
