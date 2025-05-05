@@ -40,6 +40,7 @@ public class SwtichScript : MonoBehaviour
         // top 10 las peores mentiras del anime
         if (estado)
         {
+           
 
             if (this.CompareTag("SWITCH-ROJO"))
             {
@@ -58,6 +59,7 @@ public class SwtichScript : MonoBehaviour
         }
         else 
         {
+
             //spriteRenderer.color = new Color(0, 0, 255, 255);
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.1f);
 

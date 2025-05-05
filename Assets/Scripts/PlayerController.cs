@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using static Unity.VisualScripting.Member;
 using static UnityEditor.ShaderData;
@@ -10,7 +11,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerController : MonoBehaviour
 {
-
+   
 
     private Rigidbody2D rigidbody2; //el personaje que el jugador controla
     private Vector2 vector2 = Vector2.zero; //El valor input que envia el jugador
@@ -83,10 +84,13 @@ public class PlayerController : MonoBehaviour
 
     Vector3 escalaLocal;
 
-
+    [Header("Las luces de los cuernos")]
+    public Light2D[] luces;
 
     private void Start()
     {
+        
+
         _audio = FindObjectOfType<Audio_Script>();
 
         if (_audio == null)
@@ -139,14 +143,7 @@ public class PlayerController : MonoBehaviour
         //codigo para que la camará siga al jugador
         playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
-        /*
-        //Resetea la cantidad de dashes cuando cumpla estas condiciones
-        if (EstaEnTierra() || (!EstaEnTierra() && EstaEnMuro() && vector2.x != 0))
-        {
-            dashRestantes = cantidadDash;
-
-        }
-        */
+        
 
         controlAniX = rigidbody2.velocity.x !=0.0f && EstaEnTierra() ? 1:0;
         controlAniY = rigidbody2.velocity.y != 0.0f && !EstaEnTierra() ? 1 : 0;
