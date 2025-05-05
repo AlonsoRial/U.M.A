@@ -1,90 +1,104 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turreta : MonoBehaviour
 {
-    [Header("Activación")]
-    public bool FollowingTarget = true;
+    [Header("Configuración General")]
+    [SerializeField] private float rangoDeteccion = 5f;
+    [SerializeField] private float velocidadRotacion = 5f;
+    [SerializeField] private bool puedeDisparar = true;
+    [SerializeField] private LayerMask capaSuelo; // Referencia al layer "Suelo"
 
-    [Header("Disparo")]
-    [Range(0.1f, 5f)]
-    public float fireRate = 1f;
-    public GameObject bulletPrefab;
-    public Transform firePoint;
+    [Header("Configuración de Disparo")]
+    [SerializeField] private GameObject prefabBala;
+    [SerializeField] private Transform puntoDisparo;
+    [SerializeField] private float cadenciaDisparo = 2f;
+    [SerializeField] private float fuerzaRetroceso = 1f;
+    private float tiempoUltimoDisparo;
+    private Rigidbody2D rb;
 
-    [Header("Detección")]
-    public GameObject player;
-    public float detectionRange = 5f;
-    public LayerMask obstacleLayer;
+    [Header("Referencias")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    
+    private Transform jugador;
+    private bool jugadorEnRango;
+    private bool lineaDeVisionLibre;
 
-    [Header("Sprite")]
-    public SpriteRenderer turretSprite; // Asigna tu sprite renderer aquí
-
-    private float fireCooldown = 0f;
-
-    void Update()
+    private void Start()
     {
-        if (!FollowingTarget || player == null) return;
-
-        Vector2 direction = player.transform.position - transform.position;
-
-        // Apunta la torreta
-        RotateToFace(direction);
-
-        if (CanSeePlayer(direction))
+        GameObject objetoJugador = GameObject.FindGameObjectWithTag("Player");
+        if (objetoJugador != null)
         {
-            if (fireCooldown <= 0f)
-            {
-                Shoot();
-                fireCooldown = 1f / fireRate;
-            }
-            else
-            {
-                fireCooldown -= Time.deltaTime;
-            }
+            jugador = objetoJugador.transform;
         }
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    void RotateToFace(Vector2 direction)
+    private void Update()
     {
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        if (jugador == null) return;
 
-        // Flip del sprite si pasa los 90 grados (mirando hacia la izquierda)
-        if (turretSprite != null)
+        float distanciaAlJugador = Vector2.Distance(transform.position, jugador.position);
+        jugadorEnRango = distanciaAlJugador <= rangoDeteccion;
+
+        if (jugadorEnRango)
         {
-            turretSprite.flipY = Mathf.Abs(angle) > 90f;
-        }
-    }
+            Vector2 direccionAlJugador = (jugador.position - transform.position).normalized;
+            float angulo = Mathf.Atan2(direccionAlJugador.y, direccionAlJugador.x) * Mathf.Rad2Deg + 90f;
+            
+            // Verificar si hay obstáculos
+            lineaDeVisionLibre = !HayObstaculosHaciaJugador();
 
-    bool CanSeePlayer(Vector2 direction)
-    {
-        float distance = direction.magnitude;
-        if (distance > detectionRange) return false;
+            Quaternion rotacionObjetivo = Quaternion.Euler(0, 0, angulo);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotacionObjetivo, velocidadRotacion * Time.deltaTime);
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, distance, obstacleLayer);
-        return hit.collider == null;
-    }
-
-    void Shoot()
-    {
-        if (bulletPrefab && firePoint)
-        {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-
-            if (bulletScript != null && player != null)
+            if (spriteRenderer != null)
             {
-                Vector2 direction = player.transform.position - firePoint.position;
-                bulletScript.SetDirection(direction);
+                spriteRenderer.flipX = Mathf.Abs(angulo - 90f) > 90f;
+            }
+
+            // Solo disparar si no hay obstáculos
+            if (puedeDisparar && lineaDeVisionLibre)
+            {
+                Disparar();
             }
         }
     }
 
-    void OnDrawGizmos()
+    private bool HayObstaculosHaciaJugador()
+    {
+        Vector2 direccionAlJugador = jugador.position - transform.position;
+        float distancia = direccionAlJugador.magnitude;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direccionAlJugador.normalized, distancia, capaSuelo);
+        
+        // Dibujar el rayo en el editor para debugging
+        Debug.DrawRay(transform.position, direccionAlJugador, hit ? Color.red : Color.green);
+        
+        return hit.collider != null;
+    }
+
+    private void Disparar()
+    {
+        if (Time.time > tiempoUltimoDisparo + cadenciaDisparo)
+        {
+            if (puntoDisparo != null && prefabBala != null)
+            {
+                Quaternion rotacionBala = transform.rotation * Quaternion.Euler(0, 0, 180f);
+                GameObject bala = Instantiate(prefabBala, puntoDisparo.position, rotacionBala);
+                
+                if (rb != null)
+                {
+                    Vector2 direccionRetroceso = -transform.up;
+                    rb.AddForce(direccionRetroceso * fuerzaRetroceso, ForceMode2D.Impulse);
+                }
+                
+                tiempoUltimoDisparo = Time.time;
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.DrawWireSphere(transform.position, rangoDeteccion);
     }
 }

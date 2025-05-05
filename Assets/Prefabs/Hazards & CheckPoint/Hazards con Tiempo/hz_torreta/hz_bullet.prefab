@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5125446390443580123}
   m_Layer: 0
   m_Name: hz_bullet
-  m_TagString: Untagged
+  m_TagString: HAZARDS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -183,8 +183,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23589287e950b36408a6df15af2652e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  lifeTime: 5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  fuerzaDisparo: 20
+  tiempoVida: 3

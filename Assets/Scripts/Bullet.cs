@@ -1,31 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bala : MonoBehaviour
 {
-    public float speed = 10f;
-    public float lifeTime = 5f;
-    public LayerMask groundLayer;
-
-    private Vector2 moveDirection;
+    [Header("Configuración de la Bala")]
+    [SerializeField] private float fuerzaDisparo = 20f;
+    [SerializeField] private float tiempoVida = 3f;
+    
     private Rigidbody2D rb;
-
-    public void SetDirection(Vector2 direction)
-    {
-        moveDirection = direction.normalized;
-    }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = moveDirection * speed;
-        Destroy(gameObject, lifeTime);
+        rb.AddForce(transform.up * fuerzaDisparo, ForceMode2D.Impulse);
+        Destroy(gameObject, tiempoVida);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (((1 << other.gameObject.layer) & groundLayer) != 0)
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("PARKOUR"))
         {
             Destroy(gameObject);
         }
