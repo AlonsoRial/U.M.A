@@ -126,6 +126,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Menu.Segundos<0.0f) 
+        {
+            Muerte();
+            Menu.Segundos = Menu.TiempoInicial;
+        }
+
         //Metodo del giro del jugador
         Flip();
 
@@ -384,6 +391,17 @@ public class PlayerController : MonoBehaviour
     private CheckPoint_Script check;
 
 
+    public void Muerte() 
+    {
+        capsuleCollider2D.enabled = false;
+        playerInput.enabled = false;
+        animator.SetTrigger("Muerte");
+
+        rigidbody2.constraints = RigidbodyConstraints2D.FreezePosition;
+
+        rigidbody2.gravityScale = 0;
+    }
+
     //Las colisiones
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -391,14 +409,8 @@ public class PlayerController : MonoBehaviour
         //Si choca con un hazards, el jugador pasa a ser teletransportado al checkpoint
         if (collision.gameObject.CompareTag("HAZARDS"))
         {
-            capsuleCollider2D.enabled = false;
-            playerInput.enabled = false;
-            animator.SetTrigger("Muerte");
-           
-            rigidbody2.constraints = RigidbodyConstraints2D.FreezePosition;
 
-            rigidbody2.gravityScale = 0;
-            
+            Muerte();
 
         }
 
