@@ -9,6 +9,8 @@ public class SwtichScript : MonoBehaviour
 
     BoxCollider2D boxCollider;
     SpriteRenderer spriteRenderer;
+    
+
 
     public bool estado;
     //tonto quien lo lea XD
@@ -40,20 +42,25 @@ public class SwtichScript : MonoBehaviour
         // top 10 las peores mentiras del anime
         if (estado)
         {
-           
+            jugador.luces[1].enabled = true;
+            jugador.luces[0].enabled = false;
 
             if (this.CompareTag("SWITCH-ROJO"))
             {
                 //spriteRenderer.color = new Color(255, 255, 255, 255);
                 spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+               
+            
 
             }
+
+            
 
             if (this.CompareTag("SWITCH-VERDE"))
             {
                 //spriteRenderer.color = new Color(255, 255, 255, 255);
                 spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-                
+              
             }
 
         }
@@ -62,6 +69,9 @@ public class SwtichScript : MonoBehaviour
 
             //spriteRenderer.color = new Color(0, 0, 255, 255);
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.1f);
+            jugador.luces[1].enabled = false;
+            jugador.luces[0].enabled = true;
+
 
         }
        
