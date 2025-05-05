@@ -223,7 +223,7 @@ MonoBehaviour:
     m_Bits: 8
   prefabBala: {fileID: 2762057449180197689, guid: ed8d817221ea0f34c8170c91d7c04ea4, type: 3}
   puntoDisparo: {fileID: 5346343173020988307}
-  cadenciaDisparo: 0.7
+  cadenciaDisparo: 1.5
   fuerzaRetroceso: 1
   spriteRenderer: {fileID: 6981377312813026358}
 --- !u!95 &2318684774359123567
