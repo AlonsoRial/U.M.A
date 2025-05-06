@@ -489,7 +489,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1236935675}
         m_TargetAssemblyTypeName: Ascensor_Scrip, Assembly-CSharp
-        m_MethodName: MenuInicio
+        m_MethodName: Jugar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

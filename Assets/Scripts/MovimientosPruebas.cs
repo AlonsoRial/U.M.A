@@ -4,7 +4,6 @@ using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 using UnityEngine.InputSystem;
 using TMPro;
-using UnityEditor.UIElements;
 
 public class MovimientosPruebas : MonoBehaviour
 {
@@ -12,18 +11,18 @@ public class MovimientosPruebas : MonoBehaviour
 
     private Rigidbody2D rigidbody2; //el personaje que el jugador controla
     private Vector2 vector2 = Vector2.zero; //El valor input que envia el jugador
-    private PlayerInput playerInput; // La cámara persigue el jugador
-    private Vector3 posicionGuardado; //guarda la posición del checkpoint
+    private PlayerInput playerInput; // La cï¿½mara persigue el jugador
+    private Vector3 posicionGuardado; //guarda la posiciï¿½n del checkpoint
 
 
 
     [Header("MOVIMIENTO")]
     [SerializeField] private float gravedad; // gravedad normal general
     [SerializeField] private float velocidadX; //su velocidad
-    [SerializeField] private float velocidadXCaida; //su velocidad cuando el jugador esté cayendo
-    [SerializeField] private float gravedadCaida;// lo que aumentará su gravedad normal cuando esté cayendo
+    [SerializeField] private float velocidadXCaida; //su velocidad cuando el jugador estï¿½ cayendo
+    [SerializeField] private float gravedadCaida;// lo que aumentarï¿½ su gravedad normal cuando estï¿½ cayendo
     [SerializeField] private float MAX_Velocidad_Caida; // la maxima gravedad que puede alcanzar
-    private bool girando = true; //booleano que dice en que lado está mirando el jugador
+    private bool girando = true; //booleano que dice en que lado estï¿½ mirando el jugador
 
 
 
@@ -39,12 +38,12 @@ public class MovimientosPruebas : MonoBehaviour
 
     [Header("SALTOS")]
     [SerializeField] private float fuerzaSalto; //fuerza del salto principal
-    [SerializeField] private float fuerzaSaltoDoble; //fuerza del doble salto o salto secundarío
+    [SerializeField] private float fuerzaSaltoDoble; //fuerza del doble salto o salto secundarï¿½o
     [SerializeField] private float fuerzaDetencionSalto; // para hacer el salto regulable
     [SerializeField] private Transform controladorSuelo; //el objeto que hace de hitbox del salto, debe de ir en los pies del personaje
-    [SerializeField] private Vector2 dimensionControladorSalto; //El tamaño de la hitbox del salto
+    [SerializeField] private Vector2 dimensionControladorSalto; //El tamaï¿½o de la hitbox del salto
     [SerializeField] private LayerMask capaSuelo; //la capa donde el jugador pueda saltar
-    private bool botonSaltoDoble; //booleado que indica si se ha activado la acción de doble salto
+    private bool botonSaltoDoble; //booleado que indica si se ha activado la acciï¿½n de doble salto
     [SerializeField] private int cantidadSaltosDobles; //los saltos dobles / secundarios que puede hacer el jugador
     private int saltosDoblesRestantes; // la cantidad de saltos dobles que el jugador puede ejercer
 
@@ -53,11 +52,11 @@ public class MovimientosPruebas : MonoBehaviour
 
     [Header("SALTO MURO")]
     [SerializeField] private Transform controaldorMuro; //La hitbox cuando choca con un muro
-    [SerializeField] private Vector2 dimensionControladorMuro; //el tamaño de dicha hitbox
+    [SerializeField] private Vector2 dimensionControladorMuro; //el tamaï¿½o de dicha hitbox
     private bool enMuro; //si el personaje esta chocando con el muro a la vez que esta cayendo
     [SerializeField] private Vector2 fuerzaSaltoPared; //la fuerza que tiene el salto de la parez
     [SerializeField] private float tiempoSaltoPared; //el tiempo que se debe de esperar para que al jugador le devuelvan los controles
-    private bool saltandoParez; //booleano que indica si la acción del salto de la parez ha sido activada 
+    private bool saltandoParez; //booleano que indica si la acciï¿½n del salto de la parez ha sido activada 
     private float auxiMove; // guarda el movimiento del jugador para cuando retome el control del movimiento
 
 
@@ -66,11 +65,11 @@ public class MovimientosPruebas : MonoBehaviour
 
     [Header("DASH")]
     [SerializeField] private float velocidadDash; //velocidad del dash
-    private bool botonDash; //acción del dash
+    private bool botonDash; //acciï¿½n del dash
     [SerializeField] private int cantidadDash; //cantidad de dashes
     private int dashRestantes; //dashes restantes del juador
     [SerializeField] private float tiempoDash; //tiempo que dura el dash
-    private int direcionDash; //La dirección el cual se hará el dash
+    private int direcionDash; //La direcciï¿½n el cual se harï¿½ el dash
 
 
 
@@ -78,7 +77,7 @@ public class MovimientosPruebas : MonoBehaviour
     [SerializeField] private Canvas canvas; //El Canvas para Pausar el juego
 
 
-    public bool EstadoSwitch { get => estadoSwitch; } //Get del estadoSwitch para que el codigo SwitchScript pueda haceder a él
+    public bool EstadoSwitch { get => estadoSwitch; } //Get del estadoSwitch para que el codigo SwitchScript pueda haceder a ï¿½l
 
 
     //Metodo que se encarga del giro del jugador
@@ -111,7 +110,7 @@ public class MovimientosPruebas : MonoBehaviour
         //Metodo del giro del jugador
         Flip();
 
-        //codigo para que la camará siga al jugador
+        //codigo para que la camarï¿½ siga al jugador
         playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
 
@@ -124,7 +123,7 @@ public class MovimientosPruebas : MonoBehaviour
 
 
 
-        //si el jugador está tocando el suelo, se resetea la gravedad y los dobles saltos
+        //si el jugador estï¿½ tocando el suelo, se resetea la gravedad y los dobles saltos
         if (EstaEnTierra())
         {
             rigidbody2.gravityScale = gravedad;
@@ -132,7 +131,7 @@ public class MovimientosPruebas : MonoBehaviour
             saltosDoblesRestantes = cantidadSaltosDobles;
         }
 
-        //detecta si el jugador está cayendo mientras toca el muro
+        //detecta si el jugador estï¿½ cayendo mientras toca el muro
         enMuro = EstaEnMuro() && !EstaEnTierra() && vector2.x != 0 ? true : false;
         /*
         if (EstaEnMuro() && !EstaEnTierra() && vector2.x != 0)
@@ -145,7 +144,7 @@ public class MovimientosPruebas : MonoBehaviour
         }
         */
 
-        //calcula diración del dash
+        //calcula diraciï¿½n del dash
         direcionDash = transform.localScale.x > 0f ? 1 : -1;
         /*
         if (transform.localScale.x>0f) 
@@ -165,7 +164,7 @@ public class MovimientosPruebas : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Velocidad normal del jugador mientras no esté saltando en la parez
+        //Velocidad normal del jugador mientras no estï¿½ saltando en la parez
         if (!saltandoParez)
         {
             rigidbody2.velocity = new Vector2(vector2.x * velocidadX, rigidbody2.velocity.y);
@@ -191,14 +190,14 @@ public class MovimientosPruebas : MonoBehaviour
 
         }
 
-        //Metodo para que el jugador se paré cuando toque el muro para el salto de parez
+        //Metodo para que el jugador se parï¿½ cuando toque el muro para el salto de parez
         if (enMuro)
         {
 
             rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, Mathf.Clamp(rigidbody2.velocity.y, -0, float.MaxValue));
         }
 
-        //si la velocidad de caida sobrepasa a la maxima, la maxima velocidad de caida será la velocidad de caida
+        //si la velocidad de caida sobrepasa a la maxima, la maxima velocidad de caida serï¿½ la velocidad de caida
         if (rigidbody2.velocity.y < MAX_Velocidad_Caida)
         {
 
@@ -207,7 +206,7 @@ public class MovimientosPruebas : MonoBehaviour
 
     }
 
-    //Tiempo de espera del dash, una vez cumplido podrá hacer otro dash
+    //Tiempo de espera del dash, una vez cumplido podrï¿½ hacer otro dash
     public IEnumerator Espera()
     {
         yield return new WaitForSeconds(tiempoDash);
@@ -215,13 +214,13 @@ public class MovimientosPruebas : MonoBehaviour
 
     }
 
-    //Función que devuelve si el jugador está tocando el suelo o no
+    //Funciï¿½n que devuelve si el jugador estï¿½ tocando el suelo o no
     public bool EstaEnTierra()
     {
         return Physics2D.OverlapBox(controladorSuelo.position, dimensionControladorSalto, 0, capaSuelo);
     }
 
-    //Función que devuelve si el jugador está tocando el muro o no
+    //Funciï¿½n que devuelve si el jugador estï¿½ tocando el muro o no
     public bool EstaEnMuro()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(controaldorMuro.position, dimensionControladorMuro, 0);
@@ -278,7 +277,7 @@ public class MovimientosPruebas : MonoBehaviour
 
         }
 
-        //cuando el jugador deja de presionar el botón de salto, la acción de doble salto estará disponible
+        //cuando el jugador deja de presionar el botï¿½n de salto, la acciï¿½n de doble salto estarï¿½ disponible
         if (callbackContext.canceled)
         {
             botonSaltoDoble = true;
@@ -288,7 +287,7 @@ public class MovimientosPruebas : MonoBehaviour
         if (callbackContext.started && botonSaltoDoble && saltosDoblesRestantes != 0)
         {
             //EN TEORIA, AQUI SE LLAMA LA ANIMACION DE PREPARACION
-            rigidbody2.velocity = new Vector2(0, 0); //la velocidad pasará a ser 0
+            rigidbody2.velocity = new Vector2(0, 0); //la velocidad pasarï¿½ a ser 0
 
             rigidbody2.AddForce(new Vector2(rigidbody2.velocity.x, fuerzaSaltoDoble), ForceMode2D.Impulse); // se le aplica una fuerza para la nueva velocidad
             botonSaltoDoble = false; //deja  de poder hacer el doble salto
@@ -328,14 +327,14 @@ public class MovimientosPruebas : MonoBehaviour
 
     public void Dash(CallbackContext callbackContext)
     {
-        //si llama al dash, esté puede hacer un dash
+        //si llama al dash, estï¿½ puede hacer un dash
         if (callbackContext.started)
         {
             botonDash = true;
 
         }
 
-        //si levanta el boton de dash, esté se restará .
+        //si levanta el boton de dash, estï¿½ se restarï¿½ .
         if (callbackContext.canceled)
         {
             --dashRestantes;
@@ -372,7 +371,7 @@ public class MovimientosPruebas : MonoBehaviour
             StartCoroutine(RespawnTime());
         }
 
-        //Si choca un checkpoint, ese será el nuevo checkpoint
+        //Si choca un checkpoint, ese serï¿½ el nuevo checkpoint
         if (collision.gameObject.CompareTag("CHECKPOINT"))
         {
             Debug.Log("checkpoint guardado");

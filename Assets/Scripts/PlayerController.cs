@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using static Unity.VisualScripting.Member;
-using static UnityEditor.ShaderData;
 using static UnityEngine.InputSystem.InputAction;
 
 
@@ -15,18 +14,18 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rigidbody2; //el personaje que el jugador controla
     private Vector2 vector2 = Vector2.zero; //El valor input que envia el jugador
-    private PlayerInput playerInput; // La cámara persigue el jugador
-    private Vector3 posicionGuardado; //guarda la posición del checkpoint
+    private PlayerInput playerInput; // La cï¿½mara persigue el jugador
+    private Vector3 posicionGuardado; //guarda la posiciï¿½n del checkpoint
     private CapsuleCollider2D capsuleCollider2D;
 
 
     [Header("MOVIMIENTO")]
     [SerializeField] private float gravedad; // gravedad normal general
     [SerializeField] private float velocidadX; //su velocidad
-    [SerializeField] private float velocidadXCaida; //su velocidad cuando el jugador esté cayendo
-    [SerializeField] private float gravedadCaida;// lo que aumentará su gravedad normal cuando esté cayendo
+    [SerializeField] private float velocidadXCaida; //su velocidad cuando el jugador estï¿½ cayendo
+    [SerializeField] private float gravedadCaida;// lo que aumentarï¿½ su gravedad normal cuando estï¿½ cayendo
     [SerializeField] private float MAX_Velocidad_Caida; // la maxima gravedad que puede alcanzar
-    private bool girando = true; //booleano que dice en que lado está mirando el jugador
+    private bool girando = true; //booleano que dice en que lado estï¿½ mirando el jugador
 
 
     CallbackContext _dash;
@@ -43,7 +42,7 @@ public class PlayerController : MonoBehaviour
     [Header("SALTOS")]
     [SerializeField] private float fuerzaSalto; //fuerza del salto principal
     [SerializeField] private Transform controladorSuelo; //el objeto que hace de hitbox del salto, debe de ir en los pies del personaje
-    [SerializeField] private Vector2 dimensionControladorSalto; //El tamaño de la hitbox del salto
+    [SerializeField] private Vector2 dimensionControladorSalto; //El tamaï¿½o de la hitbox del salto
     [SerializeField] private LayerMask capaSuelo; //la capa donde el jugador pueda saltar
     [SerializeField] private int cantidadSaltosDobles; //los saltos dobles / secundarios que puede hacer el jugador
     [SerializeField] private int saltosDoblesRestantes; // la cantidad de saltos dobles que el jugador puede ejercer
@@ -53,11 +52,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("SALTO MURO")]
     [SerializeField] private Transform controaldorMuro; //La hitbox cuando choca con un muro
-    [SerializeField] private Vector2 dimensionControladorMuro; //el tamaño de dicha hitbox
+    [SerializeField] private Vector2 dimensionControladorMuro; //el tamaï¿½o de dicha hitbox
     private bool enMuro; //si el personaje esta chocando con el muro a la vez que esta cayendo
     [SerializeField] private Vector2 fuerzaSaltoPared; //la fuerza que tiene el salto de la parez
     [SerializeField] private float tiempoSaltoPared; //el tiempo que se debe de esperar para que al jugador le devuelvan los controles
-    private bool saltandoParez; //booleano que indica si la acción del salto de la parez ha sido activada 
+    private bool saltandoParez; //booleano que indica si la acciï¿½n del salto de la parez ha sido activada 
     private float auxiMove; // guarda el movimiento del jugador para cuando retome el control del movimiento
 
 
@@ -76,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     private int controlAniX, controlAniY;
 
-    public bool EstadoSwitch { get => estadoSwitch; } //Get del estadoSwitch para que el codigo SwitchScript pueda haceder a él
+    public bool EstadoSwitch { get => estadoSwitch; } //Get del estadoSwitch para que el codigo SwitchScript pueda haceder a ï¿½l
 
   
     [SerializeField] private Audio_Script _audio;
@@ -95,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
         if (_audio == null)
         {
-            Debug.LogError("No se encontró el script Audio_Script en la escena.");
+            Debug.LogError("No se encontrï¿½ el script Audio_Script en la escena.");
         }
      
     }
@@ -140,7 +139,7 @@ public class PlayerController : MonoBehaviour
         //Metodo del giro del jugador
         Flip();
 
-        //codigo para que la camará siga al jugador
+        //codigo para que la camarï¿½ siga al jugador
         playerInput.camera.transform.position = new Vector3(rigidbody2.position.x, rigidbody2.position.y, -10);
 
         
@@ -153,14 +152,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("EnMuro", EstaEnMuro());
       
 
-        //si el jugador está tocando el suelo, se resetea la gravedad y los dobles saltos
+        //si el jugador estï¿½ tocando el suelo, se resetea la gravedad y los dobles saltos
         if (EstaEnTierra())
         {
             rigidbody2.gravityScale = gravedad;
             saltosDoblesRestantes = cantidadSaltosDobles;
         }
 
-        //detecta si el jugador está cayendo mientras toca el muro
+        //detecta si el jugador estï¿½ cayendo mientras toca el muro
         enMuro = EstaEnMuro() && !EstaEnTierra() && vector2.x != 0 ? true : false;
         direcionDash = transform.localScale.x > 0f ? 1 : -1;
 
@@ -196,7 +195,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         
-            //Velocidad normal del jugador mientras no esté saltando en la parez
+            //Velocidad normal del jugador mientras no estï¿½ saltando en la parez
             if (!saltandoParez)
             {
                 rigidbody2.velocity = new Vector2(vector2.x * velocidadX, rigidbody2.velocity.y);
@@ -218,14 +217,14 @@ public class PlayerController : MonoBehaviour
             }
 
 
-            //Metodo para que el jugador se paré cuando toque el muro para el salto de parez
+            //Metodo para que el jugador se parï¿½ cuando toque el muro para el salto de parez
             if (enMuro)
             {
 
                 rigidbody2.velocity = new Vector2(rigidbody2.velocity.x, Mathf.Clamp(rigidbody2.velocity.y, -0, float.MaxValue));
             }
 
-            //si la velocidad de caida sobrepasa a la maxima, la maxima velocidad de caida será la velocidad de caida
+            //si la velocidad de caida sobrepasa a la maxima, la maxima velocidad de caida serï¿½ la velocidad de caida
             if (rigidbody2.velocity.y < MAX_Velocidad_Caida)
             {
 
@@ -241,13 +240,13 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    //Función que devuelve si el jugador está tocando el suelo o no
+    //Funciï¿½n que devuelve si el jugador estï¿½ tocando el suelo o no
     public bool EstaEnTierra()
     {
         return Physics2D.OverlapBox(controladorSuelo.position, dimensionControladorSalto, 0, capaSuelo);
     }
 
-    //Función que devuelve si el jugador está tocando el muro o no
+    //Funciï¿½n que devuelve si el jugador estï¿½ tocando el muro o no
     public bool EstaEnMuro()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(controaldorMuro.position, dimensionControladorMuro, 0);
@@ -411,7 +410,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        //Si choca un checkpoint, ese será el nuevo checkpoint
+        //Si choca un checkpoint, ese serï¿½ el nuevo checkpoint
         if (collision.gameObject.CompareTag("CHECKPOINT") )
         {   
             

@@ -9,13 +9,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Inicio.unity
     guid: 95beceb2e2968c54d961dc517a5841fb
   - enabled: 1
-    path: Assets/Scenes/Tutorial 1.unity
+    path: Assets/Scenes/Part1.unity
     guid: 4d3b1f64988c40f4ca0cb9d3565768ee
   - enabled: 1
-    path: Assets/Scenes/Tutorial 1 parte2.unity
-    guid: b567e41aa0c260546aa776554f570633
-  - enabled: 1
-    path: Assets/Scenes/Pantalla de Carga.unity
+    path: Assets/Scenes/PC1.unity
     guid: 04cd8981453313044b1e40e7d217a859
+  - enabled: 1
+    path: Assets/Scenes/Part2.unity
+    guid: b4f85d70ae0453047bf1f8d149724875
+  - enabled: 1
+    path: Assets/Scenes/PC2.unity
+    guid: 5cebf0c09f1962d4db0be626cd9086c6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 84ab92c3b8171fc4992675d407fdc376, type: 2}

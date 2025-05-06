@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
+
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PantallaCarga : MonoBehaviour
 {
 
-    [SerializeField] private SceneAsset escena;
+    [SerializeField] private string escena;
     [SerializeField] private int tiempo;
 
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class PantallaCarga : MonoBehaviour
     IEnumerator TiempodeCarga() 
     {
         yield return new WaitForSeconds(tiempo);
-        SceneManager.LoadScene(escena.name);
+        SceneManager.LoadScene(escena);
     }
 
     
