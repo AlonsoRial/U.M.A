@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Unity.VisualScripting.Member;
 using static UnityEngine.InputSystem.InputAction;
@@ -126,14 +127,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    public void UDC() 
+    {
+        SceneManager.LoadScene(0);
+    }
+
     // Update is called once per frame
     void Update()
     {
 
         if (Menu.Segundos<0.0f) 
         {
-            Muerte();
-            Menu.Segundos = Menu.TiempoInicial;
+            Muerte2();
+          
+            
         }
 
         //Metodo del giro del jugador
@@ -395,6 +403,17 @@ public class PlayerController : MonoBehaviour
 
         rigidbody2.constraints = RigidbodyConstraints2D.FreezePosition;
 
+        rigidbody2.gravityScale = 0;
+    }
+
+    public void Muerte2()
+    {
+        capsuleCollider2D.enabled = false;
+        playerInput.enabled = false;
+        animator.SetTrigger("UD");
+
+        rigidbody2.constraints = RigidbodyConstraints2D.FreezePosition;
+        Menu.Segundos = Menu.TiempoInicial;
         rigidbody2.gravityScale = 0;
     }
 

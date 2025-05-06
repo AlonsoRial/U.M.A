@@ -840,6 +840,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2592709921404888662, guid: 0c31b78cff7a220489a94890631ee3ff, type: 3}
+      propertyPath: tiempo
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592709921404888662, guid: 0c31b78cff7a220489a94890631ee3ff, type: 3}
       propertyPath: jugador
       value: 
       objectReference: {fileID: 895404585}

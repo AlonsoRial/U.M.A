@@ -35,6 +35,7 @@ public class Menu : MonoBehaviour
 
             tiempoUI.SetText(Math.Truncate(segundos).ToString());
         }
+
         
     }
 
