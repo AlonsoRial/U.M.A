@@ -13,8 +13,6 @@ public class SwtichScript : MonoBehaviour
 
 
     public bool estado;
-    //tonto quien lo lea XD
-    // ahh estamos comediantes
     // Start is called before the first frame update
     void Start()
     {
